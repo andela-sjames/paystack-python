@@ -6,6 +6,6 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  coverage run --source paystack tests/test_customer.py
+  coverage run --source paystack paystack/test_customer.py
 after_success:
   coveralls

@@ -9,7 +9,7 @@ api_url = 'https://api.paystack.co/'
 
 
 class Customer(object):
-    """docstring for ClassName."""
+    """docstring for Customer."""
 
     @staticmethod
     def create(first_name, last_name, email, phone):

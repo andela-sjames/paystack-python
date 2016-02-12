@@ -1,4 +1,4 @@
-"""Script used to define the customer class."""
+"""Script used to define the paystack customer class."""
 
 
 import requests

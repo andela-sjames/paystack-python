@@ -1,9 +1,12 @@
 """Script used to define the paystack transaction class."""
 
-
 import requests
 
-from paystack.constants import *
+# from paystack.constants import *
+
+PAYSTACK_SECRET_KEY = 'sk_test_2de5b5dc4d578f5e431b67b061f48925f44fb2f1'
+HEADERS = {'Authorization': 'Bearer ' + PAYSTACK_SECRET_KEY}
+api_url = 'https://api.paystack.co/'
 
 
 class Transaction(object):
@@ -12,39 +15,66 @@ class Transaction(object):
     @staticmethod
     def initialize(reference, amount, email, plan):
         """
-        Function defined to create customer.
+        Initialize transaction.
 
-        first_name: customer's first name.
-        last_name: customer's last name.
-        email: customer's email address.
-        phone;customer's phone number.
+        :param reference: unique transaction reference
+        :param amount: amount
+        :param email: email address
+        :param plan: specified plan
 
-        returns: json data from paystack API.
+        :return: json data from paystack API.
         """
         response = requests.post(
-            api_url + 'transaction/initialze',
+            api_url + 'transaction/initialize',
             data={"reference": reference,
                   "amount": amount,
                   "email": email,
                   "plan": plan
-                  }, headers=HEADERS,)
+                  }, headers=HEADERS, )
 
         return response.json()
 
     @staticmethod
-    def charge(authorization_code, email, amount):
+    def charge(reference, authorization_code, email, amount):
         """
-        Static method defined to customers by id.
+        Charge authorization.
 
-        id: paystack customer id.
-        returns: json data from paystack API.
+        :param reference: Unique transaction reference
+        :param authorization_code: Authorization code for the transaction
+        :param email: Email Address of the user with the authorization code
+        :param amount: Amount in kobo
+
+        :return: json data from paystack API.
         """
-        response = requests.get(
+        response = requests.post(
             api_url + 'transaction/charge_authorization',
-            data={"authorization_code": authorization_code,
+            data={"reference": reference,
+                "authorization_code": authorization_code,
                   "email": email,
                   "amount": amount},
             headers=HEADERS)
+        import pdb; pdb.set_trace()
+        return response.json()
+
+    @staticmethod
+    def charge_token(reference, token, email, amount):
+        """
+        Charge token
+
+        :param reference: unique transaction reference
+        :param token: paystack token
+        :param email: Email Address
+        :param amount: Amount in Kobo
+
+        :return: json data from paystack API.
+        """
+        response = requests.post(api_url + 'transaction/charge_token',
+                                 data={"reference": reference,
+                                       "token": token,
+                                       "email": email,
+                                       "amount": amount
+                                       },
+                                 headers=HEADERS)
         return response.json()
 
     @staticmethod
@@ -52,34 +82,50 @@ class Transaction(object):
         """
         Static method defined to customers by id.
 
-        id: paystack customer id.
-        returns: json data from paystack API.
+        :param id: Transaction id
+
+        :return: json data from paystack API.
         """
         response = requests.get(
-            api_url + 'transaction/{}' .format(id),
+            api_url + 'transaction/{}'.format(id),
             headers=HEADERS)
         return response.json()
 
     @staticmethod
     def list():
         """
-        Static method defined to list paystack customers.
+        List transactions
 
         args: No argument required.
-        returns: json data from paystack API.
+
+        :return: json data from paystack API.
         """
         response = requests.get(api_url + 'transaction', headers=HEADERS)
         return response.json()
 
     @staticmethod
-    def totals(self):
+    def totals():
+        """
+        Get totals
+
+        :return: json data from paystack API.
+        """
         response = requests.get(
             api_url + 'transaction/totals', headers=HEADERS)
         return response.json()
 
     @staticmethod
     def verify(reference):
+        """
+        Verify transactions
+
+        :param reference:
+
+        :return: json data from paystack API.
+        """
         response = requests.get(
-            api_url + 'transaction/verify/{}' .format(reference),
+            api_url + 'transaction/verify/{}'.format(reference),
             headers=HEADERS)
         return response.json()
+
+

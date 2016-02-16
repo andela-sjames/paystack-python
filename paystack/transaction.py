@@ -2,15 +2,11 @@
 
 import requests
 
-# from paystack.constants import *
-
-PAYSTACK_SECRET_KEY = 'sk_test_2de5b5dc4d578f5e431b67b061f48925f44fb2f1'
-HEADERS = {'Authorization': 'Bearer ' + PAYSTACK_SECRET_KEY}
-api_url = 'https://api.paystack.co/'
+from paystack.constants import *
 
 
 class Transaction(object):
-    """docstring for Customer."""
+    """docstring for Transaction."""
 
     @staticmethod
     def initialize(reference, amount, email, plan):
@@ -49,11 +45,11 @@ class Transaction(object):
         response = requests.post(
             api_url + 'transaction/charge_authorization',
             data={"reference": reference,
-                "authorization_code": authorization_code,
+                  "authorization_code": authorization_code,
                   "email": email,
                   "amount": amount},
             headers=HEADERS)
-        import pdb; pdb.set_trace()
+
         return response.json()
 
     @staticmethod
@@ -68,19 +64,20 @@ class Transaction(object):
 
         :return: json data from paystack API.
         """
-        response = requests.post(api_url + 'transaction/charge_token',
-                                 data={"reference": reference,
-                                       "token": token,
-                                       "email": email,
-                                       "amount": amount
-                                       },
-                                 headers=HEADERS)
+        response = requests.post(
+            api_url + 'transaction/charge_token',
+            data={"reference": reference,
+                  "token": token,
+                  "email": email,
+                  "amount": amount
+                  },
+            headers=HEADERS)
         return response.json()
 
     @staticmethod
     def get(id):
         """
-        Static method defined to customers by id.
+        Get a single transaction
 
         :param id: Transaction id
 
@@ -127,5 +124,3 @@ class Transaction(object):
             api_url + 'transaction/verify/{}'.format(reference),
             headers=HEADERS)
         return response.json()
-
-

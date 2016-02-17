@@ -14,12 +14,14 @@ class Customer(object):
         """
         Function defined to create customer.
 
-        first_name: customer's first name.
-        last_name: customer's last name.
-        email: customer's email address.
-        phone;customer's phone number.
+        Args:
+            first_name: customer's first name.
+            last_name: customer's last name.
+            email: customer's email address.
+            phone:customer's phone number.
 
-        returns: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.post(
             api_url + 'customer',
@@ -36,8 +38,10 @@ class Customer(object):
         """
         Static method defined to customers by id.
 
-        id: paystack customer id.
-        returns: json data from paystack API.
+        Args:
+            id: paystack customer id.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(
             api_url + 'customer/{}' .format(id),
@@ -49,8 +53,10 @@ class Customer(object):
         """
         Static method defined to list paystack customers.
 
-        args: No argument required.
-        returns: json data from paystack API.
+        Args:
+            No argument required.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(api_url + 'customer', headers=HEADERS)
         return response.json()
@@ -60,13 +66,15 @@ class Customer(object):
         """
         Static method defined to update paystack customer data by id.
 
-        id: paystack customer id.
-        first_name: customer's first name.
-        last_name: customer's last name.
-        email: customer's email address.
-        phone;customer's phone number.
+        Args:
+            id: paystack customer id.
+            first_name: customer's first name(optional).
+            last_name: customer's last name(optional).
+            email: customer's email address(optional).
+            phone:customer's phone number(optional).
 
-        returns: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.put(
             api_url + 'customer/{}' .format(id),

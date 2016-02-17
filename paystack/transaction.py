@@ -1,5 +1,6 @@
 """Script used to define the paystack transaction class."""
 
+
 import requests
 
 from paystack.constants import *
@@ -13,12 +14,14 @@ class Transaction(object):
         """
         Initialize transaction.
 
-        :param reference: unique transaction reference
-        :param amount: amount
-        :param email: email address
-        :param plan: specified plan
+        Args:
+            reference: unique transaction reference
+            amount: amount
+            email: email address
+            plan: specified plan
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.post(
             api_url + 'transaction/initialize',
@@ -35,12 +38,14 @@ class Transaction(object):
         """
         Charge authorization.
 
-        :param reference: Unique transaction reference
-        :param authorization_code: Authorization code for the transaction
-        :param email: Email Address of the user with the authorization code
-        :param amount: Amount in kobo
+        Args:
+            reference: Unique transaction reference
+            authorization_code: Authorization code for the transaction
+            email: Email Address of the user with the authorization code
+            amount: Amount in kobo
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.post(
             api_url + 'transaction/charge_authorization',
@@ -55,14 +60,16 @@ class Transaction(object):
     @staticmethod
     def charge_token(reference, token, email, amount):
         """
-        Charge token
+        Charge token.
 
-        :param reference: unique transaction reference
-        :param token: paystack token
-        :param email: Email Address
-        :param amount: Amount in Kobo
+        Args:
+            reference: unique transaction reference
+            token: paystack token
+            email: Email Address
+            amount: Amount in Kobo
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.post(
             api_url + 'transaction/charge_token',
@@ -77,11 +84,13 @@ class Transaction(object):
     @staticmethod
     def get(id):
         """
-        Get a single transaction
+        Get a single transaction.
 
-        :param id: Transaction id
+        Args:
+            id: Transaction id
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(
             api_url + 'transaction/{}'.format(id),
@@ -93,9 +102,11 @@ class Transaction(object):
         """
         List transactions
 
-        args: No argument required.
+        Args:
+            No argument required.
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(api_url + 'transaction', headers=HEADERS)
         return response.json()
@@ -103,9 +114,13 @@ class Transaction(object):
     @staticmethod
     def totals():
         """
-        Get totals
+        Get totals.
 
-        :return: json data from paystack API.
+        Args:
+            No argument required.
+
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(
             api_url + 'transaction/totals', headers=HEADERS)
@@ -116,9 +131,11 @@ class Transaction(object):
         """
         Verify transactions
 
-        :param reference:
+        Args:
+            reference: a unique value needed for transaction.
 
-        :return: json data from paystack API.
+        Returns:
+            Json data from paystack API.
         """
         response = requests.get(
             api_url + 'transaction/verify/{}'.format(reference),

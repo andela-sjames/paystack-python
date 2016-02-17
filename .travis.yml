@@ -6,7 +6,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  PYTHONPATH=$(pwd) coverage run --source paystack paystack/test_customer.py
+  coverage run --source paystack -m unittest discover
 after_success:
   coveralls
 

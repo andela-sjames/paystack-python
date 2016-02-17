@@ -87,7 +87,7 @@ class Transaction(object):
         Get a single transaction.
 
         Args:
-            id: Transaction id
+            id: Transaction id(integer).
 
         Returns:
             Json data from paystack API.

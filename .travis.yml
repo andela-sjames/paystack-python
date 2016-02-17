@@ -9,3 +9,6 @@ script:
   PYTHONPATH=$(pwd) coverage run --source paystack paystack/test_customer.py
 after_success:
   coveralls
+
+
+# coverage run --source paystack -m unittest discover

@@ -8,11 +8,29 @@ api_url = 'https://api.paystack.co/'
 
 
 class Plan(object):
-    """docstring for Customer."""
+    """docstring for Plan."""
 
     @staticmethod
-    def create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency):
+    def create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url,
+               hosted_page_summary, currency):
+        """
+        Function defined to create a plan.
 
+        Args:
+            name: plan's name.
+            description: description of the plan.
+            amount: amount for the plan
+            interval: plan's interval
+            send_invoices: boolean
+            send_sms:
+            hosted_page:
+            hosted_page_url: url of hosted page
+            hosted_page_summary: summary of the hosted page
+            currency: plans currency
+
+        Returns:
+            Json data from paystack API.
+        """
         response = requests.post(
             api_url + 'plan',
             data={"name": name,
@@ -25,14 +43,23 @@ class Plan(object):
                   "hosted_page_url": hosted_page_url,
                   "hosted_page_summary": hosted_page_summary,
                   "currency": currency
-                  }, headers=HEADERS,)
+                  }, headers=HEADERS, )
 
         return response.json()
 
     @staticmethod
     def get(id):
+        """
+        Get a single plan
+
+        Args:
+            id: paystack plan id.
+
+        Returns:
+            Json data from paystack API.
+        """
         response = requests.get(
-            api_url + 'plan/{}' .format(id),
+            api_url + 'plan/{}'.format(id),
             headers=HEADERS)
         return response.json()
 
@@ -44,9 +71,10 @@ class Plan(object):
         return response.json()
 
     @staticmethod
-    def update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None):
+    def update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None,
+               hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None):
         response = requests.put(
-            api_url + 'plan/{}' .format(id),
+            api_url + 'plan/{}'.format(id),
             data={"name": name,
                   "description": description,
                   "amount": amount,
@@ -58,25 +86,7 @@ class Plan(object):
                   "hosted_page_summary": hosted_page_summary,
                   "currency": currency
 
-            },
+                  },
             headers=HEADERS
         )
         return response.json()
-
-
-
-# print Plan.create("Noibi Kazeem", "The chronic debtor", 50000, 'daily', True, True, 'url', 'url', 'details', 'NGN')
-
-# print Transaction.totals()
-# print Transaction.list()
-# print Transaction.initialize('aCp88HQhks', 35000, 'jubrilissa@gmail.com')
-
-# print Transaction.verify('aCp88HQhgw')
-
-# 18084633536.63683
-
-# print Transaction.charge('aCp88HQhk43', 'AUTH_zcoidxl6', 'oreoluwa@gmail.com', 35000)
-#
-# print Transaction.charge_token()
-
-print Plan.update(78, interval="monthly", amount=70000)

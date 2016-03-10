@@ -1,17 +1,17 @@
+"""Script used to define the paystack Plan class."""
+
+
 import requests
 
-# from paystack.constants import *
-
-PAYSTACK_SECRET_KEY = 'sk_test_2de5b5dc4d578f5e431b67b061f48925f44fb2f1'
-HEADERS = {'Authorization': 'Bearer ' + PAYSTACK_SECRET_KEY}
-api_url = 'https://api.paystack.co/'
+from paystack.constants import *
 
 
 class Plan(object):
     """docstring for Plan."""
 
     @staticmethod
-    def create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url,
+    def create(name, description, amount, interval, send_invoices, send_sms,
+               hosted_page, hosted_page_url,
                hosted_page_summary, currency):
         """
         Function defined to create a plan.
@@ -50,7 +50,7 @@ class Plan(object):
     @staticmethod
     def get(id):
         """
-        Get a single plan
+        Get a single plan.
 
         Args:
             id: paystack plan id.
@@ -65,14 +65,42 @@ class Plan(object):
 
     @staticmethod
     def list():
+        """
+        Static method defined to list paystack plan.
+
+        Args:
+            No argument required.
+        Returns:
+            Json data from paystack API.
+        """
         response = requests.get(
             api_url + 'plan/',
             headers=HEADERS)
         return response.json()
 
     @staticmethod
-    def update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None,
-               hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None):
+    def update(id, name=None, description=None, amount=None, interval=None,
+               send_invoices=None, send_sms=None,
+               hosted_page=None, hosted_page_url=None,
+               hosted_page_summary=None, currency=None):
+        """
+        Static method defined to list paystack plan.
+
+        Args:
+            id: plan identity number.
+            name: name of plan
+            description: plan description(optional)
+            amount: plan amount in Naira
+            interval: plan interval
+            send_invoice:
+            send_sms: (optional)
+            hosted_page: (optional)
+            hosted_page_url: (optional)
+            hosted_page_summary: (optional)
+            currency: Naira
+        Returns:
+            Json data from paystack API.
+        """
         response = requests.put(
             api_url + 'plan/{}'.format(id),
             data={"name": name,

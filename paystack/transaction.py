@@ -1,4 +1,4 @@
-"""Script used to define the paystack transaction class."""
+"""Script used to define the paystack Transaction class."""
 
 
 import requests
@@ -100,7 +100,7 @@ class Transaction(object):
     @staticmethod
     def list():
         """
-        List transactions
+        List transactions.
 
         Args:
             No argument required.
@@ -129,7 +129,7 @@ class Transaction(object):
     @staticmethod
     def verify(reference):
         """
-        Verify transactions
+        Verify transactions.
 
         Args:
             reference: a unique value needed for transaction.

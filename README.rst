@@ -1,14 +1,19 @@
+paystack-python
+===============
+
+Python plugin for `Paystack <https://paystack.com/>`__ |Coverage Status|
+
 Installation
 ============
 
-``pip install paystack-python-library``
+``pip install paystackapi``
 
 Usage
 =====
 
 ::
 
-    from paystack.constants import PAYSTACK_SECRET_KEY
+    from paystackapi.constants import PAYSTACK_SECRET_KEY
     PAYSTACK_SECRET_KEY = 'your_secret_key`
 
 Transactions
@@ -19,8 +24,8 @@ Create a plan
 
 ::
 
-    from paystack.transaction import Transaction
-    response = Transaction.create(name, description, amount, interval,
+    from paystackapi.transaction import Transaction  
+    response = Transaction.create(name, description, amount, interval, 
                                   send_invoices, send_sms,
                                   hosted_page, hosted_page_url,
                                   hosted_page_summary, currency)
@@ -44,7 +49,7 @@ Get a single plan.
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.get(id)
 
         Args:
@@ -57,7 +62,7 @@ List paystack plan
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.list()
 
         Args:
@@ -70,13 +75,13 @@ Update paystack plan
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.update(id, name=None, description=None,
                                   amount=None, interval=None,
                                   send_invoices=None, send_sms=None,
                                   hosted_page=None, hosted_page_url=None,
                                   hosted_page_summary=None, currency=None)
-
+                                  
         Args:
             id: plan identity number.
             name: name of plan
@@ -102,7 +107,7 @@ Create customer
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.create(first_name, last_name, email, phone)
 
         Args:
@@ -119,7 +124,7 @@ Get customers by id
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.get(id)
 
         Args:
@@ -132,7 +137,7 @@ List paystack customers
 
 ::
 
-    from paystack.transaction import Transaction
+    from paystackapi.transaction import Transaction  
     response = Transaction.list()
 
         Args:
@@ -145,11 +150,11 @@ Update paystack customer data by id.
 
 ::
 
-    from paystack.transaction import Transaction
-    response = Transaction.update(id, first_name=None,
+    from paystackapi.transaction import Transaction  
+    response = Transaction.update(id, first_name=None, 
                                   last_name=None,
                                   email=None, phone=None)
-
+            
         Args:
             id: paystack customer id.
             first_name: customer's first name(optional).
@@ -159,3 +164,6 @@ Update paystack customer data by id.
 
         Returns:
             Json data from paystack API.
+
+.. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass
+   :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass

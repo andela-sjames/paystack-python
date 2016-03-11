@@ -3,7 +3,7 @@
 
 import requests
 
-from paystack.constants import *
+from paystackapi.constants import *
 
 
 class Transaction(object):

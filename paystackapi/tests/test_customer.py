@@ -4,7 +4,7 @@
 import unittest
 import mock
 
-from paystack.customer import Customer
+from paystackapi.customer import Customer
 
 
 class TestCustomer(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestCustomer(unittest.TestCase):
 
     def test_create(self):
         """Method defined to test customer creation."""
-        with mock.patch('paystack.customer.Customer.create') as mock_create:
+        with mock.patch('paystackapi.customer.Customer.create') as mock_create:
             mock_create.return_value = {
                 'status': True, 'message': 'Customer created',
                 'data': {'customer_code': 'CUS_jemg85nfijhrp1s',
@@ -30,7 +30,7 @@ class TestCustomer(unittest.TestCase):
 
     def test_get(self):
         """Function defined to test Customer get method."""
-        with mock.patch('paystack.customer.Customer.get') as mock_get:
+        with mock.patch('paystackapi.customer.Customer.get') as mock_get:
             mock_get.return_value = {
                 'status': True, 'message': 'Customer retrieved',
                 'data': {'total_transactions': 0,
@@ -50,8 +50,8 @@ class TestCustomer(unittest.TestCase):
             self.assertEqual(response['status'], True)
 
     def test_list(self):
-        """Function defined to test paystack customer list method."""
-        with mock.patch('paystack.customer.Customer.list') as mock_list:
+        """Function defined to test paystackapi customer list method."""
+        with mock.patch('paystackapi.customer.Customer.list') as mock_list:
             mock_list.return_value = {
                 'status': True, 'message': 'Customers retrieved',
                 'meta': {'skipped': 0, 'total': 1, 'page': 1,
@@ -70,8 +70,8 @@ class TestCustomer(unittest.TestCase):
             self.assertEqual(response['status'], True)
 
     def test_update(self):
-        """Function defined to test paystack customer update."""
-        with mock.patch('paystack.customer.Customer.update') as mock_update:
+        """Function defined to test paystackapi customer update."""
+        with mock.patch('paystackapi.customer.Customer.update') as mock_update:
             mock_update.return_value = {
                 'status': True, 'message': 'Customer updated',
                 'data': {'customer_code': 'CUS_jemg85nfijhrp1s',

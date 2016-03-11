@@ -5,19 +5,19 @@ import unittest
 
 import mock
 
-from paystack.transaction import Transaction
+from paystackapi.transaction import Transaction
 
 
 class TestTransaction(unittest.TestCase):
     """Method defined to test transaction initialize."""
 
     def test_initialize(self):
-        with mock.patch('paystack.transaction.Transaction.initialize') \
+        with mock.patch('paystackapi.transaction.Transaction.initialize') \
                 as mock_initialize:
                 mock_initialize.return_value = {
                     'status': True, 'message': 'Authorization URL created',
                     'data': {
-                        'authorization_url': 'https://standard.paystack.co/pay/xam1uq26de',
+                        'authorization_url': 'https://standard.paystackapi.co/pay/xam1uq26de',
                         'access_code': 'xam1uq26de',
                         'reference': 'getupall'
                     }
@@ -30,7 +30,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_charge(self):
-        with mock.patch('paystack.transaction.Transaction.charge') as \
+        with mock.patch('paystackapi.transaction.Transaction.charge') as \
                 mock_charge:
                 mock_charge.return_value = {
                     'status': True
@@ -42,7 +42,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_charge_token(self):
-        with mock.patch('paystack.transaction.Transaction.charge_token') as \
+        with mock.patch('paystackapi.transaction.Transaction.charge_token') as \
                 mock_charge_token:
                 mock_charge_token.return_value = {
                     'status': True
@@ -54,7 +54,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_get(self):
-        with mock.patch('paystack.transaction.Transaction.get') as \
+        with mock.patch('paystackapi.transaction.Transaction.get') as \
                 mock_get:
                 mock_get.return_value = {
                     'status': True
@@ -64,7 +64,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_list(self):
-        with mock.patch('paystack.transaction.Transaction.list') as \
+        with mock.patch('paystackapi.transaction.Transaction.list') as \
                 mock_list:
                 mock_list.return_value = {
                     'status': True
@@ -74,7 +74,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_totals(self):
-        with mock.patch('paystack.transaction.Transaction.totals') as \
+        with mock.patch('paystackapi.transaction.Transaction.totals') as \
                 mock_totals:
                 mock_totals.return_value = {
                     'status': True
@@ -84,7 +84,7 @@ class TestTransaction(unittest.TestCase):
                 self.assertTrue(response['status'])
 
     def test_verify(self):
-        with mock.patch('paystack.transaction.Transaction.verify') as \
+        with mock.patch('paystackapi.transaction.Transaction.verify') as \
                 mock_verify:
                 mock_verify.return_value = {
                     'status': True

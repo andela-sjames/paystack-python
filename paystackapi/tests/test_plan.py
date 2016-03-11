@@ -4,7 +4,7 @@
 import unittest
 import mock
 
-from paystack.plan import Plan
+from paystackapi.plan import Plan
 
 
 class TestPlan(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestPlan(unittest.TestCase):
 
     def test_create(self):
         """Method defined to test plan creation."""
-        with mock.patch('paystack.plan.Plan.create') as mock_create:
+        with mock.patch('paystackapi.plan.Plan.create') as mock_create:
             mock_create.return_value = {
                 'status': True, 'message': 'Plan created',
                 'data': {
@@ -43,7 +43,7 @@ class TestPlan(unittest.TestCase):
 
     def test_get(self):
         """Function defined to test Plan get method."""
-        with mock.patch('paystack.plan.Plan.get') as mock_get:
+        with mock.patch('paystackapi.plan.Plan.get') as mock_get:
             mock_get.return_value = {
                 'status': True, 'message': 'Plan retrieved',
                 'data': {
@@ -73,8 +73,8 @@ class TestPlan(unittest.TestCase):
             self.assertEqual(response['status'], True)
 
     def test_list(self):
-        """Function defined to test paystack plan list method."""
-        with mock.patch('paystack.plan.Plan.list') as mock_list:
+        """Function defined to test paystackapi plan list method."""
+        with mock.patch('paystackapi.plan.Plan.list') as mock_list:
             mock_list.return_value = {
                 'status': True, 'message': 'Plan retrieved',
                 'meta': {'skipped': 0, 'total': 1, 'page': 1,
@@ -107,8 +107,8 @@ class TestPlan(unittest.TestCase):
             self.assertEqual(response['status'], True)
 
     def test_update(self):
-        """Function defined to test paystack plan update."""
-        with mock.patch('paystack.plan.Plan.update') as mock_update:
+        """Function defined to test paystackapi plan update."""
+        with mock.patch('paystackapi.plan.Plan.update') as mock_update:
             mock_update.return_value = {
                 'status': True, 'message': 'Plan updated',
                 'data': {

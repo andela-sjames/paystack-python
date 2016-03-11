@@ -2,11 +2,11 @@
 Python plugin for [Paystack](https://paystack.com/) [![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
 
 # Installation
-`pip install paystack-python-library`  
+`pip install paystackapi`  
 
 # Usage  
 ```
-from paystack.constants import PAYSTACK_SECRET_KEY
+from paystackapi.constants import PAYSTACK_SECRET_KEY
 PAYSTACK_SECRET_KEY = 'your_secret_key`
 ```  
 
@@ -15,7 +15,7 @@ PAYSTACK_SECRET_KEY = 'your_secret_key`
 ---
 #### Initialize transaction.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.initialize(reference, amount, email, plan)  
 
     Args:
@@ -29,7 +29,7 @@ response = Transaction.initialize(reference, amount, email, plan)
 ```  
 #### Charge authorization.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.charge(reference, authorization_code, 
                               email, amount)
 
@@ -45,7 +45,7 @@ response = Transaction.charge(reference, authorization_code,
 
 #### Charge token.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.charge_token(reference, token, email, amount)
 
     Args:
@@ -60,7 +60,7 @@ response = Transaction.charge_token(reference, token, email, amount)
 
 #### Get a single transaction.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
     Args:
@@ -71,7 +71,7 @@ response = Transaction.get(id)
 
 #### List transactions.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
     Args:
@@ -82,7 +82,7 @@ response = Transaction.list()
 
 #### Get totals.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.totals()
 
     Args:
@@ -94,7 +94,7 @@ response = Transaction.totals()
 #### Verify transactions.
 
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.verify(reference)
     Args:
         reference: a unique value needed for transaction.
@@ -107,7 +107,7 @@ response = Transaction.verify(reference)
 ---
 #### Create a plan  
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.create(name, description, amount, interval, 
                               send_invoices, send_sms,
                               hosted_page, hosted_page_url,
@@ -130,7 +130,7 @@ response = Transaction.create(name, description, amount, interval,
 
 #### Get a single plan.
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
     Args:
@@ -142,7 +142,7 @@ response = Transaction.get(id)
 #### List paystack plan
 
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
     Args:
@@ -154,7 +154,7 @@ response = Transaction.list()
 #### Update paystack plan
 
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.update(id, name=None, description=None,
                               amount=None, interval=None,
                               send_invoices=None, send_sms=None,
@@ -182,7 +182,7 @@ response = Transaction.update(id, name=None, description=None,
 ---
 #### Create customer  
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.create(first_name, last_name, email, phone)
 
     Args:
@@ -197,7 +197,7 @@ response = Transaction.create(first_name, last_name, email, phone)
 
 #### Get customers by id
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
     Args:
@@ -208,7 +208,7 @@ response = Transaction.get(id)
 
 #### List paystack customers
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
     Args:
@@ -220,7 +220,7 @@ response = Transaction.list()
 #### Update paystack customer data by id.
 
 ```
-from paystack.transaction import Transaction  
+from paystackapi.transaction import Transaction  
 response = Transaction.update(id, first_name=None, 
                               last_name=None,
                               email=None, phone=None)

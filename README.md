@@ -2,7 +2,7 @@
 Python plugin for [Paystack](https://paystack.com/) [![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
 
 # Installation
-`pip install paystack-python`  
+`pip install paystack-python-library`  
 
 # Usage  
 ```

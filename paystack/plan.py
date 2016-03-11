@@ -19,7 +19,7 @@ class Plan(object):
         Args:
             name: plan's name.
             description: description of the plan.
-            amount: amount for the plan
+            amount: amount for the plan in kobo
             interval: plan's interval
             send_invoices: boolean
             send_sms:
@@ -84,7 +84,7 @@ class Plan(object):
                hosted_page=None, hosted_page_url=None,
                hosted_page_summary=None, currency=None):
         """
-        Static method defined to list paystack plan.
+        Static method defined to update paystack plan.
 
         Args:
             id: plan identity number.

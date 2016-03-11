@@ -36,7 +36,7 @@ class Customer(object):
     @staticmethod
     def get(id):
         """
-        Static method defined to customers by id.
+        Static method defined to get customers by id.
 
         Args:
             id: paystack customer id.

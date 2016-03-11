@@ -18,23 +18,24 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='paystack-python',
+    name='paystack-python-library',
     version='1.2.0b1',
+    description='A python library to consume Paystack API',
     long_description=long_description,
     url='https://github.com/andela-sjames/paystack-python',
 
     # Author details
-    author='author',
-    author_email='pypa-dev@googlegroups.com',
+    author='Samuel James and Issa Jubril',
+    author_email='andela-sjames@andela.com',
 
-    license='GNU GENERAL PUBLIC LICENSE',
+    license='MIT',
 
     keywords='paystack python library',
 
     classifiers=[
-        'Development Status :: 4 - Beta'
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU License',
+        'License :: OSI Approved :: MIT License',
 
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',

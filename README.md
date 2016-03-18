@@ -4,8 +4,9 @@ Python plugin for [Paystack](https://paystack.com/) [![Coverage Status](https://
 # Installation
 `pip install paystackapi`  
 
+
 # Usage  
-```
+```python
 from paystackapi.constants import PAYSTACK_SECRET_KEY
 PAYSTACK_SECRET_KEY = 'your_secret_key`
 ```  
@@ -14,7 +15,7 @@ PAYSTACK_SECRET_KEY = 'your_secret_key`
 
 ---
 #### Initialize transaction.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.initialize(reference, amount, email, plan)  
 
@@ -28,7 +29,7 @@ response = Transaction.initialize(reference, amount, email, plan)
         Json data from paystack API.
 ```  
 #### Charge authorization.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.charge(reference, authorization_code, 
                               email, amount)
@@ -44,7 +45,7 @@ response = Transaction.charge(reference, authorization_code,
 ```
 
 #### Charge token.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.charge_token(reference, token, email, amount)
 
@@ -59,7 +60,7 @@ response = Transaction.charge_token(reference, token, email, amount)
 ```
 
 #### Get a single transaction.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
@@ -70,7 +71,7 @@ response = Transaction.get(id)
 ```
 
 #### List transactions.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
@@ -81,7 +82,7 @@ response = Transaction.list()
 ```
 
 #### Get totals.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.totals()
 
@@ -93,7 +94,7 @@ response = Transaction.totals()
 
 #### Verify transactions.
 
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.verify(reference)
     Args:
@@ -106,7 +107,7 @@ response = Transaction.verify(reference)
 
 ---
 #### Create a plan  
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.create(name, description, amount, interval, 
                               send_invoices, send_sms,
@@ -129,7 +130,7 @@ response = Transaction.create(name, description, amount, interval,
 ```
 
 #### Get a single plan.
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
@@ -141,7 +142,7 @@ response = Transaction.get(id)
 
 #### List paystack plan
 
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
@@ -153,7 +154,7 @@ response = Transaction.list()
 
 #### Update paystack plan
 
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.update(id, name=None, description=None,
                               amount=None, interval=None,
@@ -181,7 +182,7 @@ response = Transaction.update(id, name=None, description=None,
 
 ---
 #### Create customer  
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.create(first_name, last_name, email, phone)
 
@@ -196,7 +197,7 @@ response = Transaction.create(first_name, last_name, email, phone)
 ```
 
 #### Get customers by id
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
 
@@ -207,7 +208,7 @@ response = Transaction.get(id)
 ```
 
 #### List paystack customers
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.list()
 
@@ -219,7 +220,7 @@ response = Transaction.list()
 
 #### Update paystack customer data by id.
 
-```
+```python
 from paystackapi.transaction import Transaction  
 response = Transaction.update(id, first_name=None, 
                               last_name=None,
@@ -235,3 +236,4 @@ response = Transaction.update(id, first_name=None,
     Returns:
         Json data from paystack API.
 ```
+

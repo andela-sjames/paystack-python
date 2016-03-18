@@ -10,7 +10,7 @@ Python plugin for [Paystack](https://paystack.com/) [![Coverage Status](https://
 from paystackapi.constants import PAYSTACK_SECRET_KEY
 PAYSTACK_SECRET_KEY = 'your_secret_key`
 ```  
-
+######Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
 ## Transactions  
 
 ---

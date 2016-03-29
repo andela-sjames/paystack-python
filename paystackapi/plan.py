@@ -35,7 +35,7 @@ class Plan(PayStackBase):
         """
         cls.headers = None
         response = requests.post(
-            api_url + 'plan',
+            API_URL + 'plan',
             data={"name": name,
                   "description": description,
                   "amount": amount,
@@ -56,7 +56,7 @@ class Plan(PayStackBase):
         Get a single plan.
 
         Args:
-            id: paystack plan id.
+            plan_id: paystack plan id.
 
         Returns:
             Json data from paystack API.
@@ -93,7 +93,7 @@ class Plan(PayStackBase):
         Static method defined to update paystack plan.
 
         Args:
-            id: plan identity number.
+            plan_id: plan identity number.
             name: name of plan
             description: plan description(optional)
             amount: plan amount in Naira
@@ -109,7 +109,7 @@ class Plan(PayStackBase):
         """
         cls.headers = None
         response = requests.put(
-            api_url + 'plan/{}'.format(id),
+            '{API_URL}plan/{plan_id}'.format(locals()),
             data={"name": name,
                   "description": description,
                   "amount": amount,

@@ -25,7 +25,7 @@ class Transaction(PayStackBase):
         """
         cls.headers = None
         response = requests.post(
-            api_url + 'transaction/initialize',
+            API_URL + 'transaction/initialize',
             data={"reference": reference,
                   "amount": amount,
                   "email": email,
@@ -50,9 +50,9 @@ class Transaction(PayStackBase):
         """
         cls.headers = None
         response = requests.post(
-            api_url + 'transaction/charge_authorization',
+            API_URL + 'transaction/charge_authorization',
             data={"reference": reference,
-                  "authorization_code": authorization_code,
+                  "authorizationCode": authorization_code,
                   "email": email,
                   "amount": amount},
             headers=cls.headers if cls.headers else HEADERS,)
@@ -75,7 +75,7 @@ class Transaction(PayStackBase):
         """
         cls.headers = None
         response = requests.post(
-            api_url + 'transaction/charge_token',
+            API_URL + 'transaction/charge_token',
             data={"reference": reference,
                   "token": token,
                   "email": email,
@@ -90,7 +90,7 @@ class Transaction(PayStackBase):
         Get a single transaction.
 
         Args:
-            id: Transaction id(integer).
+            transaction_id: Transaction id(integer).
 
         Returns:
             Json data from paystack API.

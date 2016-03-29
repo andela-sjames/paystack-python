@@ -26,7 +26,7 @@ class Customer(PayStackBase):
         """
         cls.headers = None
         response = requests.post(
-            api_url + 'customer',
+            API_URL + 'customer',
             data={"first_name": first_name,
                   "last_name": last_name,
                   "email": email,
@@ -41,7 +41,7 @@ class Customer(PayStackBase):
         Static method defined to get customers by id.
 
         Args:
-            id: paystack customer id.
+            customer_id: paystack customer id.
         Returns:
             Json data from paystack API.
         """
@@ -73,7 +73,7 @@ class Customer(PayStackBase):
         Static method defined to update paystack customer data by id.
 
         Args:
-            id: paystack customer id.
+            customer_id: paystack customer id.
             first_name: customer's first name(optional).
             last_name: customer's last name(optional).
             email: customer's email address(optional).
@@ -84,7 +84,7 @@ class Customer(PayStackBase):
         """
         cls.headers = None
         response = requests.put(
-            api_url + 'customer/{}' .format(id),
+            '{API_URL}customer/{customer_id}' .format(locals()),
             data={"first_name": first_name,
                   "last_name": last_name,
                   "email": email,

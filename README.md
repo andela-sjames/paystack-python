@@ -1,20 +1,29 @@
 # paystack-python
-Python plugin for [Paystack](https://paystack.com/) [![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
+[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
+
+Python plugin for [Paystack](https://paystack.com/) 
 
 # Installation
-`pip install paystackapi`  
+```
+pip install paystackapi
+```
 
 
 # Usage  
+
+To start using the Paystack Python API, you need to start by setting your secret key
+
 ```python
 from paystackapi.constants import PAYSTACK_SECRET_KEY
 PAYSTACK_SECRET_KEY = 'your_secret_key`
 ```  
-######Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
+
+> Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
+
 ## Transactions  
 
----
 #### Initialize transaction.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.initialize(reference, amount, email, plan)  
@@ -28,7 +37,9 @@ response = Transaction.initialize(reference, amount, email, plan)
     Returns:
         Json data from paystack API.
 ```  
+
 #### Charge authorization.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.charge(reference, authorization_code, 
@@ -45,6 +56,7 @@ response = Transaction.charge(reference, authorization_code,
 ```
 
 #### Charge token.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.charge_token(reference, token, email, amount)
@@ -60,6 +72,7 @@ response = Transaction.charge_token(reference, token, email, amount)
 ```
 
 #### Get a single transaction.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
@@ -67,10 +80,11 @@ response = Transaction.get(id)
     Args:
         id: Transaction id(integer).
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### List transactions.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.list()
@@ -78,10 +92,11 @@ response = Transaction.list()
     Args:
         No argument required.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Get totals.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.totals()
@@ -89,7 +104,7 @@ response = Transaction.totals()
     Args:
         No argument required.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Verify transactions.
@@ -100,13 +115,13 @@ response = Transaction.verify(reference)
     Args:
         reference: a unique value needed for transaction.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 ## Plans  
 
----
 #### Create a plan  
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.create(name, description, amount, interval, 
@@ -126,10 +141,11 @@ response = Transaction.create(name, description, amount, interval,
         currency: plans currency (NGN)
 
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Get a single plan.
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
@@ -137,7 +153,7 @@ response = Transaction.get(id)
     Args:
         id: paystack plan id.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### List paystack plan
@@ -149,7 +165,7 @@ response = Transaction.list()
     Args:
         No argument required.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Update paystack plan
@@ -175,13 +191,13 @@ response = Transaction.update(id, name=None, description=None,
         hosted_page_summary: (optional)
         currency: Naira in kobo(NGN)
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 ## Customers 
 
----
-#### Create customer  
+#### Create customer
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.create(first_name, last_name, email, phone)
@@ -193,10 +209,11 @@ response = Transaction.create(first_name, last_name, email, phone)
         phone:customer's phone number.
 
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Get customers by id
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.get(id)
@@ -204,10 +221,11 @@ response = Transaction.get(id)
     Args:
         id: paystack customer id.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### List paystack customers
+
 ```python
 from paystackapi.transaction import Transaction  
 response = Transaction.list()
@@ -215,7 +233,7 @@ response = Transaction.list()
     Args:
         No argument required.
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 
 #### Update paystack customer data by id.
@@ -234,6 +252,6 @@ response = Transaction.update(id, first_name=None,
         phone:customer's phone number(optional).
 
     Returns:
-        Json data from paystack API.
+        JSON data from paystack API.
 ```
 

@@ -4,6 +4,7 @@
 import requests
 
 from paystackapi.constants import *
+from paystackapi.base import PayStackBase
 
 
 class Plan(PayStackBase):
@@ -31,6 +32,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.post(
             api_url + 'plan',
             data={"name": name,
@@ -43,7 +45,7 @@ class Plan(PayStackBase):
                   "hosted_page_url": hosted_page_url,
                   "hosted_page_summary": hosted_page_summary,
                   "currency": currency
-                  }, headers=HEADERS if HEADERS else Plan.headers, )
+                  }, headers=cls.headers if cls.headers else HEADERS, )
 
         return response.json()
 
@@ -58,9 +60,10 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'plan/{}'.format(id),
-            headers=HEADERS if HEADERS else Plan.headers)
+            headers=cls.headers if cls.headers else HEADERS)
         return response.json()
 
     @classmethod
@@ -73,9 +76,10 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'plan/',
-            headers=HEADERS if HEADERS else Plan.headers)
+            headers=cls.headers if cls.headers else HEADERS)
         return response.json()
 
     @classmethod
@@ -101,6 +105,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.put(
             api_url + 'plan/{}'.format(id),
             data={"name": name,
@@ -115,6 +120,6 @@ class Plan(PayStackBase):
                   "currency": currency
 
                   },
-            headers=HEADERS if HEADERS else Plan.headers
+            headers=cls.headers if cls.headers else HEADERS
         )
         return response.json()

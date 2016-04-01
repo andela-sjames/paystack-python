@@ -1,16 +1,16 @@
 """Script used to define the paystack Transaction class."""
 
-
 import requests
 
 from paystackapi.constants import *
+from paystackapi.base import PayStackBase
 
 
 class Transaction(PayStackBase):
     """docstring for Transaction."""
 
     @classmethod
-    def initialize(cls, reference, amount, email, plan):
+    def initialize(cls, reference, amount, email, plan=None):
         """
         Initialize transaction.
 
@@ -18,18 +18,19 @@ class Transaction(PayStackBase):
             reference: unique transaction reference
             amount: amount
             email: email address
-            plan: specified plan
+            plan: specified plan(optional)
 
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.post(
             api_url + 'transaction/initialize',
             data={"reference": reference,
                   "amount": amount,
                   "email": email,
                   "plan": plan
-                  }, headers=HEADERS if HEADERS else Transaction.headers, )
+                  }, headers=cls.headers if cls.headers else HEADERS)
 
         return response.json()
 
@@ -47,13 +48,14 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.post(
             api_url + 'transaction/charge_authorization',
             data={"reference": reference,
                   "authorization_code": authorization_code,
                   "email": email,
                   "amount": amount},
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
 
         return response.json()
 
@@ -71,6 +73,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.post(
             api_url + 'transaction/charge_token',
             data={"reference": reference,
@@ -78,7 +81,7 @@ class Transaction(PayStackBase):
                   "email": email,
                   "amount": amount
                   },
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
         return response.json()
 
     @classmethod
@@ -92,9 +95,10 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'transaction/{}'.format(id),
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
         return response.json()
 
     @classmethod
@@ -108,9 +112,10 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'transaction',
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
         return response.json()
 
     @classmethod
@@ -124,9 +129,10 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'transaction/totals',
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
         return response.json()
 
     @classmethod
@@ -140,7 +146,8 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
+        cls.headers = None
         response = requests.get(
             api_url + 'transaction/verify/{}'.format(reference),
-            headers=HEADERS if HEADERS else Transaction.headers,)
+            headers=cls.headers if cls.headers else HEADERS,)
         return response.json()

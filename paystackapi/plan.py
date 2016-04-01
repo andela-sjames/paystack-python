@@ -6,7 +6,7 @@ import requests
 from paystackapi.constants import *
 
 
-class Plan(object):
+class Plan(PayStackBase):
     """docstring for Plan."""
 
     @classmethod
@@ -43,7 +43,7 @@ class Plan(object):
                   "hosted_page_url": hosted_page_url,
                   "hosted_page_summary": hosted_page_summary,
                   "currency": currency
-                  }, headers=HEADERS, )
+                  }, headers=HEADERS if HEADERS else Transaction.headers, )
 
         return response.json()
 
@@ -60,7 +60,7 @@ class Plan(object):
         """
         response = requests.get(
             api_url + 'plan/{}'.format(id),
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers)
         return response.json()
 
     @classmethod
@@ -75,7 +75,7 @@ class Plan(object):
         """
         response = requests.get(
             api_url + 'plan/',
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers)
         return response.json()
 
     @classmethod
@@ -115,6 +115,6 @@ class Plan(object):
                   "currency": currency
 
                   },
-            headers=HEADERS
+            headers=HEADERS if HEADERS else Transaction.headers
         )
         return response.json()

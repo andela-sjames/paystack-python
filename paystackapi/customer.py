@@ -6,7 +6,7 @@ import requests
 from paystackapi.constants import *
 
 
-class Customer(object):
+class Customer(PayStackBase):
     """docstring for Customer."""
 
     @classmethod
@@ -29,7 +29,7 @@ class Customer(object):
                   "last_name": last_name,
                   "email": email,
                   "phone": phone
-                  }, headers=HEADERS,)
+                  }, headers=HEADERS if HEADERS else Transaction.headers,)
 
         return response.json()
 
@@ -45,7 +45,7 @@ class Customer(object):
         """
         response = requests.get(
             api_url + 'customer/{}' .format(id),
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers)
         return response.json()
 
     @classmethod
@@ -58,7 +58,9 @@ class Customer(object):
         Returns:
             Json data from paystack API.
         """
-        response = requests.get(api_url + 'customer', headers=HEADERS)
+        response = requests.get(
+            api_url + 'customer',
+            headers=HEADERS if HEADERS else Transaction.headers)
         return response.json()
 
     @classmethod
@@ -82,5 +84,5 @@ class Customer(object):
                   "last_name": last_name,
                   "email": email,
                   "phone": phone
-                  }, headers=HEADERS)
+                  }, headers=HEADERS if HEADERS else Transaction.headers)
         return response.json()

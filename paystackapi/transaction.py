@@ -6,7 +6,7 @@ import requests
 from paystackapi.constants import *
 
 
-class Transaction(object):
+class Transaction(PayStackBase):
     """docstring for Transaction."""
 
     @classmethod
@@ -29,7 +29,7 @@ class Transaction(object):
                   "amount": amount,
                   "email": email,
                   "plan": plan
-                  }, headers=HEADERS, )
+                  }, headers=HEADERS if HEADERS else Transaction.headers, )
 
         return response.json()
 
@@ -53,7 +53,7 @@ class Transaction(object):
                   "authorization_code": authorization_code,
                   "email": email,
                   "amount": amount},
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers,)
 
         return response.json()
 
@@ -78,7 +78,7 @@ class Transaction(object):
                   "email": email,
                   "amount": amount
                   },
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers,)
         return response.json()
 
     @classmethod
@@ -94,7 +94,7 @@ class Transaction(object):
         """
         response = requests.get(
             api_url + 'transaction/{}'.format(id),
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers,)
         return response.json()
 
     @classmethod
@@ -108,7 +108,9 @@ class Transaction(object):
         Returns:
             Json data from paystack API.
         """
-        response = requests.get(api_url + 'transaction', headers=HEADERS)
+        response = requests.get(
+            api_url + 'transaction',
+            headers=HEADERS if HEADERS else Transaction.headers,)
         return response.json()
 
     @classmethod
@@ -123,7 +125,8 @@ class Transaction(object):
             Json data from paystack API.
         """
         response = requests.get(
-            api_url + 'transaction/totals', headers=HEADERS)
+            api_url + 'transaction/totals',
+            headers=HEADERS if HEADERS else Transaction.headers,)
         return response.json()
 
     @classmethod
@@ -139,5 +142,5 @@ class Transaction(object):
         """
         response = requests.get(
             api_url + 'transaction/verify/{}'.format(reference),
-            headers=HEADERS)
+            headers=HEADERS if HEADERS else Transaction.headers,)
         return response.json()

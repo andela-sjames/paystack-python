@@ -43,7 +43,7 @@ class Plan(PayStackBase):
                   "hosted_page_url": hosted_page_url,
                   "hosted_page_summary": hosted_page_summary,
                   "currency": currency
-                  }, headers=HEADERS if HEADERS else Transaction.headers, )
+                  }, headers=HEADERS if HEADERS else Plan.headers, )
 
         return response.json()
 
@@ -60,7 +60,7 @@ class Plan(PayStackBase):
         """
         response = requests.get(
             api_url + 'plan/{}'.format(id),
-            headers=HEADERS if HEADERS else Transaction.headers)
+            headers=HEADERS if HEADERS else Plan.headers)
         return response.json()
 
     @classmethod
@@ -75,7 +75,7 @@ class Plan(PayStackBase):
         """
         response = requests.get(
             api_url + 'plan/',
-            headers=HEADERS if HEADERS else Transaction.headers)
+            headers=HEADERS if HEADERS else Plan.headers)
         return response.json()
 
     @classmethod
@@ -115,6 +115,6 @@ class Plan(PayStackBase):
                   "currency": currency
 
                   },
-            headers=HEADERS if HEADERS else Transaction.headers
+            headers=HEADERS if HEADERS else Plan.headers
         )
         return response.json()

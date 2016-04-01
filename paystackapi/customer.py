@@ -29,7 +29,7 @@ class Customer(PayStackBase):
                   "last_name": last_name,
                   "email": email,
                   "phone": phone
-                  }, headers=HEADERS if HEADERS else Transaction.headers,)
+                  }, headers=HEADERS if HEADERS else Customer.headers,)
 
         return response.json()
 
@@ -45,7 +45,7 @@ class Customer(PayStackBase):
         """
         response = requests.get(
             api_url + 'customer/{}' .format(id),
-            headers=HEADERS if HEADERS else Transaction.headers)
+            headers=HEADERS if HEADERS else Customer.headers)
         return response.json()
 
     @classmethod
@@ -60,7 +60,7 @@ class Customer(PayStackBase):
         """
         response = requests.get(
             api_url + 'customer',
-            headers=HEADERS if HEADERS else Transaction.headers)
+            headers=HEADERS if HEADERS else Customer.headers)
         return response.json()
 
     @classmethod
@@ -84,5 +84,5 @@ class Customer(PayStackBase):
                   "last_name": last_name,
                   "email": email,
                   "phone": phone
-                  }, headers=HEADERS if HEADERS else Transaction.headers)
+                  }, headers=HEADERS if HEADERS else Customer.headers)
         return response.json()

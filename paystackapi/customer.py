@@ -9,8 +9,8 @@ from paystackapi.constants import *
 class Customer(object):
     """docstring for Customer."""
 
-    @staticmethod
-    def create(first_name, last_name, email, phone):
+    @classmethod
+    def create(cls, first_name, last_name, email, phone):
         """
         Function defined to create customer.
 
@@ -33,8 +33,8 @@ class Customer(object):
 
         return response.json()
 
-    @staticmethod
-    def get(id):
+    @classmethod
+    def get(cls, id):
         """
         Static method defined to get customers by id.
 
@@ -48,8 +48,8 @@ class Customer(object):
             headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def list():
+    @classmethod
+    def list(cls):
         """
         Static method defined to list paystack customers.
 
@@ -61,8 +61,8 @@ class Customer(object):
         response = requests.get(api_url + 'customer', headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def update(id, first_name=None, last_name=None, email=None, phone=None):
+    @classmethod
+    def update(cls, id, first_name=None, last_name=None, email=None, phone=None):
         """
         Static method defined to update paystack customer data by id.
 

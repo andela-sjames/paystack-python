@@ -9,8 +9,8 @@ from paystackapi.constants import *
 class Plan(object):
     """docstring for Plan."""
 
-    @staticmethod
-    def create(name, description, amount, interval, send_invoices, send_sms,
+    @classmethod
+    def create(cls, name, description, amount, interval, send_invoices, send_sms,
                hosted_page, hosted_page_url,
                hosted_page_summary, currency):
         """
@@ -47,8 +47,8 @@ class Plan(object):
 
         return response.json()
 
-    @staticmethod
-    def get(id):
+    @classmethod
+    def get(cls, id):
         """
         Get a single plan.
 
@@ -63,8 +63,8 @@ class Plan(object):
             headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def list():
+    @classmethod
+    def list(cls):
         """
         Static method defined to list paystack plan.
 
@@ -78,8 +78,8 @@ class Plan(object):
             headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def update(id, name=None, description=None, amount=None, interval=None,
+    @classmethod
+    def update(cls, id, name=None, description=None, amount=None, interval=None,
                send_invoices=None, send_sms=None,
                hosted_page=None, hosted_page_url=None,
                hosted_page_summary=None, currency=None):

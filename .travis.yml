@@ -6,7 +6,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  coverage run --source paystack -m unittest discover
+  coverage run --source paystackapi -m unittest discover
 after_success:
   coveralls
 

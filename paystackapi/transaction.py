@@ -9,8 +9,8 @@ from paystackapi.constants import *
 class Transaction(object):
     """docstring for Transaction."""
 
-    @staticmethod
-    def initialize(reference, amount, email, plan):
+    @classmethod
+    def initialize(cls, reference, amount, email, plan):
         """
         Initialize transaction.
 
@@ -33,8 +33,8 @@ class Transaction(object):
 
         return response.json()
 
-    @staticmethod
-    def charge(reference, authorization_code, email, amount):
+    @classmethod
+    def charge(cls, reference, authorization_code, email, amount):
         """
         Charge authorization.
 
@@ -57,8 +57,8 @@ class Transaction(object):
 
         return response.json()
 
-    @staticmethod
-    def charge_token(reference, token, email, amount):
+    @classmethod
+    def charge_token(cls, reference, token, email, amount):
         """
         Charge token.
 
@@ -81,8 +81,8 @@ class Transaction(object):
             headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def get(id):
+    @classmethod
+    def get(cls, id):
         """
         Get a single transaction.
 
@@ -97,8 +97,8 @@ class Transaction(object):
             headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def list():
+    @classmethod
+    def list(cls):
         """
         List transactions.
 
@@ -111,8 +111,8 @@ class Transaction(object):
         response = requests.get(api_url + 'transaction', headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def totals():
+    @classmethod
+    def totals(cls):
         """
         Get totals.
 
@@ -126,8 +126,8 @@ class Transaction(object):
             api_url + 'transaction/totals', headers=HEADERS)
         return response.json()
 
-    @staticmethod
-    def verify(reference):
+    @classmethod
+    def verify(cls, reference):
         """
         Verify transactions.
 

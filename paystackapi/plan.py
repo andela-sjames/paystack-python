@@ -26,10 +26,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = cls().requests.post('plan', data=kwargs)
-
-        return response.json()
+        return cls().requests.post('plan', data=kwargs)
 
     @classmethod
     def get(cls, plan_id):
@@ -42,8 +39,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('plan/{plan_id}'.format(**locals()))
-        return response.json()
+        return cls().requests.get('plan/{plan_id}'.format(**locals()))
 
     @classmethod
     def list(cls):
@@ -55,8 +51,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('plan')
-        return response.json()
+        return cls().requests.get('plan')
 
     @classmethod
     def update(cls, id, **kwargs):
@@ -78,7 +73,5 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = cls().requests.put('plan/{plan_id}'.format(**locals()),
-                                      data=kwargs)
-        return response.json()
+        return cls().requests.put('plan/{plan_id}'.format(**locals()),
+                                  data=kwargs)

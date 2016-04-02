@@ -21,9 +21,7 @@ class Transaction(PayStackBase):
             Json data from paystack API.
         """
 
-        response = cls().requests.get('transaction/initialize', data=kwargs)
-
-        return response.json()
+        return cls().requests.get('transaction/initialize', data=kwargs)
 
     @classmethod
     def charge(cls, **kwargs):
@@ -39,9 +37,8 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.post('transaction/charge_authorization',
-                                       data=kwargs)
-        return response.json()
+        return cls().requests.post('transaction/charge_authorization',
+                                   data=kwargs)
 
     @classmethod
     def charge_token(cls, **kwargs):
@@ -57,8 +54,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.post('transaction/charge_token', data=kwargs)
-        return response.json()
+        return cls().requests.post('transaction/charge_token', data=kwargs)
 
     @classmethod
     def get(cls, transaction_id):
@@ -71,9 +67,8 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get(
-            'transaction/{transaction_id}'.format(**locals()))
-        return response.json()
+        return cls().requests.get('transaction/{transaction_id}'
+                                  .format(**locals()))
 
     @classmethod
     def list(cls):
@@ -86,8 +81,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('transaction')
-        return response.json()
+        return cls().requests.get('transaction')
 
     @classmethod
     def totals(cls):
@@ -100,8 +94,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('transaction/totals')
-        return response.json()
+        return cls().requests.get('transaction/totals')
 
     @classmethod
     def verify(cls, reference):
@@ -114,6 +107,5 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get(
-            'transaction/verify/{reference}'.format(**locals()))
-        return response.json()
+        return cls().requests.get('transaction/verify/{reference}'
+                                  .format(**locals()))

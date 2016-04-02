@@ -20,9 +20,7 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.post('customer', data=kwargs,)
-
-        return response.json()
+        return cls().requests.post('customer', data=kwargs,)
 
     @classmethod
     def get(cls, customer_id):
@@ -34,9 +32,7 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get(
-            'customer/{customer_id}'.format(**locals()))
-        return response.json()
+        return cls().requests.get('customer/{customer_id}'.format(**locals()))
 
     @classmethod
     def list(cls):
@@ -48,8 +44,7 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('customer')
-        return response.json()
+        return cls().requests.get('customer')
 
     @classmethod
     def update(cls, customer_id, **kwargs):
@@ -66,7 +61,5 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.put(
-            'customer/{customer_id}'.format(**locals()),
-            data=kwargs)
-        return response.json()
+        return cls().requests.put('customer/{customer_id}'.format(**locals()),
+                                  data=kwargs)

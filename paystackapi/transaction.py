@@ -1,16 +1,18 @@
 """Script used to define the paystack Transaction class."""
 
-import requests
-
-from paystackapi.constants import HEADERS, api_url
-from paystackapi.base import PayStackBase
+from paystackapi.constants import HEADERS, API_URL
+from paystackapi.base import PayStackBase, PayStackRequests
 
 
 class Transaction(PayStackBase):
     """docstring for Transaction."""
 
+    def __init__(self):
+        self.requests = PayStackRequests(api_url=API_URL,
+                                         headers=HEADERS)
+
     @classmethod
-    def initialize(cls, reference, amount, email, plan=None):
+    def initialize(cls, **kwargs):
         """
         Initialize transaction.
 
@@ -23,19 +25,13 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.post(
-            API_URL + 'transaction/initialize',
-            data={"reference": reference,
-                  "amount": amount,
-                  "email": email,
-                  "plan": plan
-                  }, headers=cls.headers if cls.headers else HEADERS)
+
+        response = cls().requests.get('transaction/initialize', data=kwargs)
 
         return response.json()
 
     @classmethod
-    def charge(cls, reference, authorization_code, email, amount):
+    def charge(cls, **kwargs):
         """
         Charge authorization.
 
@@ -48,19 +44,12 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.post(
-            API_URL + 'transaction/charge_authorization',
-            data={"reference": reference,
-                  "authorizationCode": authorization_code,
-                  "email": email,
-                  "amount": amount},
-            headers=cls.headers if cls.headers else HEADERS,)
-
+        response = cls().requests.post('transaction/charge_authorization',
+                                       data=kwargs)
         return response.json()
 
     @classmethod
-    def charge_token(cls, reference, token, email, amount):
+    def charge_token(cls, **kwargs):
         """
         Charge token.
 
@@ -73,19 +62,11 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.post(
-            API_URL + 'transaction/charge_token',
-            data={"reference": reference,
-                  "token": token,
-                  "email": email,
-                  "amount": amount
-                  },
-            headers=cls.headers if cls.headers else HEADERS,)
+        response = cls().requests.post('transaction/charge_token', data=kwargs)
         return response.json()
 
     @classmethod
-    def get(cls, id):
+    def get(cls, transaction_id):
         """
         Get a single transaction.
 
@@ -95,10 +76,8 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'transaction/{}'.format(id),
-            headers=cls.headers if cls.headers else HEADERS,)
+        response = cls().requests.get(
+            'transaction/{transaction_id}'.format(locals()))
         return response.json()
 
     @classmethod
@@ -112,10 +91,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'transaction',
-            headers=cls.headers if cls.headers else HEADERS,)
+        response = cls().requests.get('transaction')
         return response.json()
 
     @classmethod
@@ -129,10 +105,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'transaction/totals',
-            headers=cls.headers if cls.headers else HEADERS,)
+        response = cls().requests.get('transaction/totals')
         return response.json()
 
     @classmethod
@@ -146,8 +119,6 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'transaction/verify/{}'.format(reference),
-            headers=cls.headers if cls.headers else HEADERS,)
+        response = cls().requests.get(
+            'transaction/verify/{reference}'.format(locals()))
         return response.json()

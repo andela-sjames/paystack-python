@@ -32,20 +32,51 @@ class PayStackRequests(object):
 
     def __init__(self, api_url='https://https://api.paystack.co/',
                  headers=None):
+        """Initialize Paystack Request object for browsing resource.
+
+        Args:
+            api_url: str
+            headers: dict
+        """
         self.API_BASE_URL = '{api_url}'.format(**locals())
         self.headers = headers
 
     def _request(self, method, resource_uri, **kwargs):
+        """Perform a method on a resource.
+
+        Args:
+            method: requests.`method`
+            resource_uri: resource endpoint
+        Raises:
+            HTTPError
+        Returns:
+            JSON Response
+        """
         response = method(self.API_BASE_URL + resource_uri,
                           data=kwargs, headers=self.headers)
         response.raise_for_status()
         return response.json()
 
     def get(self, endpoint, **kwargs):
+        """Get a resource.
+
+        Args:
+            endpoint: resource endpoint.
+        """
         return self._request(requests.get, endpoint, **kwargs)
 
     def post(self, endpoint, **kwargs):
+        """Create a resource.
+
+        Args:
+            endpoint: resource endpoint.
+        """
         return self._request(requests.post, endpoint, **kwargs)
 
     def put(self, endpoint, **kwargs):
+        """Update a resource.
+
+        Args:
+            endpoint: resource endpoint.
+        """
         return self._request(requests.put, endpoint, **kwargs)

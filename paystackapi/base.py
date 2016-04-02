@@ -30,7 +30,7 @@ class PayStackBase(Borg):
 
 class PayStackRequests(object):
 
-    def __init__(self, api_url='https://https://api.paystack.co/',
+    def __init__(self, api_url='https://api.paystack.co/',
                  headers=None):
         """Initialize Paystack Request object for browsing resource.
 

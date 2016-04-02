@@ -2,7 +2,7 @@
 
 import requests
 
-from paystackapi.constants import *
+from paystackapi.constants import HEADERS, api_url
 from paystackapi.base import PayStackBase
 
 

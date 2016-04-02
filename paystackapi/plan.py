@@ -3,7 +3,7 @@
 
 import requests
 
-from paystackapi.constants import *
+from paystackapi.constants import HEADERS, api_url
 from paystackapi.base import PayStackBase
 
 
@@ -11,7 +11,8 @@ class Plan(PayStackBase):
     """docstring for Plan."""
 
     @classmethod
-    def create(cls, name, description, amount, interval, send_invoices, send_sms,
+    def create(cls, name, description, amount, interval, send_invoices,
+               send_sms,
                hosted_page, hosted_page_url,
                hosted_page_summary, currency):
         """
@@ -83,7 +84,8 @@ class Plan(PayStackBase):
         return response.json()
 
     @classmethod
-    def update(cls, id, name=None, description=None, amount=None, interval=None,
+    def update(cls, id, name=None, description=None, amount=None,
+               interval=None,
                send_invoices=None, send_sms=None,
                hosted_page=None, hosted_page_url=None,
                hosted_page_summary=None, currency=None):

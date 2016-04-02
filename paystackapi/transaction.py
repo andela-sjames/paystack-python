@@ -1,15 +1,10 @@
 """Script used to define the paystack Transaction class."""
 
-from paystackapi.constants import HEADERS, API_URL
-from paystackapi.base import PayStackBase, PayStackRequests
+from paystackapi.base import PayStackBase
 
 
 class Transaction(PayStackBase):
     """docstring for Transaction."""
-
-    def __init__(self):
-        self.requests = PayStackRequests(api_url=API_URL,
-                                         headers=HEADERS)
 
     @classmethod
     def initialize(cls, **kwargs):
@@ -77,7 +72,7 @@ class Transaction(PayStackBase):
             Json data from paystack API.
         """
         response = cls().requests.get(
-            'transaction/{transaction_id}'.format(locals()))
+            'transaction/{transaction_id}'.format(**locals()))
         return response.json()
 
     @classmethod
@@ -120,5 +115,5 @@ class Transaction(PayStackBase):
             Json data from paystack API.
         """
         response = cls().requests.get(
-            'transaction/verify/{reference}'.format(locals()))
+            'transaction/verify/{reference}'.format(**locals()))
         return response.json()

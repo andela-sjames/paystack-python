@@ -1,15 +1,10 @@
 """Script used to define the paystack Plan class."""
 
-from paystackapi.constants import HEADERS, API_URL
-from paystackapi.base import PayStackBase, PayStackRequests
+from paystackapi.base import PayStackBase
 
 
 class Plan(PayStackBase):
     """docstring for Plan."""
-
-    def __init__(self):
-        self.requests = PayStackRequests(api_url=API_URL,
-                                         headers=HEADERS)
 
     @classmethod
     def create(cls, **kwargs):
@@ -47,7 +42,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        response = cls().requests.get('plan/{plan_id}'.format(locals()))
+        response = cls().requests.get('plan/{plan_id}'.format(**locals()))
         return response.json()
 
     @classmethod
@@ -84,6 +79,6 @@ class Plan(PayStackBase):
             Json data from paystack API.
         """
         cls.headers = None
-        response = cls().requests.put('plan/{plan_id}'.format(locals()),
+        response = cls().requests.put('plan/{plan_id}'.format(**locals()),
                                       data=kwargs)
         return response.json()

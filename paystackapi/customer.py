@@ -1,15 +1,10 @@
 """Script used to define the paystack Customer class."""
 
-from paystackapi.constants import HEADERS, API_URL
-from paystackapi.base import PayStackBase, PayStackRequests
+from paystackapi.base import PayStackBase
 
 
 class Customer(PayStackBase):
     """docstring for Customer."""
-
-    def __init__(self):
-        self.requests = PayStackRequests(api_url=API_URL,
-                                         headers=HEADERS)
 
     @classmethod
     def create(cls, **kwargs):
@@ -40,7 +35,7 @@ class Customer(PayStackBase):
             Json data from paystack API.
         """
         response = cls().requests.get(
-            'customer/{customer_id}'.format(locals()))
+            'customer/{customer_id}'.format(**locals()))
         return response.json()
 
     @classmethod
@@ -72,6 +67,6 @@ class Customer(PayStackBase):
             Json data from paystack API.
         """
         response = cls().requests.put(
-            'customer/{customer_id}'.format(locals()),
+            'customer/{customer_id}'.format(**locals()),
             data=kwargs)
         return response.json()

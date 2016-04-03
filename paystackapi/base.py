@@ -1,7 +1,7 @@
 """Base script used across defined."""
 
 import requests
-from constants import API_URL, PAYSTACK_SECRET_KEY, HEADERS
+import paystackapi as api
 
 
 class Borg:
@@ -18,14 +18,15 @@ class PayStackBase(Borg):
     def __init__(self, **kwargs):
         """Initialize Paystack with secret key."""
         Borg.__init__(self)
-        secret_key = kwargs.get('secret_key', PAYSTACK_SECRET_KEY)
+        secret_key = kwargs.get('secret_key', api.SECRET_KEY)
         authorization = kwargs.get('authorization',
-                                   HEADERS['Authorization'].format(secret_key))
+                                   api.HEADERS['Authorization'].format(
+                                    secret_key))
         headers = dict(Authorization=authorization)
-        arguments = dict(api_url=API_URL, headers=headers)
+        arguments = dict(api_url=api.API_URL, headers=headers)
         if not hasattr(self, 'requests'):
             req = PayStackRequests(**arguments)
-        self._shared_state.update(requests=req)
+            self._shared_state.update(requests=req)
 
 
 class PayStackRequests(object):

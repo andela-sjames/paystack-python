@@ -7,15 +7,31 @@ Python plugin for [Paystack](https://paystack.com/)
 ```
 pip install paystackapi
 ```
+# Instantiate Paystack  
 
+```python
+from paystackapi.paystack import Paystack
+paystack_secret_key = "5om3secretK3y"  
+paystack = Paystack(secret_key=paystack_secret_key)
 
-# Usage
+# to use transaction class  
+paystack.transaction.list()  
+
+# to use customer class  
+paystack.customer.get(transaction_id)
+
+# to use plan class  
+paystack.plan.get(id)
+```
+#####Other methods and can be found below...
+
+# Static Use
 
 To start using the Paystack Python API, you need to start by setting your secret key.
 
 You can set your secret key in your environment by running:
 ```bash
-export PAYSTACK_API_SECRET_KEY = 'your_secret_key'
+export PAYSTACK_SECRET_KEY = 'your_secret_key'
 ```
 
 You can also set your secret key in your script.

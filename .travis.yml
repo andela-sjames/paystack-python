@@ -9,6 +9,3 @@ script:
   coverage run --source paystackapi -m unittest discover
 after_success:
   coveralls
-
-
-# coverage run --source paystack -m unittest discover

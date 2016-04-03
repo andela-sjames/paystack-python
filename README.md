@@ -1,34 +1,56 @@
 # paystack-python
-[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
+[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master)
 
-Python plugin for [Paystack](https://paystack.com/) 
+Python plugin for [Paystack](https://paystack.com/)
 
 # Installation
 ```
 pip install paystackapi
 ```
-
-
-# Usage  
-
-To start using the Paystack Python API, you need to start by setting your secret key
+# Instantiate Paystack  
 
 ```python
-from paystackapi.constants import PAYSTACK_SECRET_KEY
-PAYSTACK_SECRET_KEY = 'your_secret_key`
-```  
+from paystackapi.paystack import Paystack
+paystack_secret_key = "5om3secretK3y"  
+paystack = Paystack(secret_key=paystack_secret_key)
+
+# to use transaction class  
+paystack.transaction.list()  
+
+# to use customer class  
+paystack.customer.get(transaction_id)
+
+# to use plan class  
+paystack.plan.get(id)
+```
+#####Other methods and can be found below...
+
+# Static Use
+
+To start using the Paystack Python API, you need to start by setting your secret key.
+
+You can set your secret key in your environment by running:
+```bash
+export PAYSTACK_SECRET_KEY = 'your_secret_key'
+```
+
+You can also set your secret key in your script.
+```python
+import paystackapi
+paystackapi.SECRET_KEY = 'your_secret_key'
+```
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
 
-## Transactions  
+## Transactions
 
 ##### `Transaction.initialize(reference, amount, email, plan)` - Initialize transaction.
 
 *Usage*
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.initialize(reference, amount, email, plan)  
+from paystackapi.transaction import Transaction
+response = Transaction.initialize(reference, amount, email, plan)
 ```
 
 *Arguments*
@@ -45,8 +67,8 @@ JSON data from Paystack API.
 ##### `Transaction.charge(reference, authorization_code, email, amount)` - Charge authorization.
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.charge(reference, authorization_code, 
+from paystackapi.transaction import Transaction
+response = Transaction.charge(reference, authorization_code,
                               email, amount)
 ```
 
@@ -64,7 +86,7 @@ JSON data from Paystack API.
 ##### `Transaction.charge_token(reference, token, email, amount)` - Charge Token.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.charge_token(reference, token, email, amount)
 ```
 
@@ -82,7 +104,7 @@ JSON data from Paystack API.
 ##### `Transaction.get(id)` - Get a single transaction.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.get(id)
 ```
 
@@ -97,7 +119,7 @@ JSON data from paystack API.
 ##### `Transaction.list()` - List transactions.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.list()
 ```
 
@@ -112,13 +134,13 @@ JSON data from paystack API.
 ##### `Transaction.totals()` - Get totals.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.totals()
 ```
 *Arguments*
 
 No argument required.
-    
+
 *Returns*
 
 JSON data from paystack API.
@@ -126,7 +148,7 @@ JSON data from paystack API.
 ##### `Transaction.verify(reference)` - Verify transactions.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.verify(reference)
 ```
 
@@ -139,7 +161,7 @@ response = Transaction.verify(reference)
 JSON data from paystack API.
 
 
-## Plans  
+## Plans
 
 ##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan  
 
@@ -228,7 +250,7 @@ response = Plan.update(id, name=None, description=None,
 JSON data from paystack API.
 
 
-## Customers 
+## Customers
 
 ##### `Customer.create(first_name, last_name, email, phone)` - Create customer
 
@@ -285,7 +307,7 @@ from paystackapi.customer import Customer
 response = Customer.update(id, first_name=None, 
                               last_name=None,
                               email=None, phone=None)
-```  
+```
 
 *Arguments*
 - `id`: paystack customer id.

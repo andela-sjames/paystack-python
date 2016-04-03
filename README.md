@@ -163,11 +163,11 @@ JSON data from paystack API.
 
 ## Plans
 
-##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan
+##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan  
 
 ```python
-from paystackapi.plan import Plan
-response = Plan.create(name, description, amount, interval,
+from paystackapi.plan import Plan  
+response = Plan.create(name, description, amount, interval, 
                               send_invoices, send_sms,
                               hosted_page, hosted_page_url,
                               hosted_page_summary, currency)
@@ -193,7 +193,7 @@ JSON data from paystack API.
 ##### `Plan.get(id)` - Get a single plan.
 
 ```python
-from paystackapi.plan import Plan
+from paystackapi.plan import Plan  
 response = Plan.get(id)
 ```
 
@@ -208,7 +208,7 @@ JSON data from paystack API.
 ##### `Plan.list()` - List paystack plan
 
 ```python
-from paystackapi.plan import Plan
+from paystackapi.plan import Plan  
 response = Plan.list()
 ```
 
@@ -223,7 +223,7 @@ JSON data from paystack API.
 ##### `Transaction.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)` - Update paystack plan
 
 ```python
-from paystackapi.plan import Plan
+from paystackapi.plan import Plan  
 response = Plan.update(id, name=None, description=None,
                               amount=None, interval=None,
                               send_invoices=None, send_sms=None,
@@ -255,7 +255,7 @@ JSON data from paystack API.
 ##### `Customer.create(first_name, last_name, email, phone)` - Create customer
 
 ```python
-from paystackapi.customer import Customer
+from paystackapi.customer import Customer  
 response = Customer.create(first_name, last_name, email, phone)
 ```
 
@@ -273,7 +273,7 @@ JSON data from paystack API.
 ##### `Customer.get(id)` - Get customers by id
 
 ```python
-from paystackapi.customer import Customer
+from paystackapi.customer import Customer  
 response = Customer.get(id)
 ```
 
@@ -288,7 +288,7 @@ JSON data from paystack API.
 ##### `Customer.list()` - List paystack customers
 
 ```python
-from paystackapi.customer import Customer
+from paystackapi.customer import Customer  
 response = Customer.list()
 ```
 
@@ -303,8 +303,8 @@ JSON data from paystack API.
 ##### `Customer.update(id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
 
 ```python
-from paystackapi.customer import Customer
-response = Customer.update(id, first_name=None,
+from paystackapi.customer import Customer  
+response = Customer.update(id, first_name=None, 
                               last_name=None,
                               email=None, phone=None)
 ```

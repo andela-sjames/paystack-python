@@ -30,8 +30,8 @@ Instantiate Paystack
     # to use plan class  
     paystack.plan.get(id)
 
-Other methods and can be found below...
-'''''''''''''''''''''''''''''''''''''''
+Other methods can be found below...
+'''''''''''''''''''''''''''''''''''
 
 Static Use
 ==========
@@ -246,8 +246,8 @@ No argument required.
 
 JSON data from paystack API.
 
-``Transaction.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)`` - Update paystack plan
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+``Plan.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)`` - Update paystack plan
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 

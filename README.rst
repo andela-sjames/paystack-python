@@ -3,7 +3,7 @@ paystack-python
 
 |Coverage Status| |Scrutinizer Code Quality| |Build Status|
 
-Python plugin for `Paystack <https://paystack.com/>`__
+Python plugin for `Paystack <https://paystack.com/>`_
 
 Installation
 ============
@@ -18,16 +18,16 @@ Instantiate Paystack
 .. code:: python
 
     from paystackapi.paystack import Paystack
-    paystack_secret_key = "5om3secretK3y"  
+    paystack_secret_key = "5om3secretK3y"
     paystack = Paystack(secret_key=paystack_secret_key)
 
-    # to use transaction class  
-    paystack.transaction.list()  
+    # to use transaction class
+    paystack.transaction.list()
 
-    # to use customer class  
+    # to use customer class
     paystack.customer.get(transaction_id)
 
-    # to use plan class  
+    # to use plan class
     paystack.plan.get(id)
 
 Other methods and can be found below...
@@ -57,7 +57,7 @@ You can also set your secret key in your script.
     ``PAYSTACK_SECRET_KEY``
 
 Transactions
-------------
+
 
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -191,8 +191,8 @@ Plans
 
 .. code:: python
 
-    from paystackapi.plan import Plan  
-    response = Plan.create(name, description, amount, interval, 
+    from paystackapi.plan import Plan
+    response = Plan.create(name, description, amount, interval,
                                   send_invoices, send_sms,
                                   hosted_page, hosted_page_url,
                                   hosted_page_summary, currency)
@@ -219,7 +219,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan  
+    from paystackapi.plan import Plan
     response = Plan.get(id)
 
 *Arguments*
@@ -235,7 +235,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan  
+    from paystackapi.plan import Plan
     response = Plan.list()
 
 *Arguments*
@@ -251,7 +251,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan  
+    from paystackapi.plan import Plan
     response = Plan.update(id, name=None, description=None,
                                   amount=None, interval=None,
                                   send_invoices=None, send_sms=None,
@@ -284,7 +284,7 @@ Customers
 
 .. code:: python
 
-    from paystackapi.customer import Customer  
+    from paystackapi.customer import Customer
     response = Customer.create(first_name, last_name, email, phone)
 
 *Arguments*
@@ -303,7 +303,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer  
+    from paystackapi.customer import Customer
     response = Customer.get(id)
 
 *Arguments*
@@ -319,7 +319,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer  
+    from paystackapi.customer import Customer
     response = Customer.list()
 
 *Arguments*
@@ -335,8 +335,8 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer  
-    response = Customer.update(id, first_name=None, 
+    from paystackapi.customer import Customer
+    response = Customer.update(id, first_name=None,
                                   last_name=None,
                                   email=None, phone=None)
 

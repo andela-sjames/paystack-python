@@ -15,13 +15,12 @@ You can set your secret key in your environment by running:
 ::
 
     export PAYSTACK_API_SECRET_KEY = 'your_secret_key'
-    ```::
 
 You can also set your secret key in your script.
 ::
     import paystackapi
     paystackapi.SECRET_KEY = 'your_secret_key'
-    ::
+
 
 Transactions
 ------------

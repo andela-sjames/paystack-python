@@ -1,7 +1,8 @@
 # paystack-python
 [![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master)
 
-Python plugin for [Paystack](https://paystack.com/)
+Python plugin for [Paystack](https://paystack.com/)  
+View on [pypi.python.org](https://pypi.python.org/pypi?:action=display&name=paystackapi&version=1.2.3)  
 
 # Installation
 ```

@@ -1,9 +1,5 @@
 """Script used to define the paystack Plan class."""
 
-
-import requests
-
-from paystackapi.constants import HEADERS, api_url
 from paystackapi.base import PayStackBase
 
 
@@ -11,10 +7,7 @@ class Plan(PayStackBase):
     """docstring for Plan."""
 
     @classmethod
-    def create(cls, name, description, amount, interval, send_invoices,
-               send_sms,
-               hosted_page, hosted_page_url,
-               hosted_page_summary, currency):
+    def create(cls, **kwargs):
         """
         Function defined to create a plan.
 
@@ -33,39 +26,20 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.post(
-            api_url + 'plan',
-            data={"name": name,
-                  "description": description,
-                  "amount": amount,
-                  "interval": interval,
-                  "send_invoices": send_invoices,
-                  "send_sms": send_sms,
-                  "hosted_page": hosted_page,
-                  "hosted_page_url": hosted_page_url,
-                  "hosted_page_summary": hosted_page_summary,
-                  "currency": currency
-                  }, headers=cls.headers if cls.headers else HEADERS, )
-
-        return response.json()
+        return cls().requests.post('plan', data=kwargs)
 
     @classmethod
-    def get(cls, id):
+    def get(cls, plan_id):
         """
         Get a single plan.
 
         Args:
-            id: paystack plan id.
+            plan_id: paystack plan id.
 
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'plan/{}'.format(id),
-            headers=cls.headers if cls.headers else HEADERS)
-        return response.json()
+        return cls().requests.get('plan/{plan_id}'.format(**locals()))
 
     @classmethod
     def list(cls):
@@ -77,23 +51,15 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'plan/',
-            headers=cls.headers if cls.headers else HEADERS)
-        return response.json()
+        return cls().requests.get('plan')
 
     @classmethod
-    def update(cls, id, name=None, description=None, amount=None,
-               interval=None,
-               send_invoices=None, send_sms=None,
-               hosted_page=None, hosted_page_url=None,
-               hosted_page_summary=None, currency=None):
+    def update(cls, id, **kwargs):
         """
         Static method defined to update paystack plan.
 
         Args:
-            id: plan identity number.
+            plan_id: plan identity number.
             name: name of plan
             description: plan description(optional)
             amount: plan amount in Naira
@@ -107,21 +73,5 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.put(
-            api_url + 'plan/{}'.format(id),
-            data={"name": name,
-                  "description": description,
-                  "amount": amount,
-                  "interval": interval,
-                  "send_invoices": send_invoices,
-                  "send_sms": send_sms,
-                  "hosted_page": hosted_page,
-                  "hosted_page_url": hosted_page_url,
-                  "hosted_page_summary": hosted_page_summary,
-                  "currency": currency
-
-                  },
-            headers=cls.headers if cls.headers else HEADERS
-        )
-        return response.json()
+        return cls().requests.put('plan/{plan_id}'.format(**locals()),
+                                  data=kwargs)

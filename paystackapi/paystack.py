@@ -2,14 +2,15 @@
 from paystackapi.transaction import Transaction
 from paystackapi.customer import Customer
 from paystackapi.plan import Plan
+from paystackapi.base import PayStackBase
 
 
-class Paystack(object):
+class Paystack(PayStackBase):
     """Base class defined for PayStack Instance Method."""
 
-    @classmethod
-    def __init__(cls, paystack_secret_key=None):
+    def __init__(self, secret_key=None):
         """Instantiate Basic Classes to call here."""
-        cls.transaction = Transaction(paystack_secret_key=paystack_secret_key)
-        cls.customer = Customer(paystack_secret_key=paystack_secret_key)
-        cls.plan = Plan(paystack_secret_key=paystack_secret_key)
+        PayStackBase.__init__(self, secret_key=secret_key)
+        self.transaction = Transaction
+        self.customer = Customer
+        self.plan = Plan

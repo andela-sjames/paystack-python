@@ -1,9 +1,5 @@
 """Script used to define the paystack Customer class."""
 
-
-import requests
-
-from paystackapi.constants import HEADERS, api_url
 from paystackapi.base import PayStackBase
 
 
@@ -11,7 +7,7 @@ class Customer(PayStackBase):
     """docstring for Customer."""
 
     @classmethod
-    def create(cls, first_name, last_name, email, phone):
+    def create(cls, **kwargs):
         """
         Function defined to create customer.
 
@@ -24,32 +20,19 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.post(
-            api_url + 'customer',
-            data={"first_name": first_name,
-                  "last_name": last_name,
-                  "email": email,
-                  "phone": phone
-                  }, headers=cls.headers if cls.headers else HEADERS)
-
-        return response.json()
+        return cls().requests.post('customer', data=kwargs,)
 
     @classmethod
-    def get(cls, id):
+    def get(cls, customer_id):
         """
         Static method defined to get customers by id.
 
         Args:
-            id: paystack customer id.
+            customer_id: paystack customer id.
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'customer/{}' .format(id),
-            headers=cls.headers if cls.headers else HEADERS)
-        return response.json()
+        return cls().requests.get('customer/{customer_id}'.format(**locals()))
 
     @classmethod
     def list(cls):
@@ -61,19 +44,15 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.get(
-            api_url + 'customer',
-            headers=cls.headers if cls.headers else HEADERS)
-        return response.json()
+        return cls().requests.get('customer')
 
     @classmethod
-    def update(cls, id, first_name=None, last_name=None, email=None, phone=None):
+    def update(cls, customer_id, **kwargs):
         """
         Static method defined to update paystack customer data by id.
 
         Args:
-            id: paystack customer id.
+            customer_id: paystack customer id.
             first_name: customer's first name(optional).
             last_name: customer's last name(optional).
             email: customer's email address(optional).
@@ -82,12 +61,5 @@ class Customer(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        cls.headers = None
-        response = requests.put(
-            api_url + 'customer/{}' .format(id),
-            data={"first_name": first_name,
-                  "last_name": last_name,
-                  "email": email,
-                  "phone": phone
-                  }, headers=cls.headers if cls.headers else HEADERS)
-        return response.json()
+        return cls().requests.put('customer/{customer_id}'.format(**locals()),
+                                  data=kwargs)

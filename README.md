@@ -1,7 +1,7 @@
 # paystack-python
-[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass)  
+[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass)](https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master)
 
-Python plugin for [Paystack](https://paystack.com/) 
+Python plugin for [Paystack](https://paystack.com/)
 
 # Installation
 ```
@@ -9,26 +9,32 @@ pip install paystackapi
 ```
 
 
-# Usage  
+# Usage
 
-To start using the Paystack Python API, you need to start by setting your secret key
+To start using the Paystack Python API, you need to start by setting your secret key.
 
+You can set your secret key in your environment by running:
+```bash
+export PAYSTACK_API_SECRET_KEY = 'your_secret_key'
+```
+
+You can also set your secret key in your script.
 ```python
-from paystackapi.constants import PAYSTACK_SECRET_KEY
-PAYSTACK_SECRET_KEY = 'your_secret_key`
-```  
+import paystackapi
+paystackapi.SECRET_KEY = 'your_secret_key'
+```
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
 
-## Transactions  
+## Transactions
 
 ##### `Transaction.initialize(reference, amount, email, plan)` - Initialize transaction.
 
 *Usage*
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.initialize(reference, amount, email, plan)  
+from paystackapi.transaction import Transaction
+response = Transaction.initialize(reference, amount, email, plan)
 ```
 
 *Arguments*
@@ -45,8 +51,8 @@ JSON data from Paystack API.
 ##### `Transaction.charge(reference, authorization_code, email, amount)` - Charge authorization.
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.charge(reference, authorization_code, 
+from paystackapi.transaction import Transaction
+response = Transaction.charge(reference, authorization_code,
                               email, amount)
 ```
 
@@ -64,7 +70,7 @@ JSON data from Paystack API.
 ##### `Transaction.charge_token(reference, token, email, amount)` - Charge Token.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.charge_token(reference, token, email, amount)
 ```
 
@@ -82,7 +88,7 @@ JSON data from Paystack API.
 ##### `Transaction.get(id)` - Get a single transaction.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.get(id)
 ```
 
@@ -97,7 +103,7 @@ JSON data from paystack API.
 ##### `Transaction.list()` - List transactions.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.list()
 ```
 
@@ -112,13 +118,13 @@ JSON data from paystack API.
 ##### `Transaction.totals()` - Get totals.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.totals()
 ```
 *Arguments*
 
 No argument required.
-    
+
 *Returns*
 
 JSON data from paystack API.
@@ -126,7 +132,7 @@ JSON data from paystack API.
 ##### `Transaction.verify(reference)` - Verify transactions.
 
 ```python
-from paystackapi.transaction import Transaction  
+from paystackapi.transaction import Transaction
 response = Transaction.verify(reference)
 ```
 
@@ -139,13 +145,13 @@ response = Transaction.verify(reference)
 JSON data from paystack API.
 
 
-## Plans  
+## Plans
 
-##### `Transaction.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan  
+##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.create(name, description, amount, interval, 
+from paystackapi.plan import Plan
+response = Plan.create(name, description, amount, interval,
                               send_invoices, send_sms,
                               hosted_page, hosted_page_url,
                               hosted_page_summary, currency)
@@ -168,11 +174,11 @@ response = Transaction.create(name, description, amount, interval,
 
 JSON data from paystack API.
 
-##### `Transaction.get(id)` - Get a single plan.
+##### `Plan.get(id)` - Get a single plan.
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.get(id)
+from paystackapi.plan import Plan
+response = Plan.get(id)
 ```
 
 *Arguments*
@@ -183,11 +189,11 @@ response = Transaction.get(id)
 
 JSON data from paystack API.
 
-##### `Transaction.list()` - List paystack plan
+##### `Plan.list()` - List paystack plan
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.list()
+from paystackapi.plan import Plan
+response = Plan.list()
 ```
 
 *Arguments*
@@ -201,8 +207,8 @@ JSON data from paystack API.
 ##### `Transaction.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)` - Update paystack plan
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.update(id, name=None, description=None,
+from paystackapi.plan import Plan
+response = Plan.update(id, name=None, description=None,
                               amount=None, interval=None,
                               send_invoices=None, send_sms=None,
                               hosted_page=None, hosted_page_url=None,
@@ -214,7 +220,7 @@ response = Transaction.update(id, name=None, description=None,
 - `id`: plan identity number.
 - `name`: name of plan
 - `description`: plan description(optional)
-- `amount`: plan amount in Naira
+- `amount`: plan amount in Kobo
 - `interval`: plan interval9(monthly, yearly, quarterly...etc)
 - `send_invoice`: (optional)
 - `send_sms`: (optional)
@@ -228,13 +234,13 @@ response = Transaction.update(id, name=None, description=None,
 JSON data from paystack API.
 
 
-## Customers 
+## Customers
 
-##### `Transaction.create(first_name, last_name, email, phone)` - Create customer
+##### `Customer.create(first_name, last_name, email, phone)` - Create customer
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.create(first_name, last_name, email, phone)
+from paystackapi.customer import Customer
+response = Customer.create(first_name, last_name, email, phone)
 ```
 
 *Arguments*
@@ -248,11 +254,11 @@ response = Transaction.create(first_name, last_name, email, phone)
 
 JSON data from paystack API.
 
-##### `Transaction.get(id)` - Get customers by id
+##### `Customer.get(id)` - Get customers by id
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.get(id)
+from paystackapi.customer import Customer
+response = Customer.get(id)
 ```
 
 *Arguments*
@@ -263,11 +269,11 @@ response = Transaction.get(id)
 
 JSON data from paystack API.
 
-##### `Transaction.list()` - List paystack customers
+##### `Customer.list()` - List paystack customers
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.list()
+from paystackapi.customer import Customer
+response = Customer.list()
 ```
 
 *Arguments*
@@ -278,14 +284,14 @@ No argument required.
 
 JSON data from paystack API.
 
-##### `Transaction.update(id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
+##### `Customer.update(id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
 
 ```python
-from paystackapi.transaction import Transaction  
-response = Transaction.update(id, first_name=None, 
+from paystackapi.customer import Customer
+response = Customer.update(id, first_name=None,
                               last_name=None,
                               email=None, phone=None)
-```  
+```
 
 *Arguments*
 - `id`: paystack customer id.

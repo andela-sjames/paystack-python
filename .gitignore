@@ -63,3 +63,5 @@ target/
 
 # Ide environment
 *.idea/
+
+.pypirc

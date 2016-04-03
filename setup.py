@@ -19,7 +19,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='paystackapi',
-    version='1.2.1',
+    version='1.2.2',
     description='A python library to consume Paystack API',
     long_description=long_description,
     url='https://github.com/andela-sjames/paystack-python',

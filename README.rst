@@ -1,7 +1,7 @@
 paystack-python
 ===============
 
-Python plugin for `Paystack <https://paystack.com/>`__ |Coverage Status|
+Python plugin for `Paystack <https://paystack.com/>`__ |Coverage Status| |Scrutinizer Code Quality| |Scrutinizer Build Status|
 
 Installation
 ============
@@ -173,3 +173,9 @@ Update paystack customer data by id.
 
 .. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass
    :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass
+
+.. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master
+    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
+
+.. |Scrutinizer Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master
+    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master

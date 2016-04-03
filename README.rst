@@ -11,10 +11,17 @@ Installation
 Usage
 =====
 
+You can set your secret key in your environment by running:
 ::
 
-    from paystackapi.constants import PAYSTACK_SECRET_KEY
-    PAYSTACK_SECRET_KEY = 'your_secret_key`
+    export PAYSTACK_API_SECRET_KEY = 'your_secret_key'
+    ```::
+
+You can also set your secret key in your script.
+::
+    import paystackapi
+    paystackapi.SECRET_KEY = 'your_secret_key'
+    ::
 
 Transactions
 ------------
@@ -24,8 +31,8 @@ Create a plan
 
 ::
 
-    from paystackapi.transaction import Transaction  
-    response = Transaction.create(name, description, amount, interval, 
+    from paystackapi.transaction import Transaction
+    response = Transaction.create(name, description, amount, interval,
                                   send_invoices, send_sms,
                                   hosted_page, hosted_page_url,
                                   hosted_page_summary, currency)
@@ -49,7 +56,7 @@ Get a single plan.
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.get(id)
 
         Args:
@@ -62,7 +69,7 @@ List paystack plan
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.list()
 
         Args:
@@ -75,13 +82,13 @@ Update paystack plan
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.update(id, name=None, description=None,
                                   amount=None, interval=None,
                                   send_invoices=None, send_sms=None,
                                   hosted_page=None, hosted_page_url=None,
                                   hosted_page_summary=None, currency=None)
-                                  
+
         Args:
             id: plan identity number.
             name: name of plan
@@ -107,7 +114,7 @@ Create customer
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.create(first_name, last_name, email, phone)
 
         Args:
@@ -124,7 +131,7 @@ Get customers by id
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.get(id)
 
         Args:
@@ -137,7 +144,7 @@ List paystack customers
 
 ::
 
-    from paystackapi.transaction import Transaction  
+    from paystackapi.transaction import Transaction
     response = Transaction.list()
 
         Args:
@@ -150,11 +157,11 @@ Update paystack customer data by id.
 
 ::
 
-    from paystackapi.transaction import Transaction  
-    response = Transaction.update(id, first_name=None, 
+    from paystackapi.transaction import Transaction
+    response = Transaction.update(id, first_name=None,
                                   last_name=None,
                                   email=None, phone=None)
-            
+
         Args:
             id: paystack customer id.
             first_name: customer's first name(optional).

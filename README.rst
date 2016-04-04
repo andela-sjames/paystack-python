@@ -1,9 +1,12 @@
 paystack-python
 ===============
 
-|Coverage Status| |Scrutinizer Code Quality| |Build Status|
+|Coverage Status| |Scrutinizer Code Quality| |Build Status| |Circle CI|
+|Build Status|
 
-Python plugin for `Paystack <https://paystack.com/>`_
+| Python plugin for `Paystack <https://paystack.com/>`_
+| View on
+  `pypi.python.org <https://pypi.python.org/pypi?:action=display&name=paystackapi&version=1.2.3>`__
 
 Installation
 ============
@@ -57,7 +60,6 @@ You can also set your secret key in your script.
     ``PAYSTACK_SECRET_KEY``
 
 Transactions
-
 
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -355,3 +357,7 @@ JSON data from paystack API.
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
 .. |Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master
+.. |Circle CI| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://img.shields.io/badge/license-MIT-blue.svg
+.. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
+   :target: https://travis-ci.org/andela-sjames/paystack-python

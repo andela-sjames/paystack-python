@@ -1,12 +1,9 @@
 paystack-python
 ===============
 
-|Coverage Status| |Scrutinizer Code Quality| |Build Status| |Circle CI|
-|Build Status|
+|Coverage Status| |Scrutinizer Code Quality| |Build Status|
 
-| Python plugin for `Paystack <https://paystack.com/>`_
-| View on
-  `pypi.python.org <https://pypi.python.org/pypi?:action=display&name=paystackapi&version=1.2.3>`__
+Python plugin for `Paystack <https://paystack.com/>`_
 
 Installation
 ============
@@ -34,7 +31,7 @@ Instantiate Paystack
     paystack.plan.get(id)
 
 Other methods can be found below...
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''
 
 Static Use
 ==========
@@ -60,6 +57,7 @@ You can also set your secret key in your script.
     ``PAYSTACK_SECRET_KEY``
 
 Transactions
+
 
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -249,7 +247,7 @@ No argument required.
 JSON data from paystack API.
 
 ``Plan.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)`` - Update paystack plan
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
@@ -357,7 +355,3 @@ JSON data from paystack API.
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
 .. |Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master
-.. |Circle CI| image:: https://img.shields.io/badge/license-MIT-blue.svg
-   :target: https://img.shields.io/badge/license-MIT-blue.svg
-.. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
-   :target: https://travis-ci.org/andela-sjames/paystack-python

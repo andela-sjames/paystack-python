@@ -343,8 +343,13 @@ ul.auto-toc {
 
 <div class="section" id="paystack-python">
 <h1>paystack-python</h1>
-<p><a class="reference external" href="https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass"><img alt="Coverage Status" src="https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass" /></a> <a class="reference external" href="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master"><img alt="Scrutinizer Code Quality" src="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master" /></a> <a class="reference external" href="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master"><img alt="Build Status" src="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master" /></a></p>
-<p>Python plugin for <a class="reference external" href="https://paystack.com/">Paystack</a></p>
+<p><a class="reference external" href="https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass"><img alt="Coverage Status" src="https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass" /></a> <a class="reference external" href="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master"><img alt="Scrutinizer Code Quality" src="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master" /></a> <a class="reference external" href="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master"><img alt="Build Status" src="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master" /></a> <a class="reference external" href="https://img.shields.io/badge/license-MIT-blue.svg"><object data="https://img.shields.io/badge/license-MIT-blue.svg" type="image/svg+xml">Circle CI</object></a>
+<a class="reference external" href="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master"><img alt="Build Status" src="https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master" /></a></p>
+<div class="line-block">
+<div class="line">Python plugin for <a class="reference external" href="https://paystack.com/">Paystack</a></div>
+<div class="line">View on
+<a class="reference external" href="https://pypi.python.org/pypi?:action=display&amp;name=paystackapi&amp;version=1.2.3">pypi.python.org</a></div>
+</div>
 </div>
 <div class="section" id="installation">
 <h1>Installation</h1>
@@ -354,22 +359,29 @@ pip install paystackapi
 </div>
 <div class="section" id="instantiate-paystack">
 <h1>Instantiate Paystack</h1>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.paystack</span> <span class="keyword namespace">import</span> <span class="name">Paystack</span>
-<span class="name">paystack_secret_key</span> <span class="operator">=</span> <span class="literal string double">&quot;5om3secretK3y&quot;</span>
-<span class="name">paystack</span> <span class="operator">=</span> <span class="name">Paystack</span><span class="punctuation">(</span><span class="name">secret_key</span><span class="operator">=</span><span class="name">paystack_secret_key</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 21)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
 
-<span class="comment single"># to use transaction class</span>
-<span class="name">paystack</span><span class="operator">.</span><span class="name">transaction</span><span class="operator">.</span><span class="name">list</span><span class="punctuation">()</span>
+    from paystackapi.paystack import Paystack
+    paystack_secret_key = &quot;5om3secretK3y&quot;
+    paystack = Paystack(secret_key=paystack_secret_key)
 
-<span class="comment single"># to use customer class</span>
-<span class="name">paystack</span><span class="operator">.</span><span class="name">customer</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name">transaction_id</span><span class="punctuation">)</span>
+    # to use transaction class
+    paystack.transaction.list()
 
-<span class="comment single"># to use plan class</span>
-<span class="name">paystack</span><span class="operator">.</span><span class="name">plan</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">)</span>
+    # to use customer class
+    paystack.customer.get(transaction_id)
+
+    # to use plan class
+    paystack.plan.get(id)
+
 </pre>
-<div class="section" id="other-methods-and-can-be-found-below">
-<h2>Other methods and can be found below...</h2>
+</div>
+<div class="section" id="other-methods-can-be-found-below">
+<h2>Other methods can be found below...</h2>
 </div>
 </div>
 <div class="section" id="static-use">
@@ -377,26 +389,47 @@ pip install paystackapi
 <p>To start using the Paystack Python API, you need to start by setting
 your secret key.</p>
 <p>You can set your secret key in your environment by running:</p>
-<pre class="code bash literal-block">
-<span class="name builtin">export</span> <span class="name variable">PAYSTACK_SECRET_KEY</span> <span class="operator">=</span> <span class="literal string single">'your_secret_key'</span>
-</pre>
-<p>You can also set your secret key in your script.</p>
-<pre class="code python literal-block">
-<span class="keyword namespace">import</span> <span class="name namespace">paystackapi</span>
-<span class="name">paystackapi</span><span class="operator">.</span><span class="name">SECRET_KEY</span> <span class="operator">=</span> <span class="literal string single">'your_secret_key'</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 47)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: bash
 
-<span class="name">Don</span><span class="literal string single">'t forget to get your API key from</span>
-<span class="literal string backtick">`Paystack &lt;https://paystack.com/&gt;`</span><span class="name">__</span> <span class="operator word">and</span> <span class="name">assign</span> <span class="name">to</span> <span class="name">the</span> <span class="name">variable</span>
-<span class="literal string backtick">``</span><span class="name">PAYSTACK_SECRET_KEY</span><span class="literal string backtick">``</span>
+    export PAYSTACK_SECRET_KEY = 'your_secret_key'
+
 </pre>
+</div>
+<p>You can also set your secret key in your script.</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 53)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    import paystackapi
+    paystackapi.SECRET_KEY = 'your_secret_key'
+
+    Don't forget to get your API key from
+    `Paystack &lt;https://paystack.com/&gt;`__ and assign to the variable
+    ``PAYSTACK_SECRET_KEY``
+
+</pre>
+</div>
 <p>Transactions</p>
 <div class="section" id="transaction-initialize-reference-amount-email-plan-initialize-transaction">
 <h2><tt class="docutils literal">Transaction.initialize(reference, amount, email, plan)</tt> - Initialize transaction.</h2>
 <p><em>Usage</em></p>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">initialize</span><span class="punctuation">(</span><span class="name">reference</span><span class="punctuation">,</span> <span class="name">amount</span><span class="punctuation">,</span> <span class="name">email</span><span class="punctuation">,</span> <span class="name">plan</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 69)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.initialize(reference, amount, email, plan)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">reference</tt>: Unique transaction reference</li>
@@ -409,11 +442,18 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-charge-reference-authorization-code-email-amount-charge-authorization">
 <h2><tt class="docutils literal">Transaction.charge(reference, authorization_code, email, amount)</tt> - Charge authorization.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">charge</span><span class="punctuation">(</span><span class="name">reference</span><span class="punctuation">,</span> <span class="name">authorization_code</span><span class="punctuation">,</span>
-                              <span class="name">email</span><span class="punctuation">,</span> <span class="name">amount</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 88)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.charge(reference, authorization_code,
+                                  email, amount)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">reference</tt>: Unique transaction reference</li>
@@ -426,10 +466,17 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-charge-token-reference-token-email-amount-charge-token">
 <h2><tt class="docutils literal">Transaction.charge_token(reference, token, email, amount)</tt> - Charge Token.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">charge_token</span><span class="punctuation">(</span><span class="name">reference</span><span class="punctuation">,</span> <span class="name">token</span><span class="punctuation">,</span> <span class="name">email</span><span class="punctuation">,</span> <span class="name">amount</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 108)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.charge_token(reference, token, email, amount)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li>reference: unique transaction reference</li>
@@ -442,10 +489,17 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-get-id-get-a-single-transaction">
 <h2><tt class="docutils literal">Transaction.get(id)</tt> - Get a single transaction.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 127)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.get(id)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">id</tt>: Transaction id(integer).</li>
@@ -455,10 +509,17 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-list-list-transactions">
 <h2><tt class="docutils literal">Transaction.list()</tt> - List transactions.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">list</span><span class="punctuation">()</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 143)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.list()
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <p>No argument required.</p>
 <p><em>Returns</em></p>
@@ -466,10 +527,17 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-totals-get-totals">
 <h2><tt class="docutils literal">Transaction.totals()</tt> - Get totals.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">totals</span><span class="punctuation">()</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 159)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.totals()
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <p>No argument required.</p>
 <p><em>Returns</em></p>
@@ -477,10 +545,17 @@ your secret key.</p>
 </div>
 <div class="section" id="transaction-verify-reference-verify-transactions">
 <h2><tt class="docutils literal">Transaction.verify(reference)</tt> - Verify transactions.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.transaction</span> <span class="keyword namespace">import</span> <span class="name">Transaction</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Transaction</span><span class="operator">.</span><span class="name">verify</span><span class="punctuation">(</span><span class="name">reference</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 175)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.transaction import Transaction
+    response = Transaction.verify(reference)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">reference</tt>: a unique value needed for transaction.</li>
@@ -493,13 +568,20 @@ your secret key.</p>
 </div>
 <div class="section" id="plan-create-name-description-amount-interval-send-invoices-send-sms-hosted-page-hosted-page-url-hosted-page-summary-currency-create-a-plan">
 <h2><tt class="docutils literal">Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)</tt> - Create a plan</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.plan</span> <span class="keyword namespace">import</span> <span class="name">Plan</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Plan</span><span class="operator">.</span><span class="name">create</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">,</span> <span class="name">description</span><span class="punctuation">,</span> <span class="name">amount</span><span class="punctuation">,</span> <span class="name">interval</span><span class="punctuation">,</span>
-                              <span class="name">send_invoices</span><span class="punctuation">,</span> <span class="name">send_sms</span><span class="punctuation">,</span>
-                              <span class="name">hosted_page</span><span class="punctuation">,</span> <span class="name">hosted_page_url</span><span class="punctuation">,</span>
-                              <span class="name">hosted_page_summary</span><span class="punctuation">,</span> <span class="name">currency</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 194)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.plan import Plan
+    response = Plan.create(name, description, amount, interval,
+                                  send_invoices, send_sms,
+                                  hosted_page, hosted_page_url,
+                                  hosted_page_summary, currency)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">name</tt>: plan's name.</li>
@@ -518,10 +600,17 @@ your secret key.</p>
 </div>
 <div class="section" id="plan-get-id-get-a-single-plan">
 <h2><tt class="docutils literal">Plan.get(id)</tt> - Get a single plan.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.plan</span> <span class="keyword namespace">import</span> <span class="name">Plan</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Plan</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 222)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.plan import Plan
+    response = Plan.get(id)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">id</tt>: paystack plan id.</li>
@@ -531,25 +620,39 @@ your secret key.</p>
 </div>
 <div class="section" id="plan-list-list-paystack-plan">
 <h2><tt class="docutils literal">Plan.list()</tt> - List paystack plan</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.plan</span> <span class="keyword namespace">import</span> <span class="name">Plan</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Plan</span><span class="operator">.</span><span class="name">list</span><span class="punctuation">()</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 238)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.plan import Plan
+    response = Plan.list()
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <p>No argument required.</p>
 <p><em>Returns</em></p>
 <p>JSON data from paystack API.</p>
 </div>
-<div class="section" id="transaction-update-id-name-none-description-none-amount-none-interval-none-send-invoices-none-send-sms-none-hosted-page-none-hosted-page-url-none-hosted-page-summary-none-currency-none-update-paystack-plan">
-<h2><tt class="docutils literal">Transaction.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)</tt> - Update paystack plan</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.plan</span> <span class="keyword namespace">import</span> <span class="name">Plan</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Plan</span><span class="operator">.</span><span class="name">update</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">,</span> <span class="name">name</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">description</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">amount</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">interval</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">send_invoices</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">send_sms</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">hosted_page</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">hosted_page_url</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">hosted_page_summary</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">currency</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">)</span>
+<div class="section" id="plan-update-id-name-none-description-none-amount-none-interval-none-send-invoices-none-send-sms-none-hosted-page-none-hosted-page-url-none-hosted-page-summary-none-currency-none-update-paystack-plan">
+<h2><tt class="docutils literal">Plan.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)</tt> - Update paystack plan</h2>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 254)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.plan import Plan
+    response = Plan.update(id, name=None, description=None,
+                                  amount=None, interval=None,
+                                  send_invoices=None, send_sms=None,
+                                  hosted_page=None, hosted_page_url=None,
+                                  hosted_page_summary=None, currency=None)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">id</tt>: plan identity number.</li>
@@ -572,10 +675,17 @@ your secret key.</p>
 </div>
 <div class="section" id="customer-create-first-name-last-name-email-phone-create-customer">
 <h2><tt class="docutils literal">Customer.create(first_name, last_name, email, phone)</tt> - Create customer</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.customer</span> <span class="keyword namespace">import</span> <span class="name">Customer</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Customer</span><span class="operator">.</span><span class="name">create</span><span class="punctuation">(</span><span class="name">first_name</span><span class="punctuation">,</span> <span class="name">last_name</span><span class="punctuation">,</span> <span class="name">email</span><span class="punctuation">,</span> <span class="name">phone</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 287)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.customer import Customer
+    response = Customer.create(first_name, last_name, email, phone)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">first_name</tt>: customer's first name.</li>
@@ -588,10 +698,17 @@ your secret key.</p>
 </div>
 <div class="section" id="customer-get-id-get-customers-by-id">
 <h2><tt class="docutils literal">Customer.get(id)</tt> - Get customers by id</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.customer</span> <span class="keyword namespace">import</span> <span class="name">Customer</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Customer</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 306)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.customer import Customer
+    response = Customer.get(id)
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <ul class="simple">
 <li><tt class="docutils literal">id</tt>: paystack customer id</li>
@@ -601,10 +718,17 @@ your secret key.</p>
 </div>
 <div class="section" id="customer-list-list-paystack-customers">
 <h2><tt class="docutils literal">Customer.list()</tt> - List paystack customers</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.customer</span> <span class="keyword namespace">import</span> <span class="name">Customer</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Customer</span><span class="operator">.</span><span class="name">list</span><span class="punctuation">()</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 322)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.customer import Customer
+    response = Customer.list()
+
 </pre>
+</div>
 <p><em>Arguments</em></p>
 <p>No argument required.</p>
 <p><em>Returns</em></p>
@@ -612,12 +736,19 @@ your secret key.</p>
 </div>
 <div class="section" id="customer-update-id-first-name-none-last-name-none-email-none-phone-none-update-paystack-customer-data-by-id">
 <h2><tt class="docutils literal">Customer.update(id, first_name=None, last_name=None, email=None, phone=None)</tt> - Update paystack customer data by id.</h2>
-<pre class="code python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">paystackapi.customer</span> <span class="keyword namespace">import</span> <span class="name">Customer</span>
-<span class="name">response</span> <span class="operator">=</span> <span class="name">Customer</span><span class="operator">.</span><span class="name">update</span><span class="punctuation">(</span><span class="name builtin">id</span><span class="punctuation">,</span> <span class="name">first_name</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">last_name</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span>
-                              <span class="name">email</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="name">phone</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">)</span>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.rst</tt>, line 338)</p>
+<p>Cannot analyze code. Pygments package not found.</p>
+<pre class="literal-block">
+.. code:: python
+
+    from paystackapi.customer import Customer
+    response = Customer.update(id, first_name=None,
+                                  last_name=None,
+                                  email=None, phone=None)
+
 </pre>
+</div>
 <p><em>Arguments</em> - <tt class="docutils literal">id</tt>: paystack customer id. - <tt class="docutils literal">first_name</tt>: customer's
 first name(optional). - <tt class="docutils literal">last_name</tt>: customer's last name(optional). -
 <tt class="docutils literal">email</tt>: customer's email address(optional). - <tt class="docutils literal">phone</tt>: customer's

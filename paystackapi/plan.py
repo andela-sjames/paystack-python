@@ -54,7 +54,7 @@ class Plan(PayStackBase):
         return cls().requests.get('plan')
 
     @classmethod
-    def update(cls, id, **kwargs):
+    def update(cls, plan_id, **kwargs):
         """
         Static method defined to update paystack plan.
 

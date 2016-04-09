@@ -1,9 +1,12 @@
 paystack-python
 ===============
 
-|Coverage Status| |Scrutinizer Code Quality| |Build Status|
+|Coverage Status| |Scrutinizer Code Quality| |Build Status| |Circle CI|
+|Build Status|
 
-Python plugin for `Paystack <https://paystack.com/>`_
+| Python plugin for `Paystack <https://paystack.com/>`_
+| View on
+  `pypi.python.org <https://pypi.python.org/pypi?:action=display&name=paystackapi&version=1.2.3>`_
 
 Installation
 ============
@@ -31,7 +34,7 @@ Instantiate Paystack
     paystack.plan.get(id)
 
 Other methods can be found below...
-'''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''
 
 Static Use
 ==========
@@ -58,7 +61,6 @@ You can also set your secret key in your script.
 
 Transactions
 
-
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -67,14 +69,15 @@ Transactions
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.initialize(reference, amount, email, plan)
+    response = Transaction.initialize(reference='reference',
+                                      amount='amount', email='email')
 
 *Arguments*
 
 -  ``reference``: Unique transaction reference
 -  ``amount``: Amount
 -  ``email``: Email address
--  ``plan``: Specified plan
+-  ``plan``: Specified plan (optional)
 
 *Returns*
 
@@ -86,8 +89,10 @@ JSON data from Paystack API.
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.charge(reference, authorization_code,
-                                  email, amount)
+    response = Transaction.charge(reference='reference',
+                                  authorization_code='authorization_code',
+                                  email='email',
+                                  amount='amount')
 
 *Arguments*
 
@@ -106,7 +111,9 @@ JSON data from Paystack API.
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.charge_token(reference, token, email, amount)
+    response = Transaction.charge_token(reference='reference',
+                                        token='token', email='email',
+                                        amount='amount')
 
 *Arguments*
 
@@ -119,13 +126,13 @@ JSON data from Paystack API.
 
 JSON data from Paystack API.
 
-``Transaction.get(id)`` - Get a single transaction.
-'''''''''''''''''''''''''''''''''''''''''''''''''''
+``Transaction.get(transaction_id)`` - Get a single transaction.
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.get(id)
+    response = Transaction.get(transaction_id=23)
 
 *Arguments*
 
@@ -173,7 +180,7 @@ JSON data from paystack API.
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.verify(reference)
+    response = Transaction.verify(reference='reference')
 
 *Arguments*
 
@@ -192,10 +199,14 @@ Plans
 .. code:: python
 
     from paystackapi.plan import Plan
-    response = Plan.create(name, description, amount, interval,
-                                  send_invoices, send_sms,
-                                  hosted_page, hosted_page_url,
-                                  hosted_page_summary, currency)
+    response = Plan.create(name='value', description='value',
+                           amount=amount, interval='value',
+                           send_invoices='value',
+                           send_sms='value',
+                           hosted_page='value',
+                           hosted_page_url='value',
+                           hosted_page_summary='value',
+                           currency='value')
 
 *Arguments*
 
@@ -214,13 +225,13 @@ Plans
 
 JSON data from paystack API.
 
-``Plan.get(id)`` - Get a single plan.
-'''''''''''''''''''''''''''''''''''''
+``Plan.get(plan_id)`` - Get a single plan.
+''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
     from paystackapi.plan import Plan
-    response = Plan.get(id)
+    response = Plan.get(plan_id=25)
 
 *Arguments*
 
@@ -246,21 +257,21 @@ No argument required.
 
 JSON data from paystack API.
 
-``Plan.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)`` - Update paystack plan
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+``Plan.update(plan_id=88, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)`` - Update paystack plan
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
     from paystackapi.plan import Plan
-    response = Plan.update(id, name=None, description=None,
-                                  amount=None, interval=None,
-                                  send_invoices=None, send_sms=None,
-                                  hosted_page=None, hosted_page_url=None,
-                                  hosted_page_summary=None, currency=None)
+    response = Plan.update(plan_id=23, name=None, description=None,
+                           amount=None, interval=None,
+                           send_invoices=None, send_sms=None,
+                           hosted_page=None, hosted_page_url=None,
+                           hosted_page_summary=None, currency=None)
 
 *Arguments*
 
--  ``id``: plan identity number.
+-  ``plan_id``: plan identity number.
 -  ``name``: name of plan
 -  ``description``: plan description(optional)
 -  ``amount``: plan amount in Kobo
@@ -285,7 +296,9 @@ Customers
 .. code:: python
 
     from paystackapi.customer import Customer
-    response = Customer.create(first_name, last_name, email, phone)
+    response = Customer.create(first_name='first_name',
+                               last_name='last_name',
+                               email='email', phone='phone')
 
 *Arguments*
 
@@ -298,13 +311,13 @@ Customers
 
 JSON data from paystack API.
 
-``Customer.get(id)`` - Get customers by id
-''''''''''''''''''''''''''''''''''''''''''
+``Customer.get(customer_id)`` - Get customers by id
+'''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
     from paystackapi.customer import Customer
-    response = Customer.get(id)
+    response = Customer.get(customer_id=24)
 
 *Arguments*
 
@@ -330,28 +343,32 @@ No argument required.
 
 JSON data from paystack API.
 
-``Customer.update(id, first_name=None, last_name=None, email=None, phone=None)`` - Update paystack customer data by id.
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+``Customer.update(customer_id, first_name=None, last_name=None, email=None, phone=None)`` - Update paystack customer data by id.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code:: python
 
     from paystackapi.customer import Customer
-    response = Customer.update(id, first_name=None,
-                                  last_name=None,
-                                  email=None, phone=None)
+    response = Customer.update(customer_id=24, first_name=None,
+                               last_name=None, email=None,
+                               phone=None)
 
-*Arguments* - ``id``: paystack customer id. - ``first_name``: customer's
-first name(optional). - ``last_name``: customer's last name(optional). -
-``email``: customer's email address(optional). - ``phone``: customer's
-phone number(optional).
+*Arguments* - ``customer_id``: paystack customer id. - ``first_name``:
+customer's first name(optional). - ``last_name``: customer's last
+name(optional). - ``email``: customer's email address(optional). -
+``phone``: customer's phone number(optional).
 
 *Returns*
 
 JSON data from paystack API.
 
-.. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass
-   :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass
+.. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=develop
+   :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=master
 .. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
 .. |Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master
+.. |Circle CI| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://img.shields.io/badge/license-MIT-blue.svg
+.. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
+   :target: https://travis-ci.org/andela-sjames/paystack-python

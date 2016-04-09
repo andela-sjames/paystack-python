@@ -19,9 +19,9 @@ class PayStackBase(Borg):
         """Initialize Paystack with secret key."""
         Borg.__init__(self)
         secret_key = kwargs.get('secret_key', api.SECRET_KEY)
-        authorization = kwargs.get('authorization',
-                                   api.HEADERS['Authorization'].format(
-                                    secret_key))
+        authorization = kwargs.get(
+            'authorization',
+            api.HEADERS['Authorization'].format(secret_key))
         headers = dict(Authorization=authorization)
         arguments = dict(api_url=api.API_URL, headers=headers)
         if not hasattr(self, 'requests'):

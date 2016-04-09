@@ -2,8 +2,7 @@
 
 
 import unittest
-
-import mock
+import httpretty
 
 from paystackapi.transaction import Transaction
 
@@ -11,87 +10,102 @@ from paystackapi.transaction import Transaction
 class TestTransaction(unittest.TestCase):
     """Method defined to test transaction initialize."""
 
+    @httpretty.activate
     def test_initialize(self):
-        with mock.patch('paystackapi.transaction.Transaction.initialize') \
-                as mock_initialize:
-                mock_initialize.return_value = {
-                    'status': True, 'message': 'Authorization URL created',
-                    'data': {
-                        'authorization_url': 'https://standard.paystackapi.co/pay/xam1uq26de',
-                        'access_code': 'xam1uq26de',
-                        'reference': 'getupall'
-                    }
-                }
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://api.paystack.co/transaction/initialize",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.initialize(
-                    'getupall', 12000,
-                    'samuel.james@andela.com',
-                    'daily')
-                self.assertTrue(response['status'])
+        response = Transaction.initialize(
+            reference='getupall', amount=12000,
+            email='samuel.james@andela.com')
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_charge(self):
-        with mock.patch('paystackapi.transaction.Transaction.charge') as \
-                mock_charge:
-                mock_charge.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.POST,
+            "https://api.paystack.co/transaction/charge_authorization",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.charge(
-                    'getupall', 'authorization_code'
-                    'email', 'amount')
-                self.assertTrue(response['status'])
+        response = Transaction.charge(
+            reference='getupall', authorization_code='authorization_code',
+            email='email', amount='amount')
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_charge_token(self):
-        with mock.patch('paystackapi.transaction.Transaction.charge_token') as \
-                mock_charge_token:
-                mock_charge_token.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.POST,
+            "https://api.paystack.co/transaction/charge_token",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.charge_token(
-                    'getupall', 'token'
-                    'email', 'amount')
-                self.assertTrue(response['status'])
+        response = Transaction.charge_token(
+            reference='getupall', token='token',
+            email='email', amount=100000)
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_get(self):
-        with mock.patch('paystackapi.transaction.Transaction.get') as \
-                mock_get:
-                mock_get.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://api.paystack.co/transaction/4013",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.get(4013)
-                self.assertTrue(response['status'])
+        response = Transaction.get(transaction_id=4013)
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_list(self):
-        with mock.patch('paystackapi.transaction.Transaction.list') as \
-                mock_list:
-                mock_list.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://api.paystack.co/transaction",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.list()
-                self.assertTrue(response['status'])
+        response = Transaction.list()
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_totals(self):
-        with mock.patch('paystackapi.transaction.Transaction.totals') as \
-                mock_totals:
-                mock_totals.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://api.paystack.co/transaction/totals",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.totals()
-                self.assertTrue(response['status'])
+        response = Transaction.totals()
+        self.assertTrue(response['status'])
 
+    @httpretty.activate
     def test_verify(self):
-        with mock.patch('paystackapi.transaction.Transaction.verify') as \
-                mock_verify:
-                mock_verify.return_value = {
-                    'status': True
-                }
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://api.paystack.co/transaction/verify/reference",
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
 
-                response = Transaction.verify('reference')
-                self.assertTrue(response['status'])
+        response = Transaction.verify('reference')
+        self.assertTrue(response['status'])
 
 
 if __name__ == '__main__':

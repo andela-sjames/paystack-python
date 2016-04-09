@@ -51,7 +51,8 @@ paystackapi.SECRET_KEY = 'your_secret_key'
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.initialize(reference, amount, email, plan)
+response = Transaction.initialize(reference='reference', 
+                                  amount='amount', email='email')
 ```
 
 *Arguments*
@@ -59,7 +60,7 @@ response = Transaction.initialize(reference, amount, email, plan)
 - `reference`: Unique transaction reference
 - `amount`: Amount
 - `email`: Email address
-- `plan`: Specified plan
+- `plan`: Specified plan (optional)
 
 *Returns*
 
@@ -69,8 +70,10 @@ JSON data from Paystack API.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.charge(reference, authorization_code,
-                              email, amount)
+response = Transaction.charge(reference='reference', 
+                              authorization_code='authorization_code',
+                              email='email',
+                              amount='amount')
 ```
 
 *Arguments*
@@ -88,7 +91,9 @@ JSON data from Paystack API.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.charge_token(reference, token, email, amount)
+response = Transaction.charge_token(reference='reference',
+                                    token='token', email='email',
+                                    amount='amount')
 ```
 
 *Arguments*
@@ -102,11 +107,11 @@ response = Transaction.charge_token(reference, token, email, amount)
 
 JSON data from Paystack API.
 
-##### `Transaction.get(id)` - Get a single transaction.
+##### `Transaction.get(transaction_id)` - Get a single transaction.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.get(id)
+response = Transaction.get(transaction_id=23)
 ```
 
 *Arguments*
@@ -150,7 +155,7 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.verify(reference)
+response = Transaction.verify(reference='reference')
 ```
 
 *Arguments*
@@ -168,10 +173,14 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.plan import Plan  
-response = Plan.create(name, description, amount, interval, 
-                              send_invoices, send_sms,
-                              hosted_page, hosted_page_url,
-                              hosted_page_summary, currency)
+response = Plan.create(name='value', description='value', 
+                       amount=amount, interval='value', 
+                       send_invoices='value', 
+                       send_sms='value',
+                       hosted_page='value', 
+                       hosted_page_url='value',
+                       hosted_page_summary='value', 
+                       currency='value')
 ```
 
 *Arguments*
@@ -191,11 +200,11 @@ response = Plan.create(name, description, amount, interval,
 
 JSON data from paystack API.
 
-##### `Plan.get(id)` - Get a single plan.
+##### `Plan.get(plan_id)` - Get a single plan.
 
 ```python
 from paystackapi.plan import Plan  
-response = Plan.get(id)
+response = Plan.get(plan_id=25)
 ```
 
 *Arguments*
@@ -221,20 +230,20 @@ No argument required.
 
 JSON data from paystack API.
 
-##### `Plan.update(id, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)` - Update paystack plan
+##### `Plan.update(plan_id=88, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)` - Update paystack plan
 
 ```python
 from paystackapi.plan import Plan  
-response = Plan.update(id, name=None, description=None,
-                              amount=None, interval=None,
-                              send_invoices=None, send_sms=None,
-                              hosted_page=None, hosted_page_url=None,
-                              hosted_page_summary=None, currency=None)
+response = Plan.update(plan_id=23, name=None, description=None,
+                       amount=None, interval=None,
+                       send_invoices=None, send_sms=None,
+                       hosted_page=None, hosted_page_url=None,
+                       hosted_page_summary=None, currency=None)
 ```
 
 *Arguments*
 
-- `id`: plan identity number.
+- `plan_id`: plan identity number.
 - `name`: name of plan
 - `description`: plan description(optional)
 - `amount`: plan amount in Kobo
@@ -257,7 +266,9 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.customer import Customer  
-response = Customer.create(first_name, last_name, email, phone)
+response = Customer.create(first_name='first_name', 
+                           last_name='last_name',
+                           email='email', phone='phone')
 ```
 
 *Arguments*
@@ -271,11 +282,11 @@ response = Customer.create(first_name, last_name, email, phone)
 
 JSON data from paystack API.
 
-##### `Customer.get(id)` - Get customers by id
+##### `Customer.get(customer_id)` - Get customers by id
 
 ```python
 from paystackapi.customer import Customer  
-response = Customer.get(id)
+response = Customer.get(customer_id=24)
 ```
 
 *Arguments*
@@ -301,17 +312,17 @@ No argument required.
 
 JSON data from paystack API.
 
-##### `Customer.update(id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
+##### `Customer.update(customer_id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
 
 ```python
 from paystackapi.customer import Customer  
-response = Customer.update(id, first_name=None, 
-                              last_name=None,
-                              email=None, phone=None)
+response = Customer.update(customer_id=24, first_name=None, 
+                           last_name=None, email=None, 
+                           phone=None)
 ```
 
 *Arguments*
-- `id`: paystack customer id.
+- `customer_id`: paystack customer id.
 - `first_name`: customer's first name(optional).
 - `last_name`: customer's last name(optional).
 - `email`: customer's email address(optional).

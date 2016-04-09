@@ -53,8 +53,9 @@ class PayStackRequests(object):
         Returns:
             JSON Response
         """
+        data = kwargs.get('data')
         response = method(self.API_BASE_URL + resource_uri,
-                          data=kwargs, headers=self.headers)
+                          data=data, headers=self.headers)
         response.raise_for_status()
         return response.json()
 

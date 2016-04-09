@@ -362,8 +362,7 @@ name(optional). - ``email``: customer's email address(optional). -
 
 JSON data from paystack API.
 
-.. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=feature-customerclass
-   :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=feature-customerclass
+.. image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=master :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=master
 .. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master
    :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
 .. |Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master

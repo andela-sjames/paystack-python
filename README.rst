@@ -31,7 +31,7 @@ Instantiate Paystack
     paystack.customer.get(transaction_id)
 
     # to use plan class
-    paystack.plan.get(id)
+    paystack.plan.get(plan_id)
 
 Other methods can be found below...
 '''''''''''''''''''''''''''''''''''

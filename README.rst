@@ -6,7 +6,7 @@ paystack-python
 
 | Python plugin for `Paystack <https://paystack.com/>`_
 | View on
-  `pypi.python.org <https://pypi.python.org/pypi?:action=display&name=paystackapi&version=1.2.3>`_
+  `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`_
 
 Installation
 ============

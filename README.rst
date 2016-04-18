@@ -1,7 +1,7 @@
 paystack-python
 ===============
 
-|Coverage Status| |Build Status| |Circle CI| |Build Status|
+|Coverage Status| |Scrutinizer Code Quality| |Circle CI| |Build Status|
 
 | Python plugin for `Paystack <https://paystack.com/>`_
 | View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`_
@@ -363,8 +363,8 @@ JSON data from paystack API.
 
 .. |Coverage Status| image:: https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=develop
    :target: https://coveralls.io/github/andela-sjames/paystack-python?branch=master
-.. |Build Status| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/build.png?b=master
-   :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/build-status/master
+.. |Scrutinizer Code Quality| image:: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master
+   :target: https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master
 .. |Circle CI| image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://img.shields.io/badge/license-MIT-blue.svg
 .. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master

@@ -3,8 +3,8 @@ paystack-python
 
 |Coverage Status| |Scrutinizer Code Quality| |Circle CI| |Build Status|
 
-| Python plugin for `Paystack <https://paystack.com/>`__
-| View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`__
+| Python plugin for `Paystack <https://paystack.com/>`_
+| View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`_
 
 Installation
 ============
@@ -58,7 +58,6 @@ You can also set your secret key in your script.
     ``PAYSTACK_SECRET_KEY``
 
 Transactions
-------------
 
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''

@@ -3,7 +3,6 @@
 
 import unittest
 import httpretty
-import mock
 
 from paystackapi.plan import Plan
 
@@ -68,6 +67,3 @@ class TestPlan(unittest.TestCase):
 
         response = Plan.update(plan_id=78, interval="monthly", amount=70000)
         self.assertEqual(response['status'], True)
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)

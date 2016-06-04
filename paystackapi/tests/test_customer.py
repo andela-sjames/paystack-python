@@ -67,6 +67,3 @@ class TestCustomer(unittest.TestCase):
 
         response = Customer.update(customer_id=4013, first_name='andela')
         self.assertEqual(response['status'], True)
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)

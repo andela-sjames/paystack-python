@@ -3,8 +3,12 @@ paystack-python
 
 |Coverage Status| |Scrutinizer Code Quality| |Circle CI| |Build Status|
 
+.. image:: https://badge.fury.io/py/paystackapi.svg
+    :target: https://badge.fury.io/py/paystackapi
+
 | Python plugin for `Paystack <https://paystack.com/>`_
 | View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`_
+
 
 Installation
 ============
@@ -368,5 +372,3 @@ JSON data from paystack API.
    :target: https://img.shields.io/badge/license-MIT-blue.svg
 .. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
    :target: https://travis-ci.org/andela-sjames/paystack-python
-.. image:: https://badge.fury.io/py/paystackapi.svg
-    :target: https://badge.fury.io/py/paystackapi

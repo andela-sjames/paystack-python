@@ -368,3 +368,5 @@ JSON data from paystack API.
    :target: https://img.shields.io/badge/license-MIT-blue.svg
 .. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
    :target: https://travis-ci.org/andela-sjames/paystack-python
+.. image:: https://badge.fury.io/py/paystackapi.svg
+    :target: https://badge.fury.io/py/paystackapi

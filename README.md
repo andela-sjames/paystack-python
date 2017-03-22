@@ -36,13 +36,8 @@ To start using the Paystack Python API, you need to start by setting your secret
 You can set your secret key in your environment by running:
 ```bash
 export PAYSTACK_SECRET_KEY = 'your_secret_key'
-```
+```  
 
-You can also set your secret key in your script.
-```python
-import paystackapi
-paystackapi.SECRET_KEY = 'your_secret_key'
-```
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
 

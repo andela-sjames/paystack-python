@@ -1,8 +1,4 @@
-from pypandoc import convert
+import pypandoc
 
-
-def read_md(value):
-    return convert(value, 'rst')
-
-with open('README.rst', 'w') as outputfile:
-    outputfile.write(read_md('README.md'))
+output = pypandoc.convert_file('README.md', 'rst', outputfile="README.rst")
+assert output == ""

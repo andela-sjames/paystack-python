@@ -2,13 +2,10 @@ paystack-python
 ===============
 
 |Coverage Status| |Scrutinizer Code Quality| |Circle CI| |Build Status|
+|PyPI version|
 
-.. image:: https://badge.fury.io/py/paystackapi.svg
-    :target: https://badge.fury.io/py/paystackapi
-
-| Python plugin for `Paystack <https://paystack.com/>`_
-| View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`_
-
+| Python plugin for `Paystack <https://paystack.com/>`__
+| View on `pypi.python.org <https://pypi.python.org/pypi/paystackapi>`__
 
 Installation
 ============
@@ -23,16 +20,16 @@ Instantiate Paystack
 .. code:: python
 
     from paystackapi.paystack import Paystack
-    paystack_secret_key = "5om3secretK3y"
+    paystack_secret_key = "5om3secretK3y"  
     paystack = Paystack(secret_key=paystack_secret_key)
 
-    # to use transaction class
-    paystack.transaction.list()
+    # to use transaction class  
+    paystack.transaction.list()  
 
-    # to use customer class
+    # to use customer class  
     paystack.customer.get(transaction_id)
 
-    # to use plan class
+    # to use plan class  
     paystack.plan.get(plan_id)
 
 Other methods can be found below...
@@ -50,18 +47,12 @@ You can set your secret key in your environment by running:
 
     export PAYSTACK_SECRET_KEY = 'your_secret_key'
 
-You can also set your secret key in your script.
-
-.. code:: python
-
-    import paystackapi
-    paystackapi.SECRET_KEY = 'your_secret_key'
-
     Don't forget to get your API key from
     `Paystack <https://paystack.com/>`__ and assign to the variable
     ``PAYSTACK_SECRET_KEY``
 
 Transactions
+------------
 
 ``Transaction.initialize(reference, amount, email, plan)`` - Initialize transaction.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -71,7 +62,7 @@ Transactions
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.initialize(reference='reference',
+    response = Transaction.initialize(reference='reference', 
                                       amount='amount', email='email')
 
 *Arguments*
@@ -91,7 +82,7 @@ JSON data from Paystack API.
 .. code:: python
 
     from paystackapi.transaction import Transaction
-    response = Transaction.charge(reference='reference',
+    response = Transaction.charge(reference='reference', 
                                   authorization_code='authorization_code',
                                   email='email',
                                   amount='amount')
@@ -200,14 +191,14 @@ Plans
 
 .. code:: python
 
-    from paystackapi.plan import Plan
-    response = Plan.create(name='value', description='value',
-                           amount=amount, interval='value',
-                           send_invoices='value',
+    from paystackapi.plan import Plan  
+    response = Plan.create(name='value', description='value', 
+                           amount=amount, interval='value', 
+                           send_invoices='value', 
                            send_sms='value',
-                           hosted_page='value',
+                           hosted_page='value', 
                            hosted_page_url='value',
-                           hosted_page_summary='value',
+                           hosted_page_summary='value', 
                            currency='value')
 
 *Arguments*
@@ -232,7 +223,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan
+    from paystackapi.plan import Plan  
     response = Plan.get(plan_id=25)
 
 *Arguments*
@@ -248,7 +239,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan
+    from paystackapi.plan import Plan  
     response = Plan.list()
 
 *Arguments*
@@ -264,7 +255,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.plan import Plan
+    from paystackapi.plan import Plan  
     response = Plan.update(plan_id=23, name=None, description=None,
                            amount=None, interval=None,
                            send_invoices=None, send_sms=None,
@@ -297,8 +288,8 @@ Customers
 
 .. code:: python
 
-    from paystackapi.customer import Customer
-    response = Customer.create(first_name='first_name',
+    from paystackapi.customer import Customer  
+    response = Customer.create(first_name='first_name', 
                                last_name='last_name',
                                email='email', phone='phone')
 
@@ -318,7 +309,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer
+    from paystackapi.customer import Customer  
     response = Customer.get(customer_id=24)
 
 *Arguments*
@@ -334,7 +325,7 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer
+    from paystackapi.customer import Customer  
     response = Customer.list()
 
 *Arguments*
@@ -350,9 +341,9 @@ JSON data from paystack API.
 
 .. code:: python
 
-    from paystackapi.customer import Customer
-    response = Customer.update(customer_id=24, first_name=None,
-                               last_name=None, email=None,
+    from paystackapi.customer import Customer  
+    response = Customer.update(customer_id=24, first_name=None, 
+                               last_name=None, email=None, 
                                phone=None)
 
 *Arguments* - ``customer_id``: paystack customer id. - ``first_name``:
@@ -372,3 +363,5 @@ JSON data from paystack API.
    :target: https://img.shields.io/badge/license-MIT-blue.svg
 .. |Build Status| image:: https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master
    :target: https://travis-ci.org/andela-sjames/paystack-python
+.. |PyPI version| image:: https://badge.fury.io/py/paystackapi.svg
+   :target: https://badge.fury.io/py/paystackapi

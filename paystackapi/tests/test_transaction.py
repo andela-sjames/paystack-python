@@ -13,7 +13,7 @@ class TestTransaction(unittest.TestCase):
     @httpretty.activate
     def test_initialize(self):
         httpretty.register_uri(
-            httpretty.GET,
+            httpretty.POST,
             "https://api.paystack.co/transaction/initialize",
             content_type='text/json',
             body='{"status": true, "contributors": true}',

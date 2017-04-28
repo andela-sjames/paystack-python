@@ -21,7 +21,7 @@ class Transaction(PayStackBase):
             Json data from paystack API.
         """
 
-        return cls().requests.get('transaction/initialize', data=kwargs)
+        return cls().requests.post('transaction/initialize', data=kwargs)
 
     @classmethod
     def charge(cls, **kwargs):

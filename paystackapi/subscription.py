@@ -40,7 +40,7 @@ class Subscription(PayStackBase):
         """
         Disables subscription
         Args:
-            code: Subscription code
+             code: Subscription code
             token: Email token
         returns:
             Json data from paystack API

@@ -72,4 +72,4 @@ class Subscription(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('subscription/{subscription_id)'.format(**locals()))
+        return cls().requests.get('subscription/{subscription_id}'.format(**locals()))

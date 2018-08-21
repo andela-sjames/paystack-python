@@ -16,16 +16,19 @@ pip install paystackapi
 ```python
 from paystackapi.paystack import Paystack
 paystack_secret_key = "5om3secretK3y"  
-paystack = Paystack(secret_key=paystack_secret_key)
+paystack = Paystack(secret_key=paystack_secret_key)  
 
 # to use transaction class  
 paystack.transaction.list()  
 
 # to use customer class  
-paystack.customer.get(transaction_id)
+paystack.customer.get(transaction_id)  
 
 # to use plan class  
-paystack.plan.get(plan_id)
+paystack.plan.get(plan_id)  
+
+# to use subscription class  
+paystack.subscription.list()  
 ```
 #####Other methods can be found below...
 
@@ -330,3 +333,90 @@ response = Customer.update(customer_id=24, first_name=None,
 
 JSON data from paystack API.
 
+## Subscription
+
+##### `Subscription.create(customer, plan, authorization, start_date)` - Create subscription.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx', 
+                               plan='Pln_2yudUnIds2p', 
+                               authorization='34', 
+                               start_date=None)
+```
+
+*Arguments*
+- `customer`: Customer's email address or customer code.
+- `plan`: Plan code.
+- `authorization`: customers authorization code.
+- `start_date`:  the date for the first debit. (ISO 8601 format)
+
+*Returns*
+
+JSON data from paystack API. 
+
+##### `Subscription.fetch(subscription_id)` - Fetch subscription.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.fetch(subscription_id=4033)
+```
+
+*Arguments*
+- `subscription_id`: subscription id.
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Subscription.list()` - List subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.list()
+```
+
+*Arguments*
+
+No argument required.
+
+*Returns*
+
+JSON data from paystack API.
+
+##### `Subscription.disable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Disable subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.disable(code="SUB_vsyqdmlzble3uii", 
+                                token="d7gofp6yppn3qz7")
+```
+
+*Arguments*
+
+*Arguments*
+- `code`: Subscription code.
+- `token`: Email token.
+
+
+*Returns*
+
+JSON data from paystack API.
+
+##### `Subscription.enable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Enable subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.enable(code="SUB_vsyqdmlzble3uii", 
+                                token="d7gofp6yppn3qz7")
+```
+
+*Arguments*
+- `code`: Subscription code.
+- `token`: Email token.
+
+
+*Returns*
+
+JSON data from paystack API.

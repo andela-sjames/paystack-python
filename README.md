@@ -353,4 +353,70 @@ response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx',
 
 *Returns*
 
+JSON data from paystack API. 
+
+##### `Subscription.fetch(subscription_id)` - Fetch subscription.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.fetch(subscription_id=4033)
+```
+
+*Arguments*
+- `subscription_id`: subscription id.
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Subscription.list()` - List subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.list()
+```
+
+*Arguments*
+
+No argument required.
+
+*Returns*
+
+JSON data from paystack API.
+
+##### `Subscription.disable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Disable subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.disable(code="SUB_vsyqdmlzble3uii", 
+                                token="d7gofp6yppn3qz7")
+```
+
+*Arguments*
+
+*Arguments*
+- `code`: Subscription code.
+- `token`: Email token.
+
+
+*Returns*
+
+JSON data from paystack API.
+
+##### `Subscription.enable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Enable subscriptions.
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.enable(code="SUB_vsyqdmlzble3uii", 
+                                token="d7gofp6yppn3qz7")
+```
+
+*Arguments*
+- `code`: Subscription code.
+- `token`: Email token.
+
+
+*Returns*
+
 JSON data from paystack API.

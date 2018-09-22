@@ -1,36 +1,37 @@
 # paystack-python
-[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=develop)](https://coveralls.io/github/andela-sjames/paystack-python?branch=master) 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master) 
+[![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=develop)](https://coveralls.io/github/andela-sjames/paystack-python?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master)
 [![Circle CI](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg) [![Build Status](https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master)](https://travis-ci.org/andela-sjames/paystack-python)
 [![PyPI version](https://badge.fury.io/py/paystackapi.svg)](https://badge.fury.io/py/paystackapi)
 
-Python plugin for [Paystack](https://paystack.com/)  
-View on [pypi.python.org](https://pypi.python.org/pypi/paystackapi)  
+Python plugin for [Paystack](https://paystack.com/)
+View on [pypi.python.org](https://pypi.python.org/pypi/paystackapi)
 
 # Installation
 ```
 pip install paystackapi
 ```
-# Instantiate Paystack  
+# Instantiate Paystack
 
 ```python
 from paystackapi.paystack import Paystack
-paystack_secret_key = "5om3secretK3y"  
-paystack = Paystack(secret_key=paystack_secret_key)  
+paystack_secret_key = "5om3secretK3y"
+paystack = Paystack(secret_key=paystack_secret_key)
 
-# to use transaction class  
-paystack.transaction.list()  
+# to use transaction class
+paystack.transaction.list()
 
-# to use customer class  
-paystack.customer.get(transaction_id)  
+# to use customer class
+paystack.customer.get(transaction_id)
 
-# to use plan class  
-paystack.plan.get(plan_id)  
+# to use plan class
+paystack.plan.get(plan_id)
 
-# to use subscription class  
-paystack.subscription.list()  
+# to use subscription class
+paystack.subscription.list()
 ```
-#####Other methods can be found below...
+
+##### Other methods can be found below...
 
 # Static Use
 
@@ -39,7 +40,7 @@ To start using the Paystack Python API, you need to start by setting your secret
 You can set your secret key in your environment by running:
 ```bash
 export PAYSTACK_SECRET_KEY = 'your_secret_key'
-```  
+```
 
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
@@ -52,7 +53,7 @@ export PAYSTACK_SECRET_KEY = 'your_secret_key'
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.initialize(reference='reference', 
+response = Transaction.initialize(reference='reference',
                                   amount='amount', email='email')
 ```
 
@@ -71,7 +72,7 @@ JSON data from Paystack API.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.charge(reference='reference', 
+response = Transaction.charge(reference='reference',
                               authorization_code='authorization_code',
                               email='email',
                               amount='amount')
@@ -170,17 +171,17 @@ JSON data from paystack API.
 
 ## Plans
 
-##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan  
+##### `Plan.create(name, description, amount, interval, send_invoices, send_sms, hosted_page, hosted_page_url, hosted_page_summary, currency)` - Create a plan
 
 ```python
-from paystackapi.plan import Plan  
-response = Plan.create(name='value', description='value', 
-                       amount=amount, interval='value', 
-                       send_invoices='value', 
+from paystackapi.plan import Plan
+response = Plan.create(name='value', description='value',
+                       amount=amount, interval='value',
+                       send_invoices='value',
                        send_sms='value',
-                       hosted_page='value', 
+                       hosted_page='value',
                        hosted_page_url='value',
-                       hosted_page_summary='value', 
+                       hosted_page_summary='value',
                        currency='value')
 ```
 
@@ -204,7 +205,7 @@ JSON data from paystack API.
 ##### `Plan.get(plan_id)` - Get a single plan.
 
 ```python
-from paystackapi.plan import Plan  
+from paystackapi.plan import Plan
 response = Plan.get(plan_id=25)
 ```
 
@@ -219,7 +220,7 @@ JSON data from paystack API.
 ##### `Plan.list()` - List paystack plan
 
 ```python
-from paystackapi.plan import Plan  
+from paystackapi.plan import Plan
 response = Plan.list()
 ```
 
@@ -234,7 +235,7 @@ JSON data from paystack API.
 ##### `Plan.update(plan_id=88, name=None, description=None, amount=None, interval=None, send_invoices=None, send_sms=None, hosted_page=None, hosted_page_url=None, hosted_page_summary=None, currency=None)` - Update paystack plan
 
 ```python
-from paystackapi.plan import Plan  
+from paystackapi.plan import Plan
 response = Plan.update(plan_id=23, name=None, description=None,
                        amount=None, interval=None,
                        send_invoices=None, send_sms=None,
@@ -266,8 +267,8 @@ JSON data from paystack API.
 ##### `Customer.create(first_name, last_name, email, phone)` - Create customer
 
 ```python
-from paystackapi.customer import Customer  
-response = Customer.create(first_name='first_name', 
+from paystackapi.customer import Customer
+response = Customer.create(first_name='first_name',
                            last_name='last_name',
                            email='email', phone='phone')
 ```
@@ -286,7 +287,7 @@ JSON data from paystack API.
 ##### `Customer.get(customer_id)` - Get customers by id
 
 ```python
-from paystackapi.customer import Customer  
+from paystackapi.customer import Customer
 response = Customer.get(customer_id=24)
 ```
 
@@ -301,7 +302,7 @@ JSON data from paystack API.
 ##### `Customer.list()` - List paystack customers
 
 ```python
-from paystackapi.customer import Customer  
+from paystackapi.customer import Customer
 response = Customer.list()
 ```
 
@@ -316,9 +317,9 @@ JSON data from paystack API.
 ##### `Customer.update(customer_id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
 
 ```python
-from paystackapi.customer import Customer  
-response = Customer.update(customer_id=24, first_name=None, 
-                           last_name=None, email=None, 
+from paystackapi.customer import Customer
+response = Customer.update(customer_id=24, first_name=None,
+                           last_name=None, email=None,
                            phone=None)
 ```
 
@@ -339,9 +340,9 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.subscription import Subscription
-response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx', 
-                               plan='Pln_2yudUnIds2p', 
-                               authorization='34', 
+response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx',
+                               plan='Pln_2yudUnIds2p',
+                               authorization='34',
                                start_date=None)
 ```
 
@@ -353,7 +354,7 @@ response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx',
 
 *Returns*
 
-JSON data from paystack API. 
+JSON data from paystack API.
 
 ##### `Subscription.fetch(subscription_id)` - Fetch subscription.
 
@@ -389,7 +390,7 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.subscription import Subscription
-response = Subscription.disable(code="SUB_vsyqdmlzble3uii", 
+response = Subscription.disable(code="SUB_vsyqdmlzble3uii",
                                 token="d7gofp6yppn3qz7")
 ```
 
@@ -408,7 +409,7 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.subscription import Subscription
-response = Subscription.enable(code="SUB_vsyqdmlzble3uii", 
+response = Subscription.enable(code="SUB_vsyqdmlzble3uii",
                                 token="d7gofp6yppn3qz7")
 ```
 
@@ -416,6 +417,77 @@ response = Subscription.enable(code="SUB_vsyqdmlzble3uii",
 - `code`: Subscription code.
 - `token`: Email token.
 
+
+*Returns*
+
+JSON data from paystack API.
+
+## Verification
+
+##### `Verification.verify_bvn(bvn)` - verify a customer's BVN
+
+```python
+from paystackapi.verification import Verification
+response = Verification.verify_bvn(bvn='1234567890')
+```
+
+*Arguments*
+
+- `bvn`: customer's bvn number
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Verification.verify_account(account_number)` - verify a customer's BVN
+
+```python
+from paystackapi.verification import Verification
+response = Verification.verify_account(account_number='1234567890')
+```
+
+*Arguments*
+
+- `account_number`: customer's account number
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Verification.verify_card_bin(card_bin)` - verify a customer's card bin
+
+```python
+from paystackapi.verification import Verification
+response = Verification.verify_card_bin(card_bin='001')
+```
+
+*Arguments*
+
+- `card_bin`: customer's card bin
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Verification.verify_phone(verification_type, phone, callback_url)` - verify a customer's phone number
+
+```python
+from paystackapi.verification import Verification
+response = Verification.verify_phone(
+    verification_type='truecaller',
+    phone='090123456890,
+    callback_url='https://google.com'
+)
+```
+
+*Arguments*
+
+- `verification_type`:  phone number verification type
+- `phone`:              phone number to be verified
+- `callback_url`:       callback url to send verification details to
 
 *Returns*
 

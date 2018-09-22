@@ -3,6 +3,7 @@ from paystackapi.customer import Customer
 from paystackapi.plan import Plan
 from paystackapi.subscription import Subscription
 from paystackapi.transaction import Transaction
+from paystackapi.verification import Verification
 
 from paystackapi.base import PayStackBase
 
@@ -17,3 +18,4 @@ class Paystack(PayStackBase):
         self.plan = Plan
         self.subscription = Subscription
         self.transaction = Transaction
+        self.verification = Verification

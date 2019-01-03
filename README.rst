@@ -447,3 +447,19 @@ JSON data from paystack API.
 *Returns*
 
 JSON data from paystack API.
+
+
+Miscellaneous
+-------------
+
+``Misc.list_banks()`` - List Banks
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+.. code:: python
+
+   from paystackapi.misc import Misc
+   response = Misc.list_banks()
+
+*Returns*
+
+JSON data from paystack API.

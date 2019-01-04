@@ -1,13 +1,12 @@
 """Script defined to test the Plan class."""
 
-
-import unittest
 import httpretty
+from paystackapi.tests.base_test_case import BaseTestCase
 
 from paystackapi.plan import Plan
 
 
-class TestPlan(unittest.TestCase):
+class TestPlan(BaseTestCase):
     """Class to test Plans."""
 
     @httpretty.activate
@@ -15,7 +14,7 @@ class TestPlan(unittest.TestCase):
         """Method defined to test plan creation."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/plan",
+            self.endpoint_url("/plan"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -31,7 +30,7 @@ class TestPlan(unittest.TestCase):
         """Function defined to test Plan get method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/plan/78",
+            self.endpoint_url("/plan/78"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -45,7 +44,7 @@ class TestPlan(unittest.TestCase):
         """Function defined to test paystackapi plan list method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/plan",
+            self.endpoint_url("/plan"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -59,7 +58,7 @@ class TestPlan(unittest.TestCase):
         """Function defined to test paystackapi plan update."""
         httpretty.register_uri(
             httpretty.PUT,
-            "https://api.paystack.co/plan/78",
+            self.endpoint_url("/plan/78"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

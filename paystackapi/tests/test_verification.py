@@ -1,13 +1,11 @@
 """Script defined to test the Verification class."""
 
-
-import unittest
 import httpretty
-
 from paystackapi.verification import Verification
+from paystackapi.tests.base_test_case import BaseTestCase
 
 
-class TestVerification(unittest.TestCase):
+class TestVerification(BaseTestCase):
     """Class to test verification actions."""
 
     @httpretty.activate
@@ -15,7 +13,7 @@ class TestVerification(unittest.TestCase):
         """Method defined to test bvn verification."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/bank/resolve_bvn/01234567689",
+            self.endpoint_url("/bank/resolve_bvn/01234567689"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=200,
@@ -29,8 +27,7 @@ class TestVerification(unittest.TestCase):
         """Method defined to test account number verification."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/bank/resolve?" +
-            "account_number=123456&bank_code=093",
+            self.endpoint_url("/bank/resolve?account_number=123456&bank_code=093"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=200,
@@ -45,7 +42,7 @@ class TestVerification(unittest.TestCase):
         """Method defined to test card bin verification."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/decision/bin/1234565",
+            self.endpoint_url("/decision/bin/1234565"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=200,
@@ -59,7 +56,7 @@ class TestVerification(unittest.TestCase):
         """Method defined to test phone number verification."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/verifications",
+            self.endpoint_url("/verifications"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

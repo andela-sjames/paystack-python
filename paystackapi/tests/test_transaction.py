@@ -1,20 +1,18 @@
 """Script defined to test the Customer class."""
 
-
-import unittest
 import httpretty
-
 from paystackapi.transaction import Transaction
+from paystackapi.tests.base_test_case import BaseTestCase
 
 
-class TestTransaction(unittest.TestCase):
+class TestTransaction(BaseTestCase):
     """Method defined to test transaction initialize."""
 
     @httpretty.activate
     def test_initialize(self):
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/transaction/initialize",
+            self.endpoint_url("/transaction/initialize"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -29,7 +27,7 @@ class TestTransaction(unittest.TestCase):
     def test_charge(self):
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/transaction/charge_authorization",
+            self.endpoint_url("/transaction/charge_authorization"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -44,7 +42,7 @@ class TestTransaction(unittest.TestCase):
     def test_charge_token(self):
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/transaction/charge_token",
+            self.endpoint_url("/transaction/charge_token"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -59,7 +57,7 @@ class TestTransaction(unittest.TestCase):
     def test_get(self):
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/transaction/4013",
+            self.endpoint_url("/transaction/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -72,7 +70,7 @@ class TestTransaction(unittest.TestCase):
     def test_list(self):
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/transaction",
+            self.endpoint_url("/transaction"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -85,7 +83,7 @@ class TestTransaction(unittest.TestCase):
     def test_totals(self):
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/transaction/totals",
+            self.endpoint_url("/transaction/totals"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -98,7 +96,7 @@ class TestTransaction(unittest.TestCase):
     def test_verify(self):
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/transaction/verify/reference",
+            self.endpoint_url("/transaction/verify/reference"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

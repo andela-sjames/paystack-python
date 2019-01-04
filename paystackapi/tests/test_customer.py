@@ -1,13 +1,11 @@
 """Script defined to test the Customer class."""
 
-
-import unittest
 import httpretty
-
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.customer import Customer
 
 
-class TestCustomer(unittest.TestCase):
+class TestCustomer(BaseTestCase):
     """Class to test customer actions."""
 
     @httpretty.activate
@@ -15,7 +13,7 @@ class TestCustomer(unittest.TestCase):
         """Method defined to test customer creation."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/customer",
+            self.endpoint_url("/customer"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -31,7 +29,7 @@ class TestCustomer(unittest.TestCase):
         """Function defined to test Customer get method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/customer/4013",
+            self.endpoint_url("/customer/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -45,7 +43,7 @@ class TestCustomer(unittest.TestCase):
         """Function defined to test paystackapi customer list method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/customer",
+            self.endpoint_url("/customer"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -59,7 +57,7 @@ class TestCustomer(unittest.TestCase):
         """Function defined to test paystackapi customer update."""
         httpretty.register_uri(
             httpretty.PUT,
-            "https://api.paystack.co/customer/4013",
+            self.endpoint_url("/customer/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

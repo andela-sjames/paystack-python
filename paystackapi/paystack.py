@@ -4,6 +4,8 @@ from paystackapi.plan import Plan
 from paystackapi.subscription import Subscription
 from paystackapi.transaction import Transaction
 from paystackapi.verification import Verification
+from paystackapi.misc import Misc
+from paystackapi.refund import Refund
 
 from paystackapi.base import PayStackBase
 
@@ -19,3 +21,5 @@ class Paystack(PayStackBase):
         self.subscription = Subscription
         self.transaction = Transaction
         self.verification = Verification
+        self.misc = Misc
+        self.refund = Refund

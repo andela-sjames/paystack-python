@@ -10,7 +10,7 @@ class TestRefund(BaseTestCase):
 		"""Test Refund Create."""
 		httpretty.register_uri(
 			httpretty.POST,
-			self.endpoint_url("/refund"),
+			self.endpoint_url("refund"),
 			content_type='text/json',
 			body='{"status": true, "message": "Refund has been queued for processing", "data": {"transaction": {}, "currency": "NGN", "amount": 180000, "status": "pending"}}',
 			status=200,
@@ -30,7 +30,7 @@ class TestRefund(BaseTestCase):
 		"""Test Refund List Method"""
 		httpretty.register_uri(
 			httpretty.GET,
-			self.endpoint_url("/refund"),
+			self.endpoint_url("refund"),
 			content_type='text/json',
 			body='{"status": true, "message": "Refunds retrieved", "data": [], "meta": {}}',
 			status=200,
@@ -49,7 +49,7 @@ class TestRefund(BaseTestCase):
 		"""Test Refund Fetching"""
 		httpretty.register_uri(
 			httpretty.GET,
-			self.endpoint_url("/refund/1234"),
+			self.endpoint_url("refund/1234"),
 			content_type='text/json',
 			body='{"status": true, "message": "Refund retrieved", "data": {"id": 1234}}',
 			status=200,

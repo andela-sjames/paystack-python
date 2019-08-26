@@ -67,8 +67,7 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('transaction/{transaction_id}'
-                                  .format(**locals()))
+        return cls().requests.get(f"transaction/{transaction_id}")
 
     @classmethod
     def list(cls):

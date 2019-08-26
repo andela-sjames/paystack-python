@@ -7,7 +7,7 @@ class Verification(PayStackBase):
     """docstring for Verification."""
 
     @classmethod
-    def verify_bvn(cls, **kwargs):
+    def verify_bvn(cls, bvn):
         """
         Verify BVN
 
@@ -17,10 +17,10 @@ class Verification(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('bank/resolve_bvn/{bvn}'.format(**kwargs))
+        return cls().requests.get(f"bank/resolve_bvn/{bvn}")
 
     @classmethod
-    def verify_account(cls, **kwargs):
+    def verify_account(cls, account_number, bank_code):
         """
         Verify account
 
@@ -32,11 +32,11 @@ class Verification(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.get(
-          'bank/resolve?account_number={account_number}&bank_code={bank_code}'
-          .format(**kwargs))
+          f"bank/resolve?account_number={account_number}&bank_code={bank_code}"
+        )
 
     @classmethod
-    def verify_card_bin(cls, **kwargs):
+    def verify_card_bin(cls, card_bin):
         """
         Verify card bin
 
@@ -46,7 +46,7 @@ class Verification(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('decision/bin/{card_bin}'.format(**kwargs))
+        return cls().requests.get(f"decision/bin/{card_bin}")
 
     @classmethod
     def verify_phone(cls, **kwargs):

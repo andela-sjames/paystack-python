@@ -1,8 +1,8 @@
 """Script defined to test the Class instance."""
 
 import httpretty
-from paystackapi.tests.base_test_case import BaseTestCase
 
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.base import PayStackBase, PayStackRequests
 
 

@@ -4,7 +4,7 @@ from paystackapi.refund import Refund
 
 
 class TestRefund(BaseTestCase):
-	
+
 	@httpretty.activate
 	def test_valid_create(self):
 		"""Test Refund Create."""
@@ -15,16 +15,15 @@ class TestRefund(BaseTestCase):
 			body='{"status": true, "message": "Refund has been queued for processing", "data": {"transaction": {}, "currency": "NGN", "amount": 180000, "status": "pending"}}',
 			status=200,
 		)
-		
+
 		response = Refund.create(transaction=1234)
 		self.assertTrue(response['status'])
 		self.assertIn('message', response)
 		self.assertIn('data', response)
 		self.assertIn('transaction', response['data'])
 		self.assertIn('currency', response['data'])
-		self.assertIn('transaction', response['data'])
 		
-		
+
 	@httpretty.activate
 	def test_list(self):
 		"""Test Refund List Method"""
@@ -35,7 +34,7 @@ class TestRefund(BaseTestCase):
 			body='{"status": true, "message": "Refunds retrieved", "data": [], "meta": {}}',
 			status=200,
 		)
-		
+
 		response = Refund.list()
 		self.assertTrue(response['status'])
 		self.assertIn('message', response)
@@ -43,7 +42,7 @@ class TestRefund(BaseTestCase):
 		self.assertIn('meta', response)
 		self.assertListEqual([], response['data'])
 		self.assertDictEqual({}, response['meta'])
-	
+
 	@httpretty.activate
 	def test_fetch(self):
 		"""Test Refund Fetching"""
@@ -54,7 +53,7 @@ class TestRefund(BaseTestCase):
 			body='{"status": true, "message": "Refund retrieved", "data": {"id": 1234}}',
 			status=200,
 		)
-		
+
 		response = Refund.fetch(refund_id=1234)
 		self.assertTrue(response['status'])
 		self.assertIn('message', response)

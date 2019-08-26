@@ -107,5 +107,4 @@ class Transaction(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('transaction/verify/{reference}'
-                                  .format(**locals()))
+        return cls().requests.get(f"transaction/verify/{reference}")

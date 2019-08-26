@@ -48,4 +48,4 @@ class Refund(PayStackBase):
 			JSON data from paystack API
 		"""
 		
-		return cls().requests.get('refund/{}'.format(refund_id))
+		return cls().requests.get(f"refund/{refund_id}")

@@ -39,7 +39,7 @@ class PayStackRequests(object):
 			api_url: str
 			headers: dict
 		"""
-		self.API_BASE_URL = f"{api_url}".format(**locals())
+		self.API_BASE_URL = f"{api_url}"
 		self.headers = headers
 
 	def _request(self, method, resource_uri, **kwargs):
@@ -54,7 +54,7 @@ class PayStackRequests(object):
 			JSON Response
 		"""
 		data = kwargs.get('data')
-		
+
 		response = method(self.API_BASE_URL + resource_uri, json=data, headers=self.headers)
 		return response.json()
 

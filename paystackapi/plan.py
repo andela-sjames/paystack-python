@@ -39,7 +39,7 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('plan/{plan_id}'.format(**locals()))
+        return cls().requests.get(f"plan/{plan_id}")
 
     @classmethod
     def list(cls):
@@ -73,5 +73,4 @@ class Plan(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.put('plan/{plan_id}'.format(**locals()),
-                                  data=kwargs)
+        return cls().requests.put(f"plan/{plan_id}", data=kwargs,)

@@ -21,7 +21,7 @@ class PayStackBase(Borg):
 		secret_key = kwargs.get('secret_key', api.SECRET_KEY)
 		authorization = kwargs.get(
 			'authorization',
-			api.HEADERS['Authorization'].format(secret_key))
+			f"{api.HEADERS['Authorization'].format(secret_key)}")
 		headers = dict(Authorization=authorization)
 		arguments = dict(api_url=api.API_URL, headers=headers)
 		if not hasattr(self, 'requests'):
@@ -39,7 +39,7 @@ class PayStackRequests(object):
 			api_url: str
 			headers: dict
 		"""
-		self.API_BASE_URL = '{api_url}'.format(**locals())
+		self.API_BASE_URL = f"{api_url}"
 		self.headers = headers
 
 	def _request(self, method, resource_uri, **kwargs):
@@ -54,7 +54,7 @@ class PayStackRequests(object):
 			JSON Response
 		"""
 		data = kwargs.get('data')
-		
+
 		response = method(self.API_BASE_URL + resource_uri, json=data, headers=self.headers)
 		return response.json()
 

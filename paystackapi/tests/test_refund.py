@@ -1,5 +1,6 @@
-from paystackapi.tests.base_test_case import BaseTestCase
 import httpretty
+
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.refund import Refund
 
 

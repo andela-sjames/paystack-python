@@ -1,6 +1,7 @@
 """Script defined to test the Customer class."""
 
 import httpretty
+
 from paystackapi.transaction import Transaction
 from paystackapi.tests.base_test_case import BaseTestCase
 

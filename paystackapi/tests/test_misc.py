@@ -1,4 +1,5 @@
 import httpretty
+
 from paystackapi.misc import Misc
 from paystackapi.tests.base_test_case import BaseTestCase
 

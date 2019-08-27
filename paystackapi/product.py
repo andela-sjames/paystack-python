@@ -16,6 +16,7 @@ class Product(PayStackBase):
             description: description of product
             price: price of the product, in kobo(Integer)
             currency: customer's phone number.
+            **kwargs
 
         Returns:
             Json data from paystack API.
@@ -47,3 +48,21 @@ class Product(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.get(f"product/{product_id}")
+
+    @classmethod
+    def update(cls, product_id, **kwargs):
+        """
+        Static method defined to update paystack customer data by id.
+
+        Args:
+            product_id: paystack customer id.
+            name: name of the product
+            description: description of product
+            price: price of the product, in kobo(Integer)
+            currency: customer's phone number.
+            **kwargs
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.put(f"product/{product_id}", data=kwargs,)

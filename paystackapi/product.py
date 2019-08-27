@@ -22,7 +22,6 @@ class Product(PayStackBase):
         """
         return cls().requests.post('product', data=kwargs,)
 
-
     @classmethod
     def list(cls):
         """
@@ -35,3 +34,16 @@ class Product(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.get('product')
+
+    @classmethod
+    def fetch(cls, product_id):
+        """
+        Get a single product by id.
+
+        Args:
+            product_id: Product id(integer).
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"product/{product_id}")

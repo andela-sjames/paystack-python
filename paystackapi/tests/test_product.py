@@ -39,7 +39,7 @@ class TestProduct(BaseTestCase):
 
     @httpretty.activate
     def test_product_fetch(self):
-        """Function defined to test Product list method."""
+        """Function defined to test Product fetch method."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/product/5499"),
@@ -52,8 +52,8 @@ class TestProduct(BaseTestCase):
         self.assertEqual(response['status'], True)
 
     @httpretty.activate
-    def test_product_fetch(self):
-        """Function defined to test Product list method."""
+    def test_product_update(self):
+        """Function defined to test Product update method."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/product/5499"),

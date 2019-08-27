@@ -1,6 +1,7 @@
 """Script defined to test the Verification class."""
 
 import httpretty
+
 from paystackapi.verification import Verification
 from paystackapi.tests.base_test_case import BaseTestCase
 

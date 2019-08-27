@@ -1,8 +1,8 @@
 """Script defined to test the Plan class."""
 
 import httpretty
-from paystackapi.tests.base_test_case import BaseTestCase
 
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.plan import Plan
 
 

@@ -1,6 +1,7 @@
 """Script defined to test the Subscription class."""
 
 import httpretty
+
 from paystackapi.subscription import Subscription
 from paystackapi.tests.base_test_case import BaseTestCase
 

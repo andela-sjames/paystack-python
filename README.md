@@ -521,7 +521,9 @@ from paystackapi.refund import Refund
 response = Refund.list(**kwargs)
 
 ```
+
 *Arguments*
+
 - `reference`: Identifier for transaction to be refunded - Optional
 - `currency`: Three-letter ISO currency - Optional
 

@@ -50,3 +50,21 @@ class SubAccount(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.get(f"subaccount/{id_or_slug}")
+
+    @classmethod
+    def update(cls, id_or_slug, **kwargs):
+        """
+        Update a single subaccount by id or slug.
+
+        Args:
+            id_or_slug: id or subaccount_code
+            business_name: name of business for subaccount
+            settlement_bank: name of Bank (accepted banks)
+            account_number: NUBAN Bank Account number
+            percentage_charge: default percentage charged on subaccount?
+            **kwargs
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"subaccount/{id_or_slug}")

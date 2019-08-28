@@ -9,13 +9,13 @@ class Product(PayStackBase):
     @classmethod
     def create(cls, **kwargs):
         """
-        Function defined to create customer.
+        Function defined to create product.
 
         Args:
             name: name of the product
             description: description of product
             price: price of the product, in kobo(Integer)
-            currency: customer's phone number.
+            currency: currency in which amount should be charged
             **kwargs
 
         Returns:
@@ -52,14 +52,14 @@ class Product(PayStackBase):
     @classmethod
     def update(cls, product_id, **kwargs):
         """
-        Static method defined to update paystack customer data by id.
+        Static method defined to update product by id.
 
         Args:
-            product_id: paystack customer id.
+            product_id: paystack product id.
             name: name of the product
             description: description of product
             price: price of the product, in kobo(Integer)
-            currency: customer's phone number.
+            currency: currency in which amount should be charged
             **kwargs
 
         Returns:

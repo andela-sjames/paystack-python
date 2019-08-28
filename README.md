@@ -562,7 +562,7 @@ response = Product.create(name="Product pypaystack test",
 - `name`: Name of the product
 - `description`: Description of product
 - `price`: Price of the product, in kobo(Integer)
-- `currency`: Customer's phone number.
+- `currency`: Currency in which amount should be charged
 - **kwargs
 
 *Returns*
@@ -617,10 +617,11 @@ response = Product.update(product_id=5499, **kwargs)
 
 *Arguments*
 
+- `product_id`: Paystack product id.
 - `name`: Name of the product
 - `description`: Description of product
 - `price`: Price of the product, in kobo(Integer)
-- `currency`: Customer's phone number.
+- `currency`: Currency in which amount should be charged
 - **kwargs
 
 *Returns*

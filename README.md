@@ -544,6 +544,91 @@ response = Refund.fetch(refund_id=1234)
 JSON data from paystack API.
 
 
+Product
+-------
+#### `Product.create(**kwargs)` - Create a Product
+
+*Usage*
+
+```python
+from paystackapi.product import Product
+response = Product.create(name="Product pypaystack test",
+						  description="my test description",
+                          price=500000, currency="NGN", **kwargs)
+```
+
+*Arguments*
+
+- `name`: Name of the product
+- `description`: Description of product
+- `price`: Price of the product, in kobo(Integer)
+- `currency`: Customer's phone number.
+- **kwargs
+
+*Returns*
+
+JSON data from Paystack API.
+
+
+#### `Product.list()` - list created Products
+
+*Usage*
+
+```python
+from paystackapi.product import Product
+response = Product.list()
+```
+
+*Arguments*
+
+No argument required.
+
+*Returns*
+
+JSON data from Paystack API.
+
+
+#### `Product.fetch()` - fetch created Products by id
+
+*Usage*
+
+```python
+from paystackapi.product import Product
+response = Product.fetch(product_id=5499)
+```
+
+*Arguments*
+
+- `product_id`: Product id(integer).
+
+*Returns*
+
+JSON data from Paystack API.
+
+
+#### `Product.update(product_id, **kwargs)` - update a created Product by id
+
+*Usage*
+
+```python
+from paystackapi.product import Product
+response = Product.update(product_id=5499, **kwargs)
+```
+
+*Arguments*
+
+- `name`: Name of the product
+- `description`: Description of product
+- `price`: Price of the product, in kobo(Integer)
+- `currency`: Customer's phone number.
+- **kwargs
+
+*Returns*
+
+JSON data from Paystack API.
+
+
+
 Miscellaneous
 -------------
 

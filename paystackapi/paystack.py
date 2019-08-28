@@ -1,6 +1,7 @@
 """Entry point defined here."""
 from paystackapi.customer import Customer
 from paystackapi.plan import Plan
+from paystackapi.product import Product
 from paystackapi.subscription import Subscription
 from paystackapi.transaction import Transaction
 from paystackapi.verification import Verification
@@ -18,6 +19,7 @@ class Paystack(PayStackBase):
         PayStackBase.__init__(self, secret_key=secret_key)
         self.customer = Customer
         self.plan = Plan
+        self.product = Product
         self.subscription = Subscription
         self.transaction = Transaction
         self.verification = Verification

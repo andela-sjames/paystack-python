@@ -5,7 +5,7 @@ from paystackapi.base import PayStackBase
 
 class SubAccount(PayStackBase):
     """docstring for SubAccount."""
-    
+
     @classmethod
     def create(cls, **kwargs):
         """

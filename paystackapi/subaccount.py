@@ -37,3 +37,16 @@ class SubAccount(PayStackBase):
 		"""
 		
 		return cls().requests.get('subaccount', data=kwargs)
+
+    @classmethod
+    def fetch(cls, id_or_slug):
+        """
+        Get a single subaccount by id or slug.
+
+        Args:
+            id_or_slug: id or subaccount_code
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"subaccount/{id_or_slug}")

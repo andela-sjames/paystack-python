@@ -48,5 +48,5 @@ class TestSubAccount(BaseTestCase):
             status=201,
         )
 
-        response = Product.fetch(id_or_slug="ACCT_4hl4xenwpjy5wb")
+        response = SubAccount.fetch(id_or_slug="ACCT_4hl4xenwpjy5wb")
         self.assertEqual(response['status'], True)

@@ -39,7 +39,7 @@ class TestSubAccount(BaseTestCase):
     
     @httpretty.activate
     def test_subaccount_fetch(self):
-        """Function defined to test Product fetch method."""
+        """Function defined to test subaccount fetch method."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/subaccount/ACCT_4hl4xenwpjy5wb"),
@@ -50,3 +50,18 @@ class TestSubAccount(BaseTestCase):
 
         response = SubAccount.fetch(id_or_slug="ACCT_4hl4xenwpjy5wb")
         self.assertEqual(response['status'], True)
+
+    @httpretty.activate
+    def test_subaccount_update(self):
+        """Function defined to test subaccount update method."""
+        httpretty.register_uri(
+            httpretty.PUT,
+            self.endpoint_url("/subaccount/ACCT_4hl4xenwpjy5wb"),
+            content_type='text/json',
+            body='{"status": true, "message": "Subaccount updated"}',
+            status=201,
+        )
+
+        response = SubAccount.update(id_or_slug="ACCT_4hl4xenwpjy5wb", percentage_charge="16.9")
+        self.assertEqual(response['status'], True)
+

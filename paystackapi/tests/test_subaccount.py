@@ -8,8 +8,6 @@ class TestSubAccount(BaseTestCase):
 
     @httpretty.activate
     def test_subaccount_create(self):
-        pass
-
         """Method defined to test subaccount creation."""
         httpretty.register_uri(
             httpretty.POST,
@@ -32,9 +30,23 @@ class TestSubAccount(BaseTestCase):
             httpretty.GET,
             self.endpoint_url("/subaccount"),
             content_type='text/json',
-            body='{"status": true, "message": "Products retrieved", "data":[{}], "meta":{}}',
+            body='{"status": true, "message": "Subaccounts retrieved"}',
             status=201,
         )
 
         response = SubAccount.list(perPage=3, page=1)
+        self.assertEqual(response['status'], True)
+    
+    @httpretty.activate
+    def test_subaccount_fetch(self):
+        """Function defined to test Product fetch method."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/subaccount/ACCT_4hl4xenwpjy5wb"),
+            content_type='text/json',
+            body='{"status": true, "message": "Subaccount retrieved"}',
+            status=201,
+        )
+
+        response = Product.fetch(id_or_slug="ACCT_4hl4xenwpjy5wb")
         self.assertEqual(response['status'], True)

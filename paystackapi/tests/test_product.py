@@ -48,7 +48,7 @@ class TestProduct(BaseTestCase):
             status=201,
         )
 
-        response = Product.fetch(5499)
+        response = Product.fetch(product_id=5499)
         self.assertEqual(response['status'], True)
 
     @httpretty.activate

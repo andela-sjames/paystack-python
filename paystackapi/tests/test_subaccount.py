@@ -24,3 +24,17 @@ class TestSubAccount(BaseTestCase):
             account_number="xxxxxxxxx", percentage_charge="6.9"
         )
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_subaccount_list(self):
+        """Function defined to test subaccount list method."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/subaccount"),
+            content_type='text/json',
+            body='{"status": true, "message": "Products retrieved", "data":[{}], "meta":{}}',
+            status=201,
+        )
+
+        response = SubAccount.list(perPage=3, page=1)
+        self.assertEqual(response['status'], True)

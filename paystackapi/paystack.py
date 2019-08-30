@@ -3,6 +3,8 @@ from paystackapi.customer import Customer
 from paystackapi.plan import Plan
 from paystackapi.product import Product
 from paystackapi.subscription import Subscription
+from paystackapi.subaccount import SubAccount
+from paystackapi.page import Page
 from paystackapi.transaction import Transaction
 from paystackapi.verification import Verification
 from paystackapi.misc import Misc
@@ -25,3 +27,5 @@ class Paystack(PayStackBase):
         self.verification = Verification
         self.misc = Misc
         self.refund = Refund
+        self.subaccount = SubAccount
+        self.page = Page

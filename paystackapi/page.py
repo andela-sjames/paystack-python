@@ -40,9 +40,24 @@ class Page(PayStackBase):
         Get a single page by id or slug.
 
         Args:
-            id_or_slug: id or subaccount_code
+            id_or_slug: id or slug
 
         Returns:
             Json data from paystack API.
         """
         return cls().requests.get(f"page/{id_or_slug}")
+
+    @classmethod
+    def update(cls, id_or_slug, **kwargs):
+        """
+        Update a single page by id or slug.
+
+        Args:
+            id_or_slug: id or slug
+            **kwargs
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.put(f"page/{id_or_slug}")
+

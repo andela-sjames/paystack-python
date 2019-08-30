@@ -85,7 +85,7 @@ class TestPage(BaseTestCase):
             httpretty.PUT,
             self.endpoint_url("/page/23/product"),
             content_type='text/json',
-            body='{"status": true, "message": "Slug is available"}',
+            body='{"status": true, "message": "Products added to page"}',
             status=201,
         )
 

@@ -63,3 +63,17 @@ class TestPage(BaseTestCase):
 
         response = Page.update(id_or_slug="5nApBwZkvY", name="new page name")
         self.assertEqual(response['status'], True)
+
+    @httpretty.activate
+    def test_is_slug_available(self):
+        """Function defined to test_is_slug_available method."""
+        httpretty.register_uri(
+            httpretty.PUT,
+            self.endpoint_url("/page/check_slug_availability/5nApBwZkvY"),
+            content_type='text/json',
+            body='{"status": true, "message": "Slug is available"}',
+            status=201,
+        )
+
+        response = Page.is_slug_available(slug="5nApBwZkvY")
+        self.assertEqual(response['status'], True)

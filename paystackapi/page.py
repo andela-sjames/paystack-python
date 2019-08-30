@@ -59,7 +59,7 @@ class Page(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.put(f"page/{id_or_slug}")
+        return cls().requests.put(f"page/{id_or_slug}", data=kwargs,)
 
     @classmethod
     def is_slug_available(cls, slug):
@@ -73,3 +73,17 @@ class Page(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.put(f"page/check_slug_availability/{slug}")
+
+    @classmethod
+    def add_products(cls, payment_page_id, **kwargs):
+        """
+        Add products to page
+
+        Args:
+            payment_page_id: Id of the payment page
+            product: Ids of all the products i.e. [473, 292]
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.put(f"page/{payment_page_id}/product", data=kwargs,)

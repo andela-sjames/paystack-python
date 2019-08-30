@@ -61,3 +61,15 @@ class Page(PayStackBase):
         """
         return cls().requests.put(f"page/{id_or_slug}")
 
+    @classmethod
+    def is_slug_available(cls, slug):
+        """
+        Check if a slug is available.
+
+        Args:
+            slug: URL slug to be confirmed
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.put(f"page/check_slug_availability/{slug}")

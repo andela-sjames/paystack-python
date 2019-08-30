@@ -34,3 +34,15 @@ class Page(PayStackBase):
         """
         return cls().requests.get(f"page?perPage={perPage}&page={page}")
 
+    @classmethod
+    def fetch(cls, id_or_slug):
+        """
+        Get a single page by id or slug.
+
+        Args:
+            id_or_slug: id or subaccount_code
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"page/{id_or_slug}")

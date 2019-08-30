@@ -80,7 +80,7 @@ class Page(PayStackBase):
         Add products to page
 
         Args:
-            payment_page_id: Id of the payment page
+            payment_page_id: Id of the payment page (Integer)
             product: Ids of all the products i.e. [473, 292]
 
         Returns:

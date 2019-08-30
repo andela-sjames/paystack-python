@@ -77,3 +77,17 @@ class TestPage(BaseTestCase):
 
         response = Page.is_slug_available(slug="5nApBwZkvY")
         self.assertEqual(response['status'], True)
+
+    @httpretty.activate
+    def test_add_products(self):
+        """Function defined to test add_products method."""
+        httpretty.register_uri(
+            httpretty.PUT,
+            self.endpoint_url("/page/23/product"),
+            content_type='text/json',
+            body='{"status": true, "message": "Slug is available"}',
+            status=201,
+        )
+
+        response = Page.add_products(payment_page_id=23, product=[[473, 292]])
+        self.assertEqual(response['status'], True)

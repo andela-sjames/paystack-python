@@ -7,7 +7,7 @@ class Page(PayStackBase):
     """docstring for Page."""
 
     @classmethod
-    def create(cls, **kwargs):
+    def create(cls, name, **kwargs):
         """
         Function defined to create a new page.
 

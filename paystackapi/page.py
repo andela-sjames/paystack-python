@@ -19,3 +19,18 @@ class Page(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('page', data=kwargs,)
+
+    @classmethod
+    def list(cls, perPage, page):
+        """
+        List pages
+        
+        Args:
+            perPage: records you want to retrieve per page (Integer)
+            page: what page you want to retrieve (Integer)
+        
+        Returns:
+        JSON data from paystack's API.
+        """
+        return cls().requests.get(f"page?perPage={perPage}&page={page}")
+

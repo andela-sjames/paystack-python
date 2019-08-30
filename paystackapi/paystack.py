@@ -20,12 +20,12 @@ class Paystack(PayStackBase):
         """Instantiate Basic Classes to call here."""
         PayStackBase.__init__(self, secret_key=secret_key)
         self.customer = Customer
+        self.misc = Misc
+        self.page = Page
         self.plan = Plan
         self.product = Product
+        self.refund = Refund
+        self.subaccount = SubAccount
         self.subscription = Subscription
         self.transaction = Transaction
         self.verification = Verification
-        self.misc = Misc
-        self.refund = Refund
-        self.subaccount = SubAccount
-        self.page = Page

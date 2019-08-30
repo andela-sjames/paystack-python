@@ -27,7 +27,7 @@ class TestPage(BaseTestCase):
         """Function defined to test page list method."""
         httpretty.register_uri(
             httpretty.GET,
-            self.endpoint_url("/page/perPage=3&page=1"),
+            self.endpoint_url("/page"),
             content_type='text/json',
             body='{"status": true, "message": "Pages retrieved"}',
             status=201,

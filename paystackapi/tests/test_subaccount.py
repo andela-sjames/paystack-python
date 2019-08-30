@@ -28,7 +28,7 @@ class TestSubAccount(BaseTestCase):
         """Function defined to test subaccount list method."""
         httpretty.register_uri(
             httpretty.GET,
-            self.endpoint_url("/subaccount/perPage=3&page=1"),
+            self.endpoint_url("/subaccount"),
             content_type='text/json',
             body='{"status": true, "message": "Subaccounts retrieved"}',
             status=201,

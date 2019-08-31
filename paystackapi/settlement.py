@@ -7,7 +7,7 @@ class Settlement(PayStackBase):
     """docstring for settlement."""
 
     @classmethod
-    def fetch(cls, start_date, end_date, subaccount):
+    def fetch(cls, start_date, end_date, subaccount=None):
         """
         Function defined to fetch settlement.
 

@@ -22,4 +22,4 @@ class Settlement(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get(f"subaccount?from={start_date}&to={end_date}&subaccount={subaccount}")
+        return cls().requests.get(f"settlement?from={start_date}&to={end_date}&subaccount={subaccount}")

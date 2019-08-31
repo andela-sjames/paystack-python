@@ -25,7 +25,7 @@ class TestProduct(BaseTestCase):
 
     @httpretty.activate
     def test_product_list(self):
-        """Function defined to test Product list method."""
+        """Method defined to test Product list."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/product"),
@@ -39,7 +39,7 @@ class TestProduct(BaseTestCase):
 
     @httpretty.activate
     def test_product_fetch(self):
-        """Function defined to test Product fetch method."""
+        """Method defined to test Product fetch."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/product/5499"),
@@ -53,7 +53,7 @@ class TestProduct(BaseTestCase):
 
     @httpretty.activate
     def test_product_update(self):
-        """Function defined to test Product update method."""
+        """Method defined to test Product update."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/product/5499"),

@@ -27,7 +27,7 @@ class TestCustomer(BaseTestCase):
 
     @httpretty.activate
     def test_get(self):
-        """Function defined to test Customer get method."""
+        """Method defined to test Customer get."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/customer/4013"),
@@ -41,7 +41,7 @@ class TestCustomer(BaseTestCase):
 
     @httpretty.activate
     def test_list(self):
-        """Function defined to test paystackapi customer list method."""
+        """Method defined to test paystackapi customer list."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/customer"),
@@ -55,7 +55,7 @@ class TestCustomer(BaseTestCase):
 
     @httpretty.activate
     def test_update(self):
-        """Function defined to test paystackapi customer update."""
+        """Method defined to test paystackapi customer update."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/customer/4013"),

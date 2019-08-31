@@ -27,7 +27,7 @@ class TestPlan(BaseTestCase):
 
     @httpretty.activate
     def test_get(self):
-        """Function defined to test Plan get method."""
+        """Method defined to test Plan get."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/plan/78"),
@@ -41,7 +41,7 @@ class TestPlan(BaseTestCase):
 
     @httpretty.activate
     def test_list(self):
-        """Function defined to test paystackapi plan list method."""
+        """Method defined to test paystackapi plan list."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/plan"),
@@ -55,7 +55,7 @@ class TestPlan(BaseTestCase):
 
     @httpretty.activate
     def test_update(self):
-        """Function defined to test paystackapi plan update."""
+        """Method defined to test paystackapi plan update."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/plan/78"),

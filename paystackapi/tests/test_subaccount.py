@@ -25,7 +25,7 @@ class TestSubAccount(BaseTestCase):
 
     @httpretty.activate
     def test_subaccount_list(self):
-        """Function defined to test subaccount list method."""
+        """Method defined to test subaccount list."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/subaccount"),
@@ -39,7 +39,7 @@ class TestSubAccount(BaseTestCase):
     
     @httpretty.activate
     def test_subaccount_fetch(self):
-        """Function defined to test subaccount fetch method."""
+        """Method defined to test subaccount fetch."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/subaccount/ACCT_4hl4xenwpjy5wb"),
@@ -53,7 +53,7 @@ class TestSubAccount(BaseTestCase):
 
     @httpretty.activate
     def test_subaccount_update(self):
-        """Function defined to test subaccount update method."""
+        """Method defined to test subaccount update."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/subaccount/ACCT_4hl4xenwpjy5wb"),

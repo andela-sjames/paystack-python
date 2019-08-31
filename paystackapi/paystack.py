@@ -1,14 +1,15 @@
 """Entry point defined here."""
 from paystackapi.customer import Customer
+from paystackapi.misc import Misc
+from paystackapi.page import Page
 from paystackapi.plan import Plan
 from paystackapi.product import Product
-from paystackapi.subscription import Subscription
+from paystackapi.refund import Refund
+from paystackapi.settlement import Settlement
 from paystackapi.subaccount import SubAccount
-from paystackapi.page import Page
+from paystackapi.subscription import Subscription
 from paystackapi.transaction import Transaction
 from paystackapi.verification import Verification
-from paystackapi.misc import Misc
-from paystackapi.refund import Refund
 
 from paystackapi.base import PayStackBase
 
@@ -25,6 +26,7 @@ class Paystack(PayStackBase):
         self.plan = Plan
         self.product = Product
         self.refund = Refund
+        self.settlement = Settlement
         self.subaccount = SubAccount
         self.subscription = Subscription
         self.transaction = Transaction

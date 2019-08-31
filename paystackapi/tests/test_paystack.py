@@ -14,7 +14,7 @@ class TestPaystackClass(BaseTestCase):
 
     @httpretty.activate
     def test_transaction_init(self):
-        """Function defined to test dynamic class use."""
+        """Method defined to test dynamic class use."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/transaction"),

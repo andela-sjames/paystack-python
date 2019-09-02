@@ -80,9 +80,8 @@ class Invoice(PayStackBase):
         """
             return cls().requests.post('paymentrequest/notify/{id_or_code}')
 
-    
     @classmethod
-    def dashboard_metrics(cls, id_or_code):
+    def dashboard_metrics(cls):
         """
         Method defined to get Dashboard metrics.
 
@@ -92,5 +91,17 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('paymentrequest/totals')
+            return cls().requests.get('paymentrequest/totals')
 
+    @classmethod
+    def finalize_draft(cls, id_or_code):
+        """
+        Method defined to finalize a draft.
+
+        Args:
+            id_or_code: No Arguments required
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.post('paymentrequest/finalize/{id_or_code}')

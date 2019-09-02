@@ -79,3 +79,18 @@ class Invoice(PayStackBase):
             Json data from paystack API.
         """
             return cls().requests.post('paymentrequest/notify/{id_or_code}')
+
+    
+    @classmethod
+    def dashboard_metrics(cls, id_or_code):
+        """
+        Method defined to get Dashboard metrics.
+
+        Args:
+            No Arguments required
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.post('paymentrequest/totals')
+

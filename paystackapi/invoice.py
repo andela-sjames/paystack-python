@@ -66,3 +66,16 @@ class Invoice(PayStackBase):
             Json data from paystack API.
         """
             return cls().requests.get('paymentrequest/verify/{invoice_code}')
+
+    @classmethod
+    def send_notification(cls, id_or_code):
+        """
+        Method defined to send notification
+
+        Args:
+            id_or_code: id or code (string)
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.post('paymentrequest/notify/{id_or_code}')

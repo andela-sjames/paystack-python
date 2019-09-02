@@ -10,7 +10,7 @@ class TestPage(BaseTestCase):
     def test_fetch_payment_session_timeout(self):
         """Method defined to test fetch payment session timeout."""
         httpretty.register_uri(
-            httpretty.get,
+            httpretty.GET,
             self.endpoint_url("/integration/payment_session_timeout"),
             content_type='text/json',
             body='{"status": true, "message": "Payment session timeout retrieved"}',

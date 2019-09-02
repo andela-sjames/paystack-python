@@ -53,3 +53,16 @@ class Invoice(PayStackBase):
             Json data from paystack API.
         """
             return cls().requests.get('paymentrequest/{invoice_id_or_code}')
+
+    @classmethod
+    def verify(cls, invoice_code):
+        """
+        Method defined to verify an invoice
+
+        Args:
+            invoice_code: invoice Code (string)
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.get('paymentrequest/verify/{invoice_code}')

@@ -33,10 +33,23 @@ class Invoice(PayStackBase):
             customer: filter by customer ID
             status: filter by invoice status
             currency: filter by currency
-            paid: filter by paid 
+            paid: filter by paid invoice
             include_archive: include_archive
 
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.post('paymentrequest', qs=kwargs,)
+        return cls().requests.get('paymentrequest', qs=kwargs,)
+
+    @classmethod
+    def view(cls, invoice_id_or_code):
+        """
+        Method defined to view an invoice
+
+        Args:
+            invoice_id_or_code: invoice ID or Code (string)
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.get('paymentrequest/{invoice_id_or_code}')

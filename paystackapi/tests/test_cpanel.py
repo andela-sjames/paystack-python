@@ -21,7 +21,7 @@ class TestPage(BaseTestCase):
         self.assertTrue(response['status'])
 
     @httpretty.activate
-    def test_fetch_payment_session_timeout(self):
+    def test_update_payment_session_timeout(self):
         """Method defined to test update payment session timeout."""
         httpretty.register_uri(
             httpretty.PUT,

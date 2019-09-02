@@ -31,6 +31,8 @@ paystack.plan.get(plan_id)
 paystack.subscription.list()
 ```
 
+## DOC Reference: <https://developers.paystack.co/v2.0/reference>
+
 ##### Other methods can be found below...
 
 # Static Use
@@ -837,8 +839,8 @@ Settlements
 ```python
 from paystackapi.settlement import Settlement
 response = Settlement.fetch(
-            start_date="2016-09-12T00:00:00.000Z",
-            end_date="2016-09-12T00:00:00.000Z",
+            from="2016-09-12T00:00:00.000Z",
+            to="2016-09-12T00:00:00.000Z",
             subaccount="subaccount"
         )
 ```

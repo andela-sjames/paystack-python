@@ -66,4 +66,4 @@ class SubAccount(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.put(f"subaccount/{id_or_slug}")
+        return cls().requests.put(f"subaccount/{id_or_slug}", data=kwargs,)

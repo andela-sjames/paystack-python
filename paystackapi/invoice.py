@@ -136,7 +136,7 @@ class Invoice(PayStackBase):
     @classmethod
     def update_transfer_recipient(cls, recipient_code_or_id, **kwargs):
         """
-        Method defined to archive a draft.
+        Method defined to Update transfer recipient a draft.
 
         Args:
             recipient_code_or_id: recipient code or ID
@@ -146,4 +146,4 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('invoice/archive/{id_or_code}', data=kwargs)
+            return cls().requests.post('transferrecipient/{recipient_code_or_id}', data=kwargs)

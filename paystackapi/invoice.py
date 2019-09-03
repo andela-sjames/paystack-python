@@ -113,10 +113,23 @@ class Invoice(PayStackBase):
 
         Args:
             id_or_code: ID or Code
+            **kwargs
 
         Returns:
             Json data from paystack API.
         """
             return cls().requests.put('paymentrequest/{id_or_code}', data=kwargs)
 
-    
+    @classmethod
+    def archive(cls, id_or_code):
+        """
+        Method defined to archive a draft.
+
+        Args:
+            id_or_code: ID or Code
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.post('invoice/archive/{id_or_code}')
+

@@ -24,7 +24,7 @@ class SubAccount(PayStackBase):
         return cls().requests.post('subaccount', data=kwargs,)
 
     @classmethod
-    def list(cls, perPage, page):
+    def list(cls, **kwargs):
         """
         List subaccounts
         
@@ -35,7 +35,7 @@ class SubAccount(PayStackBase):
         Returns:
         JSON data from paystack's API.
         """
-        return cls().requests.get(f"subaccount?perPage={perPage}&page={page}")
+        return cls().requests.get("subaccount", qs=kwargs,)
 
     @classmethod
     def fetch(cls, id_or_slug):

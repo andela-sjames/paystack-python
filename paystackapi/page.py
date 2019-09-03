@@ -9,7 +9,7 @@ class Page(PayStackBase):
     @classmethod
     def create(cls, **kwargs):
         """
-        Function defined to create a new page.
+        method defined to create a new page.
 
         Args:
             name: name of page

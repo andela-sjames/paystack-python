@@ -20,7 +20,7 @@ class Verification(PayStackBase):
         return cls().requests.get(f"bank/resolve_bvn/{bvn}")
 
     @classmethod
-    def verify_account(cls, account_number, bank_code):
+    def verify_account(cls, **kwargs):
         """
         Verify account
 
@@ -31,9 +31,7 @@ class Verification(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get(
-          f"bank/resolve?account_number={account_number}&bank_code={bank_code}"
-        )
+        return cls().requests.get("bank/resolve", qs=kwargs,)
 
     @classmethod
     def verify_card_bin(cls, card_bin):

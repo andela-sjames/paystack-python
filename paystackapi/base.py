@@ -54,8 +54,13 @@ class PayStackRequests(object):
 			JSON Response
 		"""
 		data = kwargs.get('data')
+		qs = kwargs.get('qs')
 
-		response = method(self.API_BASE_URL + resource_uri, json=data, headers=self.headers)
+		response = method(
+			self.API_BASE_URL + resource_uri,
+			json=data, headers=self.headers,
+			params=qs
+		)
 		return response.json()
 
 	def get(self, endpoint, **kwargs):

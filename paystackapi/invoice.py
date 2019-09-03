@@ -99,9 +99,24 @@ class Invoice(PayStackBase):
         Method defined to finalize a draft.
 
         Args:
-            id_or_code: No Arguments required
+            id_or_code: ID or Code (string)
 
         Returns:
             Json data from paystack API.
         """
             return cls().requests.post('paymentrequest/finalize/{id_or_code}')
+
+    @classmethod
+    def update(cls, id_or_code, **kwargs):
+        """
+        Method defined to update a draft.
+
+        Args:
+            id_or_code: ID or Code
+
+        Returns:
+            Json data from paystack API.
+        """
+            return cls().requests.put('paymentrequest/{id_or_code}', data=kwargs)
+
+    

@@ -75,3 +75,19 @@ class TestInvoice(BaseTestCase):
             invoice_code="PRQ_kp4lleqc7g8xckk",
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_send_notifications(self):
+        """Method defined to test notifications Invoice."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/paymentrequest/notify/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true}',
+            status=201,
+        )
+
+        response = Invoice.send_notification(
+            id_or_code="PRQ_kp4lleqc7g8xckk",
+        )
+        self.assertTrue(response['status'])

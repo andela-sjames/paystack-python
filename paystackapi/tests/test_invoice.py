@@ -138,3 +138,19 @@ class TestInvoice(BaseTestCase):
             amount=450000
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_archive(self):
+        """Method defined to test Invoice archive."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/invoice/archive/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true, "message": "Payment request archived"}',
+            status=201,
+        )
+
+        response = Invoice.archive(
+            id_or_code="PRQ_kp4lleqc7g8xckk",
+        )
+        self.assertTrue(response['status'])

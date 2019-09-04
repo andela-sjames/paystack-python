@@ -119,6 +119,7 @@ class TestInvoice(BaseTestCase):
 
         response = Invoice.finalize_draft(
             id_or_code="PRQ_kp4lleqc7g8xckk",
+            send_notification=False
         )
         self.assertTrue(response['status'])
     
@@ -168,6 +169,8 @@ class TestInvoice(BaseTestCase):
 
         response = Invoice.update_transfer_recipient(
             recipient_code_or_id="PRQ_kp4lleqc7g8xckk",
+            name="new name",
+            email="new@email.com"
         )
         self.assertTrue(response['status'])
 

@@ -13,7 +13,7 @@ class Invoice(PayStackBase):
 
         Args:
             customer: customer id or code
-            amount: payment request amount.
+            amount: payment request amount.(Integer)
                     Only useful if line items and tax values are ignored.
                     Endpoint will throw a friendly warning if neither is available.
             due_date: ISO 8601 representation of request due date.
@@ -52,7 +52,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.get('paymentrequest/{invoice_id_or_code}')
+        return cls().requests.get('paymentrequest/{invoice_id_or_code}')
 
     @classmethod
     def verify(cls, invoice_code):
@@ -65,7 +65,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.get('paymentrequest/verify/{invoice_code}')
+        return cls().requests.get('paymentrequest/verify/{invoice_code}')
 
     @classmethod
     def send_notification(cls, id_or_code):
@@ -78,7 +78,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('paymentrequest/notify/{id_or_code}')
+        return cls().requests.post('paymentrequest/notify/{id_or_code}')
 
     @classmethod
     def dashboard_metrics(cls):
@@ -91,7 +91,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.get('paymentrequest/totals')
+        return cls().requests.get('paymentrequest/totals')
 
     @classmethod
     def finalize_draft(cls, id_or_code):
@@ -104,7 +104,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('paymentrequest/finalize/{id_or_code}')
+        return cls().requests.post('paymentrequest/finalize/{id_or_code}')
 
     @classmethod
     def update(cls, id_or_code, **kwargs):
@@ -118,7 +118,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.put('paymentrequest/{id_or_code}', data=kwargs)
+        return cls().requests.put('paymentrequest/{id_or_code}', data=kwargs)
 
     @classmethod
     def archive(cls, id_or_code):
@@ -131,7 +131,7 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('invoice/archive/{id_or_code}')
+        return cls().requests.post('invoice/archive/{id_or_code}')
 
     @classmethod
     def update_transfer_recipient(cls, recipient_code_or_id, **kwargs):
@@ -146,4 +146,4 @@ class Invoice(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-            return cls().requests.post('transferrecipient/{recipient_code_or_id}', data=kwargs)
+        return cls().requests.post('transferrecipient/{recipient_code_or_id}', data=kwargs)

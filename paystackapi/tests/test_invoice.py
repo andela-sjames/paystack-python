@@ -105,3 +105,19 @@ class TestInvoice(BaseTestCase):
 
         response = Invoice.dashboard_metrics()
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_finalize_draft(self):
+        """Method defined to test finalize_draft Invoice."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/paymentrequest/finalize/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true}',
+            status=201,
+        )
+
+        response = Invoice.finalize_draft(
+            id_or_code="PRQ_kp4lleqc7g8xckk",
+        )
+        self.assertTrue(response['status'])

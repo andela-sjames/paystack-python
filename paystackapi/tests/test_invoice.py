@@ -154,3 +154,20 @@ class TestInvoice(BaseTestCase):
             id_or_code="PRQ_kp4lleqc7g8xckk",
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_update_transfer_recipient(self):
+        """Method defined to test Invoice archive."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transferrecipient/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true}',
+            status=201,
+        )
+
+        response = Invoice.update_transfer_recipient(
+            recipient_code_or_id="PRQ_kp4lleqc7g8xckk",
+        )
+        self.assertTrue(response['status'])
+

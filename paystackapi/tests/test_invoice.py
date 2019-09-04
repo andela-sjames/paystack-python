@@ -91,3 +91,17 @@ class TestInvoice(BaseTestCase):
             id_or_code="PRQ_kp4lleqc7g8xckk",
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_dashboard_metrics(self):
+        """Method defined to test Invoice dashboard metrics."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/paymentrequest/totals"),
+            content_type='text/json',
+            body='{"status": true}',
+            status=201,
+        )
+
+        response = Invoice.dashboard_metrics()
+        self.assertTrue(response['status'])

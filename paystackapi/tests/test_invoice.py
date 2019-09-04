@@ -121,3 +121,20 @@ class TestInvoice(BaseTestCase):
             id_or_code="PRQ_kp4lleqc7g8xckk",
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_update(self):
+        """Method defined to test Invoice update."""
+        httpretty.register_uri(
+            httpretty.PUT,
+            self.endpoint_url("/paymentrequest/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true, "message": "Payment request updated"}',
+            status=201,
+        )
+
+        response = Invoice.update(
+            id_or_code="PRQ_kp4lleqc7g8xckk",
+            amount=450000
+        )
+        self.assertTrue(response['status'])

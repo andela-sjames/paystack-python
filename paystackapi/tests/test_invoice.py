@@ -59,3 +59,19 @@ class TestInvoice(BaseTestCase):
             invoice_id_or_code="PRQ_kp4lleqc7g8xckk",
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_verify_invoice(self):
+        """Method defined to test view Invoice."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/paymentrequest/verify/PRQ_kp4lleqc7g8xckk"),
+            content_type='text/json',
+            body='{"status": true, "message": "Payment request retrieved"}',
+            status=201,
+        )
+
+        response = Invoice.view(
+            invoice_id_or_code="PRQ_kp4lleqc7g8xckk",
+        )
+        self.assertTrue(response['status'])

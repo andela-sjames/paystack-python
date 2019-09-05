@@ -94,17 +94,19 @@ class Invoice(PayStackBase):
         return cls().requests.get('paymentrequest/totals')
 
     @classmethod
-    def finalize_draft(cls, id_or_code):
+    def finalize_draft(cls, id_or_code, **kwargs):
         """
         Method defined to finalize a draft.
 
         Args:
             id_or_code: ID or Code (string)
+            send_notification: Indicates whether Paystack sends an email notification to customer.
+                Defaults to true. (Boolean)
 
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.post(f'paymentrequest/finalize/{id_or_code}')
+        return cls().requests.post(f'paymentrequest/finalize/{id_or_code}', data=kwargs)
 
     @classmethod
     def update(cls, id_or_code, **kwargs):

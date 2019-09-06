@@ -23,3 +23,17 @@ class Invoice(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('transferrecipient', data=kwargs,)
+    
+    @classmethod
+    def list(cls, **kwargs):
+        """
+        Method defined to create transfer recipient.
+
+        Args:
+            perPage: records you want to retrieve per page (Integer)
+            page: what page you want to retrieve (Integer)
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get('transferrecipient', qs=kwargs,)

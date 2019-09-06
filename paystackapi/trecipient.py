@@ -3,7 +3,7 @@
 from paystackapi.base import PayStackBase
 
 
-class Invoice(PayStackBase):
+class TransactionRecipient(PayStackBase):
     """docstring for Transfer Recipient."""
 
     @classmethod

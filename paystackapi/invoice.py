@@ -1,4 +1,4 @@
-"""Script used to define the paystack Page class."""
+"""Script used to define the paystack Invoice class."""
 
 from paystackapi.base import PayStackBase
 

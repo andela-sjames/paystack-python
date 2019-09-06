@@ -21,7 +21,7 @@ class Page(PayStackBase):
         return cls().requests.post('page', data=kwargs,)
 
     @classmethod
-    def list(cls, perPage, page):
+    def list(cls, **kwargs):
         """
         List pages
         
@@ -32,7 +32,7 @@ class Page(PayStackBase):
         Returns:
         JSON data from paystack's API.
         """
-        return cls().requests.get(f"page?perPage={perPage}&page={page}")
+        return cls().requests.get("page", qs=kwargs)
 
     @classmethod
     def fetch(cls, id_or_slug):

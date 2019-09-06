@@ -27,7 +27,7 @@ class Invoice(PayStackBase):
     @classmethod
     def list(cls, **kwargs):
         """
-        Method defined to create transfer recipient.
+        Method defined to list transfer recipient.
 
         Args:
             perPage: records you want to retrieve per page (Integer)

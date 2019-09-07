@@ -1,7 +1,7 @@
 import httpretty
 
 from paystackapi.tests.base_test_case import BaseTestCase
-from paystackapi.trecipient import TransactionRecipient
+from paystackapi.trecipient import TransferRecipient
 
 class TestSubAccount(BaseTestCase):
 
@@ -16,7 +16,7 @@ class TestSubAccount(BaseTestCase):
             status=201,
         )
 
-        response = TransactionRecipient.create(
+        response = TransferRecipient.create(
             type="nuban",
             name="Zombie",
             description="Zombier",
@@ -36,5 +36,5 @@ class TestSubAccount(BaseTestCase):
             status=201,
         )
 
-        response = TransactionRecipient.list(perPage=3, page=1)
+        response = TransferRecipient.list(perPage=3, page=1)
         self.assertEqual(response['status'], True)

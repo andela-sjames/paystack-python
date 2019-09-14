@@ -4,12 +4,12 @@ from paystackapi.base import PayStackBase
 
 
 class Transfer(PayStackBase):
-    """docstring for Transaction."""
+    """docstring for Transfer."""
 
     @classmethod
     def initiate(cls, **kwargs):
         """
-        Initialize a transfer.
+        Initiate a transfer.
 
         Args:
             source: Where should we transfer from? Only balance for now
@@ -21,3 +21,18 @@ class Transfer(PayStackBase):
         """
 
         return cls().requests.post('transfer', data=kwargs)
+
+    @classmethod
+    def list(cls, **kwargs):
+        """
+        List a transfer.
+
+        Args:
+            perPage: records you want to retrieve per page (Integer)
+            page: what page you want to retrieve (Integer)
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.get('transfer', qs=kwargs,)

@@ -50,3 +50,18 @@ class Transfer(PayStackBase):
         """
 
         return cls().requests.get(f"transfer/{id_or_code}")
+
+    @classmethod
+    def finalize(cls, **kwargs):
+        """
+        Finalize a transfer.
+
+        Args:
+            transfer_code: Transfer code
+            otp: OTP sent to business phone to verify transfer
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.post('transfer/finalize_transfer', data=kwargs)

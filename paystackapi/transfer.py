@@ -14,6 +14,7 @@ class Transfer(PayStackBase):
         Args:
             source: Where should we transfer from? Only balance for now
             amount: Amount to transfer in kobo
+            currency: Currency type to use
             recipient: Code for transfer recipient
 
         Returns:
@@ -55,6 +56,7 @@ class Transfer(PayStackBase):
     def finalize(cls, **kwargs):
         """
         Finalize a transfer.
+        NB: This step is not required if OTP is disabled
 
         Args:
             transfer_code: Transfer code
@@ -65,3 +67,29 @@ class Transfer(PayStackBase):
         """
 
         return cls().requests.post('transfer/finalize_transfer', data=kwargs)
+
+    @classmethod
+    def initiate_bulk_transfer(cls, **kwargs):
+        """
+        Initiate bulk transfer.
+
+        Args:
+            currency: Currency type to use
+            source: Where should we transfer from? Only balance for now
+            transfers: Array of transfer objects [
+                { 
+                    amount: Amount to transfer in kobo
+                    recipient: Code for transfer recipient
+                },
+                {
+                    amount: Amount to transfer in kobo
+                    recipient: Code for transfer recipient
+                }
+            ]
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.post('transfer/bulk', data=kwargs)
+

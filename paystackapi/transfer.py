@@ -36,3 +36,17 @@ class Transfer(PayStackBase):
         """
 
         return cls().requests.get('transfer', qs=kwargs,)
+
+    @classmethod
+    def fetch(cls, id_or_code):
+        """
+        Fetch a transfer.
+
+        Args:
+            id_or_code: An ID or code for the transfer whose details you want to retrieve.
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.get(f"transfer/{id_or_code}")

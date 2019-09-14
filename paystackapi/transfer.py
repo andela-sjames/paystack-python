@@ -93,3 +93,16 @@ class Transfer(PayStackBase):
 
         return cls().requests.post('transfer/bulk', data=kwargs)
 
+    @classmethod
+    def verify(cls, reference):
+        """
+        Verify a transfer.
+
+        Args:
+            reference: Transfer reference
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.get(f"verify/{reference}")

@@ -66,13 +66,41 @@ class TestTransfer(BaseTestCase):
             httpretty.POST,
             self.endpoint_url("/transfer/finalize_transfer"),
             content_type='text/json',
-            body='{"status": true, "message": "Transfers retrieved"}',
+            body='{"status": true, "message": "Transfer has been queued"}',
             status=201,
         )
 
         response = Transfer.finalize(
             transfer_code="TRF_2x5j67tnnw1t98k",
             otp="928783"
+        )
+
+        self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_initiate_bulk_transfer(self):
+        """Method defined to test transfer initiate bulk transfer."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer/bulk"),
+            content_type='text/json',
+            body='{"status": true, "message": "2 transfers queued."}',
+            status=201,
+        )
+
+        response = Transfer.initiate_bulk_transfer(
+            currency="TRF_2x5j67tnnw1t98k",
+            source="928783",
+            transfers=[
+                {
+                    "amount": 50000,
+                    "recipient": "RCP_db342dvqvz9qcrn"
+                },
+                {
+                    "amount": 50000,
+                    "recipient": "RCP_db342dvqvz9qcrn"
+                }
+            ]
         )
 
         self.assertTrue(response['status'])

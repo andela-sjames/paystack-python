@@ -41,3 +41,20 @@ class TestTransfer(BaseTestCase):
             page=1
         )
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_fetch(self):
+        """Method defined to test transfer fetch."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/transfer/TRF_2x5j67tnnw1t98k"),
+            content_type='text/json',
+            body='{"status": true, "message": "Transfers retrieved"}',
+            status=201,
+        )
+
+        response = Transfer.fetch(
+            id_or_code="TRF_2x5j67tnnw1t98k",
+        )
+
+        self.assertTrue(response['status'])

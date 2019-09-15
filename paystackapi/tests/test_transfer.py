@@ -24,3 +24,20 @@ class TestTransfer(BaseTestCase):
             recipient="RCP_gx2wn530m0i3w3m",
         )
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_list(self):
+        """Method defined to test transfer list."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer"),
+            content_type='text/json',
+            body='{"status": true, "message": "Transfers retrieved"}',
+            status=201,
+        )
+
+        response = Transfer.list(
+            perPage=3,
+            page=1
+        )
+        self.assertTrue(response['status'])

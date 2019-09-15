@@ -58,3 +58,21 @@ class TestTransfer(BaseTestCase):
         )
 
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_finalize(self):
+        """Method defined to test transfer finalize."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer/finalize_transfer"),
+            content_type='text/json',
+            body='{"status": true, "message": "Transfers retrieved"}',
+            status=201,
+        )
+
+        response = Transfer.finalize(
+            transfer_code="TRF_2x5j67tnnw1t98k",
+            otp="928783"
+        )
+
+        self.assertTrue(response['status'])

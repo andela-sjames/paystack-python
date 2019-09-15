@@ -29,7 +29,7 @@ class TestTransfer(BaseTestCase):
     def test_list(self):
         """Method defined to test transfer list."""
         httpretty.register_uri(
-            httpretty.POST,
+            httpretty.GET,
             self.endpoint_url("/transfer"),
             content_type='text/json',
             body='{"status": true, "message": "Transfers retrieved"}',

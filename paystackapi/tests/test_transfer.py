@@ -58,7 +58,7 @@ class TestTransfer(BaseTestCase):
         )
 
         self.assertTrue(response['status'])
-    
+
     @httpretty.activate
     def test_finalize(self):
         """Method defined to test transfer finalize."""
@@ -76,7 +76,7 @@ class TestTransfer(BaseTestCase):
         )
 
         self.assertTrue(response['status'])
-    
+
     @httpretty.activate
     def test_initiate_bulk_transfer(self):
         """Method defined to test transfer initiate bulk transfer."""
@@ -101,6 +101,23 @@ class TestTransfer(BaseTestCase):
                     "recipient": "RCP_db342dvqvz9qcrn"
                 }
             ]
+        )
+
+        self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_verify(self):
+        """Method defined to test transfer verify."""
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/verify/ref_demo"),
+            content_type='text/json',
+            body='{"status": true, "message": "Transfer has been queued"}',
+            status=201,
+        )
+
+        response = Transfer.verify(
+            reference="ref_demo",
         )
 
         self.assertTrue(response['status'])

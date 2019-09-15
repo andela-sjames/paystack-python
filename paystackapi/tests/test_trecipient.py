@@ -3,6 +3,7 @@ import httpretty
 from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.trecipient import TransferRecipient
 
+
 class TestSubAccount(BaseTestCase):
 
     @httpretty.activate

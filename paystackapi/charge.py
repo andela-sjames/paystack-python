@@ -89,3 +89,16 @@ class Charge(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('charge/submit_birthday', data=kwargs,)
+
+    @classmethod
+    def check_pending(cls, reference):
+        """
+        Submit Birthday when requested.
+
+        Args:
+            reference: The reference to check
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"charge/{reference}")

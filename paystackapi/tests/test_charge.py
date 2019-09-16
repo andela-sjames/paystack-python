@@ -57,3 +57,22 @@ class TestCharge(BaseTestCase):
         )
 
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_submit_otp(self):
+        """Method defined to test submit pin."""
+
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/charge/submit_otp"),
+            content_type='text/json',
+            body='{"status": true, "message": "Charge attempted"}',
+            status=201,
+        )
+
+        response = Charge.submit_otp(
+            otp="0987",
+            reference="5bwib5v6anhe9xa",
+        )
+
+        self.assertTrue(response['status'])

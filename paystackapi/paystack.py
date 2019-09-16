@@ -11,6 +11,7 @@ from paystackapi.refund import Refund
 from paystackapi.settlement import Settlement
 from paystackapi.subaccount import SubAccount
 from paystackapi.subscription import Subscription
+from paystackapi.tcontrol import TransferControl
 from paystackapi.transaction import Transaction
 from paystackapi.transfer import Transfer
 from paystackapi.trecipient import TransferRecipient
@@ -38,6 +39,7 @@ class Paystack(PayStackBase):
         self.subaccount = SubAccount
         self.subscription = Subscription
         self.transaction = Transaction
+        self.transferControl = TransferControl
         self.transfer = Transfer
         self.transferRecipient = TransferRecipient
         self.verification = Verification

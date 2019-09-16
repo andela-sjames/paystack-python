@@ -75,3 +75,17 @@ class Charge(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('charge/submit_phone', data=kwargs,)
+
+    @classmethod
+    def submit_birthday(cls, **kwargs):
+        """
+        Submit Birthday when requested.
+
+        Args:
+            phone: Birthday submitted by user
+            reference: reference for ongoing transaction
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.post('charge/submit_birthday', data=kwargs,)

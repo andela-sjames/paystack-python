@@ -98,7 +98,7 @@ class TestCharge(BaseTestCase):
 
     @httpretty.activate
     def test_submit_birthday(self):
-        """Method defined to test submit phone."""
+        """Method defined to test submit birthday."""
 
         httpretty.register_uri(
             httpretty.POST,
@@ -110,6 +110,24 @@ class TestCharge(BaseTestCase):
 
         response = Charge.submit_birthday(
             birthday="1975-12-23",
+            reference="5bwib5v6anhe9xa",
+        )
+
+        self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_check_pending(self):
+        """Method defined to test check pending charge."""
+
+        httpretty.register_uri(
+            httpretty.GET,
+            self.endpoint_url("/charge/5bwib5v6anhe9xa"),
+            content_type='text/json',
+            body='{"status": true, "message": "Reference check successful"}',
+            status=201,
+        )
+
+        response = Charge.check_pending(
             reference="5bwib5v6anhe9xa",
         )
 

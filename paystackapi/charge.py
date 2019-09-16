@@ -79,7 +79,7 @@ class Charge(PayStackBase):
     @classmethod
     def check_pending(cls, reference):
         """
-        Submit Birthday when requested.
+        Check pending charge
 
         Args:
             reference: The reference to check

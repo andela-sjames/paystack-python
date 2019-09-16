@@ -9,7 +9,7 @@ class Charge(PayStackBase):
     @classmethod
     def charge(cls, **kwargs):
         """
-        Method defined to start a charge.
+        Start a charge.
 
         Args:
             email: Customer's email address
@@ -23,7 +23,7 @@ class Charge(PayStackBase):
     @classmethod
     def submit_pin(cls, **kwargs):
         """
-        Method defined submit PIN to continue a charge.
+        Submit PIN to continue a charge.
 
         Args:
             pin: PIN submitted by user
@@ -37,7 +37,7 @@ class Charge(PayStackBase):
     @classmethod
     def submit_pin(cls, **kwargs):
         """
-        Method defined submit PIN to continue a charge.
+        Submit PIN to continue a charge.
 
         Args:
             pin: PIN submitted by user
@@ -51,7 +51,7 @@ class Charge(PayStackBase):
     @classmethod
     def submit_otp(cls, **kwargs):
         """
-        Method defined submit OTP to complete a charge.
+        Submit OTP to complete a charge.
 
         Args:
             otp: OTP submitted by user
@@ -61,4 +61,17 @@ class Charge(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('charge/submit_otp', data=kwargs,)
+    
+    @classmethod
+    def submit_phone(cls, **kwargs):
+        """
+        Submit Phone when requested.
 
+        Args:
+            phone: Phone submitted by user
+            reference: reference for ongoing transaction
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.post('charge/submit_phone', data=kwargs,)

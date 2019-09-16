@@ -35,6 +35,9 @@ Instantiate Paystack
    # to use subscription class
    paystack.subscription.list()
 
+DOC Reference: https://developers.paystack.co/v2.0/reference
+------------------------------------------------------------
+
 Other methods can be found below…
 '''''''''''''''''''''''''''''''''
 
@@ -850,6 +853,475 @@ JSON data from Paystack API.
 
 -  ``payment_page_id``: Id of the payment page (Integer)
 -  ``product``: Ids of all the products i.e. [473, 292]
+
+*Returns*
+
+JSON data from Paystack API.
+
+Settlements
+-----------
+
+``Settlement.fetch(**kwargs)`` - Fetch a Settlement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.settlement import Settlement
+   response = Settlement.fetch(
+               from="2016-09-12T00:00:00.000Z",
+               to="2016-09-12T00:00:00.000Z",
+               subaccount="subaccount"
+           )
+
+*Arguments*
+
+-  ``start_date``: Lower bound of date range. Leave undefined to export
+   settlement from day one.
+-  ``end_date``: Upper bound of date range.Leave undefined to export
+   settlements till date.
+-  ``subaccount``: code to export only settlements for that subaccount.
+   Set to none to export only transactions for the account.
+
+*Returns*
+
+JSON data from Paystack API.
+
+Control Panel
+-------------
+
+``ControlPanel.fetch_payment_session_timeout()`` - Fetch payment session timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.cpanel import ControlPanel
+   response = ControlPanel.fetch_payment_session_timeout()
+
+*Arguments*
+
+No argument required.
+
+*Returns*
+
+JSON data from Paystack API.
+
+``ControlPanel.update_payment_session_timeout(timeout)`` - Update payment session timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.cpanel import ControlPanel
+   response = ControlPanel.update_payment_session_timeout(timeout=30)
+
+*Arguments*
+
+-  ``timeout``: Time before stopping session (in seconds). Set to 0 to
+   cancel session timeouts
+
+*Returns*
+
+JSON data from Paystack API.
+
+Invoices
+--------
+
+``Invoice.create(**kwargs)`` - Create a new invoice.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.create(
+               customer="CUS_je02lbimlqixzax",
+               amount=42000,
+               due_date="2019-05-08T00:00:00.000Z"
+           )
+
+*Arguments*
+
+-  ``customer``: customer id or code
+-  ``amount``: payment request amount.(Integer) Only useful if line
+   items and tax values are ignored. Endpoint will throw a friendly
+   warning if neither is available.
+-  ``due_date``: ISO 8601 representation of request due date.
+-  ``**kwargs``
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Invoice.list(**kwargs)`` - list created invoice(s).
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.list(
+               customer="CUS_je02lbimlqixzax",
+               status="pending",
+               currency="NGN",
+               paid="false",
+               include_archive="true"
+           )
+
+*Arguments* - ``customer``: filter by customer ID - ``status``: filter
+by invoice status - ``currency``: filter by currency - ``paid``: filter
+by paid invoice - ``include_archive``: include_archive
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Invoice.view(invoice_id_or_code)`` - view created invoice(s).
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.view(
+               invoice_id_or_code="PRQ_kp4lleqc7g8xckk",
+           )
+
+*Arguments* - ``invoice_id_or_code``: invoice ID or Code (string)
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Invoice.verify(invoice_code)`` - verify created/existing invoice.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.verify(
+               invoice_code="PRQ_kp4lleqc7g8xckk",
+           )
+
+*Arguments* - ``invoice_code``: invoice Code (string)
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Invoice.send_notification(id_or_code)`` - Send invoice notification.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.send_notification(
+               id_or_code="PRQ_kp4lleqc7g8xckk",
+           )
+
+*Arguments* - ``id_or_code``: id or code (string)
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Invoice.dashboard_metrics()`` - Get dashboard metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.dashboard_metrics()
+
+*Arguments* No Arguments required
+
+*Returns* JSON data from Paystack API.
+
+``Invoice.finalize_draft(id_or_code, **kwargs)`` - Finalize a draft
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.finalize_draft(
+               id_or_code="PRQ_kp4lleqc7g8xckk",
+               send_notification=False
+           )
+
+*Arguments* - ``id_or_code``: ID or Code (string) -
+``send_notification``: Indicates whether Paystack sends an email
+notification to customer. Defaults to true. (Boolean)
+
+*Returns* JSON data from Paystack API.
+
+``Invoice.update(id_or_code, **kwargs)`` - Update a draft
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.update(
+               id_or_code="PRQ_kp4lleqc7g8xckk",
+               amount=450000
+           )
+
+*Arguments* - ``id_or_code``: ID or Code - ``**kwargs``
+
+*Returns* JSON data from Paystack API.
+
+``Invoice.archive(id_or_code)`` - Archive a draft
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.archive(
+               id_or_code="PRQ_kp4lleqc7g8xckk",
+           )
+
+*Arguments* - ``id_or_code``: ID or Code
+
+*Returns* JSON data from Paystack API.
+
+``Invoice.update_transfer_recipient(recipient_code_or_id, **kwargs)`` - Update transfer recipienta draft
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.invoice import Invoice
+   response = Invoice.update_transfer_recipient(
+               recipient_code_or_id="PRQ_kp4lleqc7g8xckk",
+               name="new name",
+               email="new@email.com"
+           )
+
+*Arguments* - ``recipient_code_or_id``: recipient code or ID - ``name``:
+a name for the recipient (string) - ``email``: the email address of the
+recipient (string)
+
+*Returns* JSON data from Paystack API.
+
+Transfer Recipient
+------------------
+
+``TransferRecipient.create(**kwargs)`` - Create a new Transfer Recipient.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.trecipient import TransferRecipient
+   response = TransferRecipient.create(
+               type="nuban",
+               name="Zombie",
+               description="Zombier",
+               account_number="01000000010",
+               bank_code="044",
+           )
+
+*Arguments*
+
+-  ``type``: Recipient Type (Only nuban at this time)
+-  ``name``: A name for the recipient
+-  ``account_number``: Required if type is nuban
+-  ``bank_code``: Required if type is nuban. You can get the list of
+   Bank Codes by calling the List Banks endpoint.
+-  ``**kwargs``
+
+*Returns*
+
+JSON data from Paystack API.
+
+``TransferRecipient.list(**kwargs)`` - list Transfer Recipient.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.trecipient import TransferRecipient
+   response = TransferRecipient.list(perPage=3, page=1)
+
+*Arguments*
+
+-  ``perPage``: records you want to retrieve per page (Integer)
+-  ``page``: what page you want to retrieve (Integer)
+
+*Returns*
+
+JSON data from Paystack API.
+
+Transfer
+--------
+
+``Transfer.initiate(**kwargs)`` - Initiate a new Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.initiate(
+               source="balance",
+               reason="Calm down",
+               amount="3794800",
+               recipient="RCP_gx2wn530m0i3w3m",
+           )
+
+*Arguments*
+
+-  ``source``: Where should we transfer from? Only balance for now
+-  ``amount``: Amount to transfer in kobo
+-  ``currency``: Currency type to use
+-  ``recipient``: Code for transfer recipient
+-  ``**kwargs``
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Transfer.list(**kwargs)`` - List a Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.list(perPage=3,page=1)
+
+*Arguments*
+
+-  ``perPage``: records you want to retrieve per page (Integer)
+-  ``page``: what page you want to retrieve (Integer)
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Transfer.fetch(id_or_code)`` - Fetch a Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.fetch(
+               id_or_code="TRF_2x5j67tnnw1t98k",
+           )
+
+*Arguments*
+
+-  ``id_or_code``: An ID or code for the transfer whose details you want
+   to retrieve.
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Transfer.finalize(**kwargs)`` - Finalize a Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.finalize(
+               transfer_code="TRF_2x5j67tnnw1t98k",
+               otp="928783"
+           )
+
+*Arguments*
+
+-  ``transfer_code``: Transfer code
+-  ``otp``: OTP sent to business phone to verify transfer
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Transfer.initiate_bulk_transfer(**kwargs)`` - Initiate a bulk Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.initiate_bulk_transfer(
+               currency="TRF_2x5j67tnnw1t98k",
+               source="928783",
+               transfers=[
+                   {
+                       "amount": 50000,
+                       "recipient": "RCP_db342dvqvz9qcrn"
+                   },
+                   {
+                       "amount": 50000,
+                       "recipient": "RCP_db342dvqvz9qcrn"
+                   }
+               ]
+           )
+
+*Arguments*
+
+.. code:: text
+
+   currency: Currency type to use
+   source: Where should we transfer from? Only balance for now
+   transfers: Array of transfer objects [
+       {
+           amount: Amount to transfer in kobo
+           recipient: Code for transfer recipient
+       },
+       {
+           amount: Amount to transfer in kobo
+           recipient: Code for transfer recipient
+       }
+   ]
+
+*Returns*
+
+JSON data from Paystack API.
+
+``Transfer.verify(**kwargs)`` - Finalize a Transfer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Usage*
+
+.. code:: python
+
+   from paystackapi.transfer import Transfer
+   response = Transfer.verify(
+               reference="ref_demo",
+           )
+
+*Arguments* - ``reference``: Transfer reference
 
 *Returns*
 

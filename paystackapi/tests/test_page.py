@@ -24,7 +24,7 @@ class TestPage(BaseTestCase):
 
     @httpretty.activate
     def test_page_list(self):
-        """Function defined to test page list method."""
+        """Method defined to test page list method."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/page"),
@@ -38,7 +38,7 @@ class TestPage(BaseTestCase):
     
     @httpretty.activate
     def test_page_fetch(self):
-        """Function defined to test page fetch method."""
+        """Method defined to test page fetch method."""
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/page/5nApBwZkvY"),
@@ -52,7 +52,7 @@ class TestPage(BaseTestCase):
 
     @httpretty.activate
     def test_page_update(self):
-        """Function defined to test page update method."""
+        """Method defined to test page update method."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/page/5nApBwZkvY"),
@@ -66,7 +66,7 @@ class TestPage(BaseTestCase):
 
     @httpretty.activate
     def test_is_slug_available(self):
-        """Function defined to test_is_slug_available method."""
+        """Method defined to test_is_slug_available method."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/page/check_slug_availability/5nApBwZkvY"),
@@ -80,7 +80,7 @@ class TestPage(BaseTestCase):
 
     @httpretty.activate
     def test_add_products(self):
-        """Function defined to test add_products method."""
+        """Method defined to test add_products method."""
         httpretty.register_uri(
             httpretty.PUT,
             self.endpoint_url("/page/23/product"),

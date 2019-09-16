@@ -19,3 +19,18 @@ class Charge(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('charge', data=kwargs,)
+
+    @classmethod
+    def submit_pin(cls, **kwargs):
+        """
+        Method defined submit PIN to continue a charge.
+
+        Args:
+            pin: PIN submitted by user
+            reference: reference for transaction that requested pin
+
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.post('charge', data=kwargs,)
+

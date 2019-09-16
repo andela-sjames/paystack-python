@@ -95,3 +95,22 @@ class TestCharge(BaseTestCase):
         )
 
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_submit_birthday(self):
+        """Method defined to test submit phone."""
+
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/charge/submit_birthday"),
+            content_type='text/json',
+            body='{"status": true, "message": "Charge attempted"}',
+            status=201,
+        )
+
+        response = Charge.submit_birthday(
+            birthday="1975-12-23",
+            reference="5bwib5v6anhe9xa",
+        )
+
+        self.assertTrue(response['status'])

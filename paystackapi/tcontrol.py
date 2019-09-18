@@ -34,3 +34,18 @@ class TransferControl(PayStackBase):
         """
 
         return cls().requests.post('transfer/resend_otp', data=kwargs,)
+
+    
+    @classmethod
+    def disable_otp(cls, **kwargs):
+        """
+        Disable OTP requirement for Transfers
+
+        Args:
+            No arguments required
+
+        Returns:
+            Json data from paystack API.
+        """
+
+        return cls().requests.post('transfer/disable_otp')

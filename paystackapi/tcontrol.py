@@ -64,7 +64,7 @@ class TransferControl(PayStackBase):
         return cls().requests.post('transfer/disable_otp_finalize', data=kwargs,)
 
     @classmethod
-    def disable_otp_finalize(cls, **kwargs):
+    def enable_otp(cls, **kwargs):
         """
         Enable OTP requirement for Transfers
 

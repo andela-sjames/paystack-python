@@ -1,4 +1,5 @@
 """Entry point defined here."""
+from paystackapi.charge import Charge
 from paystackapi.cpanel import ControlPanel
 from paystackapi.customer import Customer
 from paystackapi.invoice import Invoice
@@ -10,6 +11,7 @@ from paystackapi.refund import Refund
 from paystackapi.settlement import Settlement
 from paystackapi.subaccount import SubAccount
 from paystackapi.subscription import Subscription
+from paystackapi.tcontrol import TransferControl
 from paystackapi.transaction import Transaction
 from paystackapi.transfer import Transfer
 from paystackapi.trecipient import TransferRecipient
@@ -24,6 +26,7 @@ class Paystack(PayStackBase):
     def __init__(self, secret_key=None):
         """Instantiate Basic Classes to call here."""
         PayStackBase.__init__(self, secret_key=secret_key)
+        self.charge = Charge
         self.cpanel = ControlPanel
         self.customer = Customer
         self.invoice = Invoice
@@ -36,7 +39,7 @@ class Paystack(PayStackBase):
         self.subaccount = SubAccount
         self.subscription = Subscription
         self.transaction = Transaction
+        self.transferControl = TransferControl
         self.transfer = Transfer
         self.transferRecipient = TransferRecipient
         self.verification = Verification
-

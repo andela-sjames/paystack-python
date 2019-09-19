@@ -68,3 +68,18 @@ class TestTransfer(BaseTestCase):
             otp="928783",
         )
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_enable_otp(self):
+        """Method defined to test enable_otp."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer/enable_otp"),
+            content_type='text/json',
+            body='{"status": true,\
+                "message": "OTP requirement for transfers has been enabled"}',
+            status=201,
+        )
+
+        response = TransferControl.enable_otp()
+        self.assertTrue(response['status'])

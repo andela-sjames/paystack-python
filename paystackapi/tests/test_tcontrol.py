@@ -36,4 +36,18 @@ class TestTransfer(BaseTestCase):
             reason="Just do it."
         )
         self.assertTrue(response['status'])
+    
+    @httpretty.activate
+    def test_disable_otp(self):
+        """Method defined to test disable_otp."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer/disable_otp"),
+            content_type='text/json',
+            body='{"status": true,\
+                "message": "OTP has been sent to mobile number ending with 4321"}',
+            status=201,
+        )
 
+        response = TransferControl.disable_otp()
+        self.assertTrue(response['status'])

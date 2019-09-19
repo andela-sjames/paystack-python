@@ -19,3 +19,21 @@ class TestTransfer(BaseTestCase):
 
         response = TransferControl.check_balance()
         self.assertTrue(response['status'])
+
+    @httpretty.activate
+    def test_resend_otp(self):
+        """Method defined to test resend_otp."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/transfer/resend_otp"),
+            content_type='text/json',
+            body='{"status": true, "message": "OTP has been resent"}',
+            status=201,
+        )
+
+        response = TransferControl.resend_otp(
+            transfer_code="TRF_vsyqdmlzble3uii",
+            reason="Just do it."
+        )
+        self.assertTrue(response['status'])
+

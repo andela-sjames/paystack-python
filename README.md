@@ -1294,7 +1294,7 @@ JSON data from Paystack API.
 
 Charge
 --------------------
-#### `charge.start_charge(**kwargs)` - Start a Chsrge
+#### `Charge.start_charge(**kwargs)` - Start a Chsrge
 
 *Usage*
 
@@ -1331,7 +1331,7 @@ response = Charge.start_charge(
 
 JSON data from Paystack API.
 
-#### `charge.submit_pin(**kwargs)` - Submit PIN to continue a charge.
+#### `Charge.submit_pin(**kwargs)` - Submit PIN to continue a charge.
 
 *Usage*
 
@@ -1353,7 +1353,7 @@ response = Charge.submit_pin(
 JSON data from Paystack API.
 
 
-#### `charge.submit_otp(**kwargs)` - Submit OTP to complete a charge.
+#### `Charge.submit_otp(**kwargs)` - Submit OTP to complete a charge.
 
 *Usage*
 
@@ -1375,7 +1375,7 @@ response = Charge.submit_otp(
 JSON data from Paystack API.
 
 
-#### `charge.submit_phone(**kwargs)` - Submit Phone when requested.
+#### `Charge.submit_phone(**kwargs)` - Submit Phone when requested.
 
 *Usage*
 
@@ -1395,7 +1395,7 @@ response = Charge.submit_phone(
 
 JSON data from Paystack API.
 
-#### `charge.submit_birthday(**kwargs)` - Submit Birthday when requested.
+#### `Charge.submit_birthday(**kwargs)` - Submit Birthday when requested.
 
 *Usage*
 
@@ -1416,7 +1416,7 @@ response = Charge.submit_birthday(
 
 JSON data from Paystack API.
 
-#### `charge.check_pending(reference)` - Check pending charge
+#### `Charge.check_pending(reference)` - Check pending charge
 
 *Usage*
 
@@ -1430,6 +1430,27 @@ response = Charge.check_pending(
 *Arguments*
 
 - `reference`: The reference to check
+
+*Returns*
+
+JSON data from Paystack API.
+
+TransferControl
+--------------
+
+#### `TransferControl.check_balance(**kwargs)` - Start a Chsrge
+
+*Usage*
+
+```python
+from paystackapi.tcontrol import TransferControl
+response = TransferControl.check_balance()
+
+```
+
+*Arguments*
+
+No argument required.
 
 *Returns*
 

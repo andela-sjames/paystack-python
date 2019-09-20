@@ -7,7 +7,7 @@ class Charge(PayStackBase):
     """docstring for Charge."""
 
     @classmethod
-    def charge(cls, **kwargs):
+    def start_charge(cls, **kwargs):
         """
         Start a charge.
 
@@ -68,7 +68,7 @@ class Charge(PayStackBase):
         Submit Birthday when requested.
 
         Args:
-            phone: Birthday submitted by user
+            birthday: Birthday submitted by user
             reference: reference for ongoing transaction
 
         Returns:

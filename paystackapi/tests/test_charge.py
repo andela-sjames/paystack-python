@@ -18,7 +18,7 @@ class TestCharge(BaseTestCase):
             status=201,
         )
 
-        response = Charge.charge(
+        response = Charge.start_charge(
             email="CUS_je02lbimlqixzax",
             amount=42000,
             metadata={

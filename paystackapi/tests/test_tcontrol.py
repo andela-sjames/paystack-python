@@ -4,7 +4,7 @@ from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.tcontrol import TransferControl
 
 
-class TestTransfer(BaseTestCase):
+class TestTransferControl(BaseTestCase):
 
     @httpretty.activate
     def test_check_balance(self):

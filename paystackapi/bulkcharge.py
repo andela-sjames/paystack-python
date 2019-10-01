@@ -23,14 +23,14 @@ class BulkCharge(PayStackBase):
             Json data from paystack API.
         """
 
-        return cls.requests.post("bulkcharge", data='kwargs')
+        return cls().requests.post("bulkcharge", data='kwargs')
 
 
     @classmethod
     def list_bulk_charge(cls, **kwargs):
         """
 
-        Listall the  bulk charge batches created by the integration.
+        List all the  bulk charge batches created by the integration.
 
         Args:
             perPage: Number of transfers lsited per page for pagination
@@ -41,12 +41,26 @@ class BulkCharge(PayStackBase):
 
         """
 
-        return cls.requests.get("bulkcharge", data="kwargs")
+        return cls().requests.get("bulkcharge", data="kwargs")
+
+    @classmethod
+    def fetch_bulk_charge_batch(cls, **kwargs):
+        """ 
+        This endpoint retrieves a specific batch code. 
+        It also returns useful information on its progress by way of the total_charges and pending_charges attributes.
+
+
+        Returns:
+        Json data from paystack API
+
+        """
+
+        return cls().requests.get("bulkcharge", data="kwargs")
 
 
 
     @classmethod
-    def fetch_bulk_charge(cls, **kwargs):
+    def fetch_charges(cls, **kwargs):
         """
 
         Fetch the charges associated with a specified batch code.
@@ -62,7 +76,7 @@ class BulkCharge(PayStackBase):
 
         """
 
-        return cls.requests.get("bulkcharge/{id_or_code}/charges", data="kwargs")
+        return cls().requests.get("bulkcharge/{id_or_code}/charges", data="kwargs")
 
     
     @classmethod
@@ -77,7 +91,7 @@ class BulkCharge(PayStackBase):
         Json data from the Paystack API.
 
         """
-        return cls.requests.get("bulkcharge/pause/{batch_code}", data="kwargs")
+        return cls().requests.get("bulkcharge/pause/{batch_code}", data="kwargs")
 
     
     @classmethod
@@ -92,7 +106,7 @@ class BulkCharge(PayStackBase):
         Json data from the Paystack API.
 
         """
-        return cls.requests.get("bulkcharge/resume/{batch_code}", data="kwargs")
+        return cls().requests.get("bulkcharge/resume/{batch_code}", data="kwargs")
 
 
     

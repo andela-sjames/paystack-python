@@ -14,28 +14,31 @@ class TestBulkCharge(BaseTestCase):
             self.endpoint_url("/bulkcharge"),
             content_type='applicationn/json',
             body='{"status": true, "message": "Charges have been queued"}',
+            status=200,
         )
 
         response = BulkCharge.initiate_bulk_charge(
-
-
+                batch_code="BCH_180tl7oq7cayggh",
         )
 
 
         self.assertTrue(response['status'])
 
     @httpretty.activate
-    def test_list_bulk_charges(self):
+    def test_list_bulk_charge(self):
         """ """
 
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/bulkcharge"),
-
+            content_type='application/json',
+            body = '{"status": true, "message": "Bulk charges retrieved",}',
+            status=200,
         )
 
 
         response = BulkCharge.list_bulk_charge(
+
             
 
         )
@@ -44,39 +47,42 @@ class TestBulkCharge(BaseTestCase):
 
     
     @httpretty.activate
-    def test_fetch_bulk_charges(self):
+    def test_fetch_bulk_charge_batch(self):
         """ """
 
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/bulkcharge/{id_or_code}/charges"),
-            
-
+            content_type='text/json',
+            body = '{"status": true, "message": "Bulk charges retrieved",}',
+            status=200,
         )
 
-        response = BulkCharge.list_bulk_charge(
-
-
+        response = BulkCharge.fetch_bulk_charge_batch(
+            batch_code= "BCH_180tl7oq7cayggh",
         )
 
         self.assertTrue(response['status'])
 
 
     @httpretty.activate
-    def test_fetch_bulk_charges(self):
+    def test_fetch_charges(self):
         """ """
 
         httpretty.register_uri(
-
+            httpretty.GET,
+            self.endpoint_url("/bulkcharge/BCH_180tl7oq7cayggh/charges"),
+            content_type= 'text/json',
+            body='{"status": true, "message": "Bulk charge items retrieved",}',
+            status=200,
         )
 
-        response = BulkCharge.fetch_bulk_charge(
+        response = BulkCharge.fetch_charges(
 
         )
 
         
-
-        self.assertTrue(responsr['status'])
+        self.assertTrue(response['status'])
 
     
 
@@ -85,10 +91,15 @@ class TestBulkCharge(BaseTestCase):
         """ """
 
         httpretty.register_uri(
-
+            httpretty.GET,
+            self.endpoint_url("bulkcharge/pause/BCH_180tl7oq7cayggh"),
+            content_type='text/json',
+            body='{""status": true, "message": "Bulk charge batch has been paused""}',
+            status=201,
         )
 
         response = BulkCharge.pause_bulk_charge(
+
 
         )
 
@@ -102,10 +113,15 @@ class TestBulkCharge(BaseTestCase):
         """ """
 
         httpretty.register_uri(
-
+            httpretty.GET,
+            self.endpoint_url("bulkcharge/resume/BCH_180tl7oq7cayggh"),
+            content_type='text/json',
+            body='{"status": true, "message": "Bulk charge batch has been resumed"}',
+            status=201,
         )
 
         response = BulkCharge.resume_bulk_charge(
+
 
         )
 

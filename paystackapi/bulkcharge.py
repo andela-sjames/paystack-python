@@ -1,4 +1,4 @@
-"""Script used to define the paystack Charge class."""
+"""Script used to define the paystack BulkCharge class."""
 
 from paystackapi.base import PayStackBase
 
@@ -7,7 +7,7 @@ class BulkCharge(PayStackBase):
     @classmethod
     def initiate_bulk_charge(cls, **kwargs):
         """
-        Initiate a bulk charge.
+        Initiate Bulk Charge.
 
         {
             "type": "array",
@@ -22,23 +22,23 @@ class BulkCharge(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.post("bulkcharge", data=kwargs)
+        return cls().requests.post('bulkcharge', data=kwargs)
 
 
     @classmethod
-    def list_bulk_charge(cls, **kwargs):
+    def list(cls, **kwargs):
         """
-        List all the  bulk charge batches created by the integration.
+        List Bulk Charge Batches created by the integration.
 
         Args:
-            perPage: Number of transfers lsited per page for pagination
+            perPage: Number of transfers listed per page for pagination
             page: number of pages listed by pagination.
 
         Returns:
             Json data from paystack API.
 
         """
-        return cls().requests.get("bulkcharge", data=kwargs)
+        return cls().requests.get('bulkcharge', qs=kwargs,)
 
     @classmethod
     def fetch_bulk_charge_batch(cls, **kwargs):
@@ -60,7 +60,7 @@ class BulkCharge(PayStackBase):
 
         Args:
             id_or_code: An ID or code for the batch whose charges you want to retrieve.
-            perPage: Number of transfers lsited per page for pagination
+            perPage: Number of transfers listed per page for pagination
             page: number of pages listed by pagination.
 
         Returns:

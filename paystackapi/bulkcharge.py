@@ -73,7 +73,7 @@ class BulkCharge(PayStackBase):
         return cls().requests.get(f"bulkcharge/{id_or_code}/charges", qs=kwargs)
 
     @classmethod
-    def pause_bulk_charge(cls, **kwargs):
+    def pause_bulk_charge(cls, batch_code):
         """
         Pause the proccessing of an ongoing bulk charge batch.
 
@@ -83,10 +83,10 @@ class BulkCharge(PayStackBase):
         Returns:
             Json data from the Paystack API.
         """
-        return cls().requests.get(f"bulkcharge/pause/{batch_code}", data=kwargs)
+        return cls().requests.get(f"bulkcharge/pause/{batch_code}")
 
     @classmethod
-    def resume_bulk_charge(cls, **kwargs):
+    def resume_bulk_charge(cls, batch_code):
         """
         Resume the proccessing of an already paused bulk charge batch.
 
@@ -96,4 +96,4 @@ class BulkCharge(PayStackBase):
         Returns:
             Json data from the Paystack API.
         """
-        return cls().requests.get(f"bulkcharge/resume/{batch_code}", data=kwargs)
+        return cls().requests.get(f"bulkcharge/resume/{batch_code}")

@@ -6,7 +6,7 @@ from paystackapi.base import PayStackBase
 class BulkCharge(PayStackBase):
 
     @classmethod
-    def initiate_bulk_charge(cls, **kwargs):
+    def initiate_bulk_charge(cls, bulkcharge):
         """
         Initiate Bulk Charge.
 
@@ -23,7 +23,7 @@ class BulkCharge(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.post('bulkcharge', data=kwargs)
+        return cls().requests.post('bulkcharge', data=bulkcharge)
 
     @classmethod
     def list(cls, **kwargs):
@@ -57,7 +57,7 @@ class BulkCharge(PayStackBase):
         return cls().requests.get(f"bulkcharge/{id_or_code}")
 
     @classmethod
-    def fetch_charges_batch(cls, **kwargs):
+    def fetch_charges_batch(cls, id_or_code, **kwargs):
         """
         Fetch the charges associated with a specified batch code.
 
@@ -74,7 +74,7 @@ class BulkCharge(PayStackBase):
         return cls().requests.get(f"bulkcharge/{id_or_code}/charges", qs=kwargs)
 
     @classmethod
-    def pause_bulk_charge(cls, batch_code):
+    def pause_bulk_batch(cls, batch_code):
         """
         Pause the proccessing of an ongoing bulk charge batch.
 

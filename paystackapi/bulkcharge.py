@@ -2,6 +2,7 @@
 
 from paystackapi.base import PayStackBase
 
+
 class BulkCharge(PayStackBase):
 
     @classmethod

@@ -23,7 +23,7 @@ class BulkCharge(PayStackBase):
             Json data from paystack API.
         """
 
-        return cls().requests.post("bulkcharge", data='kwargs')
+        return cls().requests.post("bulkcharge", ddata=kwargs)
 
 
     @classmethod
@@ -41,7 +41,7 @@ class BulkCharge(PayStackBase):
 
         """
 
-        return cls().requests.get("bulkcharge", data="kwargs")
+        return cls().requests.get("bulkcharge", data=kwargs)
 
     @classmethod
     def fetch_bulk_charge_batch(cls, **kwargs):
@@ -55,7 +55,7 @@ class BulkCharge(PayStackBase):
 
         """
 
-        return cls().requests.get("bulkcharge", data="kwargs")
+        return cls().requests.get("bulkcharge", data=kwargs)
 
 
 
@@ -76,7 +76,7 @@ class BulkCharge(PayStackBase):
 
         """
 
-        return cls().requests.get("bulkcharge/{id_or_code}/charges", data="kwargs")
+        return cls().requests.get("bulkcharge/{id_or_code}/charges", data=kwargs)
 
     
     @classmethod
@@ -91,7 +91,7 @@ class BulkCharge(PayStackBase):
         Json data from the Paystack API.
 
         """
-        return cls().requests.get("bulkcharge/pause/{batch_code}", data="kwargs")
+        return cls().requests.get("bulkcharge/pause/{batch_code}", data=kwargs)
 
     
     @classmethod
@@ -106,7 +106,7 @@ class BulkCharge(PayStackBase):
         Json data from the Paystack API.
 
         """
-        return cls().requests.get("bulkcharge/resume/{batch_code}", data="kwargs")
+        return cls().requests.get("bulkcharge/resume/{batch_code}", data=kwargs)
 
 
     

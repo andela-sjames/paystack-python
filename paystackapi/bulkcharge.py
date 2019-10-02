@@ -22,25 +22,22 @@ class BulkCharge(PayStackBase):
         Returns:
             Json data from paystack API.
         """
-
-        return cls().requests.post("bulkcharge", ddata=kwargs)
+        return cls().requests.post("bulkcharge", data=kwargs)
 
 
     @classmethod
     def list_bulk_charge(cls, **kwargs):
         """
-
         List all the  bulk charge batches created by the integration.
 
         Args:
             perPage: Number of transfers lsited per page for pagination
             page: number of pages listed by pagination.
 
-            Returns:
+        Returns:
             Json data from paystack API.
 
         """
-
         return cls().requests.get("bulkcharge", data=kwargs)
 
     @classmethod
@@ -49,12 +46,9 @@ class BulkCharge(PayStackBase):
         This endpoint retrieves a specific batch code. 
         It also returns useful information on its progress by way of the total_charges and pending_charges attributes.
 
-
         Returns:
-        Json data from paystack API
-
+            Json data from paystack API
         """
-
         return cls().requests.get("bulkcharge", data=kwargs)
 
 
@@ -62,7 +56,6 @@ class BulkCharge(PayStackBase):
     @classmethod
     def fetch_charges(cls, **kwargs):
         """
-
         Fetch the charges associated with a specified batch code.
 
         Args:
@@ -70,10 +63,8 @@ class BulkCharge(PayStackBase):
             perPage: Number of transfers lsited per page for pagination
             page: number of pages listed by pagination.
 
-
-            Returns:
+        Returns:
             Json data from paystack API.
-
         """
 
         return cls().requests.get("bulkcharge/{id_or_code}/charges", data=kwargs)
@@ -88,8 +79,7 @@ class BulkCharge(PayStackBase):
             batch_code: code of the batch to be paused
 
         Returns:
-        Json data from the Paystack API.
-
+            Json data from the Paystack API.
         """
         return cls().requests.get("bulkcharge/pause/{batch_code}", data=kwargs)
 
@@ -103,12 +93,6 @@ class BulkCharge(PayStackBase):
             batch_code: code of the batch to be resumed
 
         Returns:
-        Json data from the Paystack API.
-
+            Json data from the Paystack API.
         """
         return cls().requests.get("bulkcharge/resume/{batch_code}", data=kwargs)
-
-
-    
-
-

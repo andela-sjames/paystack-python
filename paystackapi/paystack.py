@@ -1,4 +1,5 @@
 """Entry point defined here."""
+from paystackapi.bulkcharge import BulkCharge
 from paystackapi.charge import Charge
 from paystackapi.cpanel import ControlPanel
 from paystackapi.customer import Customer
@@ -26,6 +27,7 @@ class Paystack(PayStackBase):
     def __init__(self, secret_key=None):
         """Instantiate Basic Classes to call here."""
         PayStackBase.__init__(self, secret_key=secret_key)
+        self.bulkcharge = BulkCharge
         self.charge = Charge
         self.cpanel = ControlPanel
         self.customer = Customer

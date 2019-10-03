@@ -27,14 +27,14 @@ class TestBulkCharge(BaseTestCase):
         self.assertTrue(response['status'])
 
     @httpretty.activate
-    def test_list_bulk_charge(self):
+    def test_list(self):
         """ """
 
         httpretty.register_uri(
             httpretty.GET,
             self.endpoint_url("/bulkcharge"),
             content_type='application/json',
-            body = '{"status": true, "message": "Bulk charges retrieved",}',
+            body ='{"status": true, "message": "Bulk charges retrieved"}',
             status=200,
         )
 
@@ -47,14 +47,14 @@ class TestBulkCharge(BaseTestCase):
 
         httpretty.register_uri(
             httpretty.GET,
-            self.endpoint_url("/bulkcharge/BCH_orj0ttn8vtp80hx/charges"),
+            self.endpoint_url("/bulkcharge/BCH_orj0ttn8vtp80hx"),
             content_type='text/json',
-            body = '{"status": true, "message": "Bulk charges retrieved",}',
+            body='{"status": true, "message": "Bulk charges retrieved"}',
             status=200,
         )
 
         response = BulkCharge.fetch_bulk_batch(
-            id_or_code= "BCH_orj0ttn8vtp80hx",
+            id_or_code="BCH_orj0ttn8vtp80hx"
         )
 
         self.assertTrue(response['status'])
@@ -65,9 +65,9 @@ class TestBulkCharge(BaseTestCase):
 
         httpretty.register_uri(
             httpretty.GET,
-            self.endpoint_url("/bulkcharge/BCH_180tl7oq7cayggh/charges"),
+            self.endpoint_url("/bulkcharge/BCH_orj0ttn8vtp80hx/charges"),
             content_type= 'text/json',
-            body='{"status": true, "message": "Bulk charge items retrieved",}',
+            body='{"status": true, "message": "Bulk charge items retrieved"}',
             status=200,
         )
 
@@ -85,7 +85,7 @@ class TestBulkCharge(BaseTestCase):
             httpretty.GET,
             self.endpoint_url("bulkcharge/pause/BCH_orj0ttn8vtp80hx"),
             content_type='text/json',
-            body='{""status": true, "message": "Bulk charge batch has been paused""}',
+            body='{"status": true, "message": "Bulk charge batch has been paused"}',
             status=201,
         )
 

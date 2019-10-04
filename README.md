@@ -1546,3 +1546,4 @@ Miscellaneous
 *Returns*
 
 JSON data from paystack API.
+

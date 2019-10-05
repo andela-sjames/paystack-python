@@ -20,7 +20,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='paystackapi',
-    version='2.0.0',
+    version='1.9.0',
     description='A python library to consume Paystack API',
     long_description=long_description,
     long_description_content_type='text/markdown',

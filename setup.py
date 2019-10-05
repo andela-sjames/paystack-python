@@ -27,7 +27,7 @@ setup(
 
     # Author details
     author='Samuel James and Issa Jubril',
-    author_email='samuel.james@andela.com',
+    author_email='samuelvarejames@gmail.com',
 
     license='MIT',
 

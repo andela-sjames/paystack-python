@@ -15,19 +15,20 @@ here = path.abspath(path.dirname(__file__))
 
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name='paystackapi',
-    version='1.2.7',
+    version='2.0.0',
     description='A python library to consume Paystack API',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/andela-sjames/paystack-python',
 
     # Author details
     author='Samuel James and Issa Jubril',
-    author_email='samuel.james@andela.com',
+    author_email='samuelvarejames@gmail.com',
 
     license='MIT',
 
@@ -38,9 +39,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
 
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
     ],
 
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),

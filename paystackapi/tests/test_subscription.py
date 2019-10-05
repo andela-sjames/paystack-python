@@ -1,12 +1,12 @@
 """Script defined to test the Subscription class."""
 
-import unittest
 import httpretty
 
 from paystackapi.subscription import Subscription
+from paystackapi.tests.base_test_case import BaseTestCase
 
 
-class TestSubscription(unittest.TestCase):
+class TestSubscription(BaseTestCase):
     """Class to test subscription actions."""
 
     @httpretty.activate
@@ -14,7 +14,7 @@ class TestSubscription(unittest.TestCase):
         """Method defined to test subscription creation."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/subscription",
+            self.endpoint_url("/subscription"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -32,7 +32,7 @@ class TestSubscription(unittest.TestCase):
         """Function defined to test Subscription fetch method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/subscription/4013",
+            self.endpoint_url("/subscription/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -46,7 +46,7 @@ class TestSubscription(unittest.TestCase):
         """Function defined to test paystackapi subscription list method."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/subscription",
+            self.endpoint_url("/subscription"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -60,7 +60,7 @@ class TestSubscription(unittest.TestCase):
         """Function defined to test paystackapi subscription disable method."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/subscription/disable",
+            self.endpoint_url("/subscription/disable"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -74,7 +74,7 @@ class TestSubscription(unittest.TestCase):
         """Function defined to test paystackapi subscription enable method."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/subscription/enable",
+            self.endpoint_url("/subscription/enable"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

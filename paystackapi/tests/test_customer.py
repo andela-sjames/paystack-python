@@ -1,13 +1,12 @@
 """Script defined to test the Customer class."""
 
-
-import unittest
 import httpretty
 
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.customer import Customer
 
 
-class TestCustomer(unittest.TestCase):
+class TestCustomer(BaseTestCase):
     """Class to test customer actions."""
 
     @httpretty.activate
@@ -15,7 +14,7 @@ class TestCustomer(unittest.TestCase):
         """Method defined to test customer creation."""
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/customer",
+            self.endpoint_url("/customer"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -28,10 +27,10 @@ class TestCustomer(unittest.TestCase):
 
     @httpretty.activate
     def test_get(self):
-        """Function defined to test Customer get method."""
+        """Method defined to test Customer get."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/customer/4013",
+            self.endpoint_url("/customer/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -42,10 +41,10 @@ class TestCustomer(unittest.TestCase):
 
     @httpretty.activate
     def test_list(self):
-        """Function defined to test paystackapi customer list method."""
+        """Method defined to test paystackapi customer list."""
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/customer",
+            self.endpoint_url("/customer"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -56,10 +55,10 @@ class TestCustomer(unittest.TestCase):
 
     @httpretty.activate
     def test_update(self):
-        """Function defined to test paystackapi customer update."""
+        """Method defined to test paystackapi customer update."""
         httpretty.register_uri(
             httpretty.PUT,
-            "https://api.paystack.co/customer/4013",
+            self.endpoint_url("/customer/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,

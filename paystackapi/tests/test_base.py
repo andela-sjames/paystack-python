@@ -1,13 +1,12 @@
 """Script defined to test the Class instance."""
 
-
-import unittest
 import httpretty
 
+from paystackapi.tests.base_test_case import BaseTestCase
 from paystackapi.base import PayStackBase, PayStackRequests
 
 
-class TestHttpMethods(unittest.TestCase):
+class TestHttpMethods(BaseTestCase):
     """Method defined to test transaction instance."""
 
     def setUp(self):
@@ -18,7 +17,7 @@ class TestHttpMethods(unittest.TestCase):
 
         httpretty.register_uri(
             httpretty.GET,
-            "https://api.paystack.co/transaction/4013",
+            self.endpoint_url("/transaction/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": true}',
             status=201,
@@ -33,7 +32,7 @@ class TestHttpMethods(unittest.TestCase):
 
         httpretty.register_uri(
             httpretty.POST,
-            "https://api.paystack.co/transaction/charge_token",
+            self.endpoint_url("/transaction/charge_token"),
             content_type='text/json',
             body='{"status": true, "contributors": null}',
             status=302,
@@ -49,7 +48,7 @@ class TestHttpMethods(unittest.TestCase):
 
         httpretty.register_uri(
             httpretty.PUT,
-            "https://api.paystack.co/customer/4013",
+            self.endpoint_url("/customer/4013"),
             content_type='text/json',
             body='{"status": true, "contributors": null}',
             status=302,

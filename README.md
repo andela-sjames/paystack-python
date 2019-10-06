@@ -1,4 +1,5 @@
 # paystack-python
+
 [![Coverage Status](https://coveralls.io/repos/github/andela-sjames/paystack-python/badge.svg?branch=develop)](https://coveralls.io/github/andela-sjames/paystack-python?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sjames/paystack-python/?branch=master)
 [![Circle CI](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg) [![Build Status](https://travis-ci.org/andela-sjames/paystack-python.svg?branch=master)](https://travis-ci.org/andela-sjames/paystack-python)
@@ -7,11 +8,13 @@
 Python plugin for [Paystack](https://paystack.com/)
 View on [pypi.python.org](https://pypi.python.org/pypi/paystackapi)
 
-# Installation
-```
+## Installation
+
+```shell
 pip install paystackapi
 ```
-# Instantiate Paystack
+
+## Instantiate Paystack
 
 ```python
 from paystackapi.paystack import Paystack
@@ -33,16 +36,18 @@ paystack.subscription.list()
 
 ## DOC Reference: <https://developers.paystack.co/v2.0/reference>
 
-##### Other methods can be found below...
+### Other methods can be found below
 
-# Static Use
+### Static Use
 
 To start using the Paystack Python API, you need to start by setting your secret key.
 
 You can set your secret key in your environment by running:
+
 ```bash
 export PAYSTACK_SECRET_KEY = 'your_secret_key'
 ```
 
-
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
+
+Please reference the Docs folder for usage,

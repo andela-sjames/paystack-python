@@ -36,7 +36,7 @@ paystack.subscription.list()
 
 ## DOC Reference: <https://developers.paystack.co/v2.0/reference>
 
-### Other methods can be found below
+### Other methods can be found in the docs folder
 
 ### Static Use
 

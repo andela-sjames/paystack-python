@@ -46,17 +46,3 @@ export PAYSTACK_SECRET_KEY = 'your_secret_key'
 
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
-
-
-Miscellaneous
--------------
-
-``Misc.list_banks()`` - List Banks
-
-```python
-   from paystackapi.misc import Misc
-   response = Misc.list_banks()
-```
-*Returns*
-
-JSON data from paystack API.

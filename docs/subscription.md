@@ -85,20 +85,3 @@ response = Subscription.enable(code="SUB_vsyqdmlzble3uii",
 *Returns*
 
 JSON data from paystack API.
-
-## Verification
-
-##### `Verification.verify_bvn(bvn)` - verify a customer's BVN
-
-```python
-from paystackapi.verification import Verification
-response = Verification.verify_bvn(bvn='1234567890')
-```
-
-*Arguments*
-
-- `bvn`: customer's bvn number
-
-*Returns*
-
-JSON data from paystack API.

@@ -50,4 +50,29 @@ export PAYSTACK_SECRET_KEY = 'your_secret_key'
 
 > Don't forget to get your API key from [Paystack](https://paystack.com/) and assign to the variable `PAYSTACK_SECRET_KEY`
 
+### Available resources
+
+```Python
+
+BulkCharge
+Charge
+ControlPanel
+Customer
+Invoice
+Misc
+Page
+Plan
+Product
+Refund
+Settlement
+SubAccount
+Subscription
+Transaction
+TransferControl
+Transfer
+TransferRecipient
+Verification
+
+```
+
 Please reference the **docs** folder for usage,

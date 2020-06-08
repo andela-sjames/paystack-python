@@ -4,7 +4,7 @@
 
 ```python
 from paystackapi.verification import Verification
-response = Verification.verify_bvn(bvn='1234567890')
+response = Verification.verify_bvn(account_number='1234567890')
 ```
 
 *Arguments*

@@ -60,3 +60,37 @@ class Verification(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.post('verifications', data=kwargs)
+
+    @classmethod
+    def verify_bvn_match(cls, **kwargs):
+        """
+        Verify bvn match with account number, first name and last name
+
+        Args:
+            bvn:                customer's bvn
+            account_number:     customer's account number
+            bank_code:          customer's bank code
+            first_name:         customer's first name (Optional)
+            last_name:          customer's last name (Optional)
+            middle_name:        customer's middle name (Optional)
+
+        Returns:
+            Json data from paystack API.
+            {
+              "status": true,
+              "message": "BVN lookup successful",
+              "data": {
+                "bvn": "xxxxxxxxxxx",
+                "is_blacklisted": false,
+                "account_number": true,
+                "first_name": true,
+                "middle_name": false,
+                "last_name": true
+              },
+              "meta": {
+                "calls_this_month": 1,
+                "free_calls_left": 9
+              }
+            }
+        """
+        return cls().requests.post('bank/resolve', data=kwargs)

@@ -13,7 +13,7 @@ class TransactionSplit(PayStackBase):
 
         Args:
             name: Name of the transaction split
-            type: The type of transaction split you want to create
+            type: The type of transaction split you want to create [ percentage | flat ]
             currency: Any of NGN, GHS, ZAR, or USD
             subaccounts: A list of object containing subaccount code and number of shares
             bearer_type: Any of subaccount | account | all-proportional | all

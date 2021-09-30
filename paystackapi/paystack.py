@@ -17,6 +17,7 @@ from paystackapi.transaction import Transaction
 from paystackapi.transfer import Transfer
 from paystackapi.trecipient import TransferRecipient
 from paystackapi.verification import Verification
+from paystackapi.transaction_split import TransactionSplit
 
 from paystackapi.base import PayStackBase
 
@@ -41,6 +42,7 @@ class Paystack(PayStackBase):
         self.subaccount = SubAccount
         self.subscription = Subscription
         self.transaction = Transaction
+        self.transactionSplit = TransactionSplit
         self.transferControl = TransferControl
         self.transfer = Transfer
         self.transferRecipient = TransferRecipient

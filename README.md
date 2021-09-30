@@ -70,6 +70,7 @@ Subscription
 Transaction
 TransferControl
 Transfer
+TransferSplit
 TransferRecipient
 Verification
 

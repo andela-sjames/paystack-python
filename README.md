@@ -36,6 +36,8 @@ paystack.subscription.list()
 
 ## DOC Reference: <https://developers.paystack.co/v2.0/reference>
 
+### API Reference: [API](https://paystack.com/docs/api/)
+
 ### Other methods can be found in the docs folder
 
 ### Static Use
@@ -76,4 +78,4 @@ Verification
 
 ```
 
-Please reference the **docs** folder for usage,
+Please reference the **[docs](https://github.com/andela-sjames/paystack-python/tree/master/docs)** folder for usage,

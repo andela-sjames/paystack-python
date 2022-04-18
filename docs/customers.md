@@ -35,16 +35,26 @@ response = Customer.get(customer_id=24)
 
 JSON data from paystack API.
 
-##### `Customer.list()` - List paystack customers
+##### `Customer.list(perPage=50, page=6)` - List paystack customers
 
 ```python
 from paystackapi.customer import Customer
-response = Customer.list()
+response = Customer.list(perPage=50, page=6)
 ```
 
 *Arguments*
 
-No argument required.
+- `perPage`: Specify how many records you want to retrieve per page.
+            If not specify we use a default value of 50. (Integer)
+
+- `page`: Specify exactly what page you want to retrieve.
+          defaults to 1 if not present(Integer)
+
+- `from`: A timestamp from which to start listing customers.
+          e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 (datetime)
+
+- `to`:   A timestamp at which to stop listing customers.
+        e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 (datetime)
 
 *Returns*
 

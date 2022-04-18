@@ -16,6 +16,27 @@ response = Verification.verify_bvn(account_number='1234567890')
 JSON data from paystack API.
 
 
+##### `Verification.verify_bvn_match(bvn)` - verify BVN match with account number, first name and last name
+
+```python
+from paystackapi.verification import Verification
+response = Verification.verify_bvn_match(bvn='1234567890',account_number='34334343',bank_code='34343' )
+```
+
+*Arguments*
+
+- `bvn`:             customer's bvn number
+- `account_number`:  customer's account number
+- `bank_code`:       customer's bank code
+- `first_name`:      customer's first name (Optional)
+- `last_name`:       customer's last name (Optional)
+- `middle_name`:     customer's middle name (Optional)
+
+*Returns*
+
+JSON data from paystack API.
+
+
 ##### `Verification.verify_account(account_number)` - verify a customer's BVN
 
 ```python

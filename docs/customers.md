@@ -35,7 +35,7 @@ response = Customer.get(customer_id=24)
 
 JSON data from paystack API.
 
-##### `Customer.list()` - List paystack customers
+##### `Customer.list(perPage=50, page=6)` - List paystack customers
 
 ```python
 from paystackapi.customer import Customer

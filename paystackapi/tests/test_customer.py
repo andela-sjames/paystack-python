@@ -50,7 +50,7 @@ class TestCustomer(BaseTestCase):
             status=201,
         )
 
-        response = Customer.list()
+        response = Customer.list(perPage=50, page=6)
         self.assertEqual(response['status'], True)
 
     @httpretty.activate

@@ -23,6 +23,24 @@ class TestVerification(BaseTestCase):
         response = Verification.verify_bvn(bvn='01234567689')
         self.assertTrue(response['status'])
 
+    
+    @httpretty.activate
+    def test_verify_bvn_match(self):
+        """Method defined to test bvn match verification."""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/bank/resolve"),
+            content_type='text/json',
+            body='{"status": true, "contributors": true}',
+            status=201,
+        )
+
+        response = Verification.verify_bvn_match(
+            bvn='01234567689', 
+            account_number='123456',
+            bank_code='093')
+        self.assertTrue(response['status'])
+
     @httpretty.activate
     def test_verify_account(self):
         """Method defined to test account number verification."""

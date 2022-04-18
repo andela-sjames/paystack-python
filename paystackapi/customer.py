@@ -35,16 +35,27 @@ class Customer(PayStackBase):
         return cls().requests.get(f"customer/{customer_id}")
 
     @classmethod
-    def list(cls):
+    def list(cls, **kwargs):
         """
         Static method defined to list paystack customers.
 
         Args:
-            No argument required.
+            perPage: Specify how many records you want to retrieve per page.
+                If not specify we use a default value of 50. (Integer)
+
+            page: Specify exactly what page you want to retrieve.
+                defaults to 1 if not present(Integer)
+
+            from: A timestamp from which to start listing customers 
+                e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 (datetime)
+
+            to:   A timestamp at which to stop listing customers 
+                e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 (datetime)
+
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('customer')
+        return cls().requests.get('customer', qs=kwargs,)
 
     @classmethod
     def update(cls, customer_id, **kwargs):

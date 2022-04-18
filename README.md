@@ -36,6 +36,8 @@ paystack.subscription.list()
 
 ## DOC Reference: <https://developers.paystack.co/v2.0/reference>
 
+### API Reference: [API](https://paystack.com/docs/api/)
+
 ### Other methods can be found in the docs folder
 
 ### Static Use

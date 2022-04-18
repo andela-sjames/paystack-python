@@ -76,4 +76,4 @@ Verification
 
 ```
 
-Please reference the **docs** folder for usage,
+Please reference the **[docs](https://github.com/andela-sjames/paystack-python/tree/master/docs)** folder for usage,

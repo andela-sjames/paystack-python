@@ -39,7 +39,7 @@ JSON data from paystack API.
 
 ```python
 from paystackapi.customer import Customer
-response = Customer.list()
+response = Customer.list(perPage=50, page=6)
 ```
 
 *Arguments*

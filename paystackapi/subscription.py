@@ -23,17 +23,20 @@ class Subscription(PayStackBase):
         return cls().requests.post('subscription', data=kwargs)
 
     @classmethod
-    def list(cls):
+    def list(cls, **kwargs):
         """
         List subscriptions.
 
-        Args:
-            No argument required.
+        Optional Args:
+            perPage: Number of subscriptions listed per page for pagination
+            page: pagination page number.
+            customer: Customer ID.
+            plan: Plan ID.
 
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('subscription')
+        return cls().requests.get('subscription', qs=kwargs)
 
     @classmethod
     def disable(cls, **kwargs):

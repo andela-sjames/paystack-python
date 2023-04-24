@@ -42,9 +42,12 @@ from paystackapi.subscription import Subscription
 response = Subscription.list()
 ```
 
-*Arguments*
+*Optional Arguments*
 
-No argument required.
+- `perPage`: Number of results per page.
+- `page`: Pagination page number. 
+- `customer`: Customer ID
+- `plan`: Plan ID
 
 *Returns*
 

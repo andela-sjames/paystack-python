@@ -52,7 +52,7 @@ JSON data from Paystack API.
 
 ```python
 from paystackapi.subaccount import SubAccount
-response = SubAccount.fetch(id_or_slug="some_slug_like_subaccount_code_or_id)
+response = SubAccount.fetch(id_or_slug="some_slug_like_subaccount_code_or_id")
 ```
 
 *Arguments*
@@ -71,7 +71,7 @@ JSON data from Paystack API.
 ```python
 from paystackapi.subaccount import SubAccount
 response = SubAccount.update(
-            id_or_slug="some_slug_like_subaccount_code_or_id),
+            id_or_slug="some_slug_like_subaccount_code_or_id",
             **kwargs
         )
 ```

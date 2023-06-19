@@ -1,6 +1,6 @@
 Charge
 --------------------
-#### `Charge.start_charge(**kwargs)` - Start a Chsrge
+#### `Charge.start_charge(**kwargs)` - Start a Charge
 
 *Usage*
 

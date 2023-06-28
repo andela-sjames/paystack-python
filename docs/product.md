@@ -1,13 +1,13 @@
 Product
 -------
-#### `Product.create(**kwargs)` - Create a Product
+#### `Product.create(**kwargs)` - Create a product
 
 *Usage*
 
 ```python
 from paystackapi.product import Product
-response = Product.create(name="Product pypaystack test",
-						  description="my test description",
+response = Product.create(name="Product PyPaystack test",
+						  description="Description of the product",
                           price=500000, currency="NGN", **kwargs)
 ```
 
@@ -16,7 +16,7 @@ response = Product.create(name="Product pypaystack test",
 - `name`: Name of the product
 - `description`: Description of product
 - `price`: Price of the product, in kobo(Integer)
-- `currency`: Currency in which amount should be charged
+- `currency`: Currency in which the amount should be charged
 - **kwargs
 
 *Returns*
@@ -24,7 +24,7 @@ response = Product.create(name="Product pypaystack test",
 JSON data from Paystack API.
 
 
-#### `Product.list()` - list created Products
+#### `Product.list()` - List created products
 
 *Usage*
 
@@ -42,7 +42,7 @@ No argument required.
 JSON data from Paystack API.
 
 
-#### `Product.fetch(product_id)` - fetch created Products by id
+#### `Product.fetch(product_id)` - Fetch created Products by ID
 
 *Usage*
 
@@ -53,14 +53,14 @@ response = Product.fetch(product_id=5499)
 
 *Arguments*
 
-- `product_id`: Product id(integer).
+- `product_id`: Product ID (integer).
 
 *Returns*
 
 JSON data from Paystack API.
 
 
-#### `Product.update(product_id, **kwargs)` - update a created Product by id
+#### `Product.update(product_id, **kwargs)` - Update a created product by ID
 
 *Usage*
 
@@ -75,7 +75,7 @@ response = Product.update(product_id=5499, **kwargs)
 - `name`: Name of the product
 - `description`: Description of product
 - `price`: Price of the product, in kobo(Integer)
-- `currency`: Currency in which amount should be charged
+- `currency`: Currency in which the amount should be charged
 - `**kwargs`
 
 *Returns*

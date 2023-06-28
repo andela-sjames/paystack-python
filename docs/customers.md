@@ -35,7 +35,7 @@ response = Customer.get(customer_id=24)
 
 JSON data from paystack API.
 
-##### `Customer.list(perPage=50, page=6)` - List paystack customers
+##### `Customer.list(perPage=50, page=6)` - List Paystack customers
 
 ```python
 from paystackapi.customer import Customer
@@ -45,7 +45,7 @@ response = Customer.list(perPage=50, page=6)
 *Arguments*
 
 - `perPage`: Specify how many records you want to retrieve per page.
-            If not specify we use a default value of 50. (Integer)
+            If not specified we use a default value of 50. (Integer)
 
 - `page`: Specify exactly what page you want to retrieve.
           defaults to 1 if not present(Integer)
@@ -60,7 +60,7 @@ response = Customer.list(perPage=50, page=6)
 
 JSON data from paystack API.
 
-##### `Customer.update(customer_id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by id.
+##### `Customer.update(customer_id, first_name=None, last_name=None, email=None, phone=None)` - Update paystack customer data by ID.
 
 ```python
 from paystackapi.customer import Customer
@@ -70,7 +70,7 @@ response = Customer.update(customer_id=24, first_name=None,
 ```
 
 *Arguments*
-- `customer_id`: paystack customer id.
+- `customer_id`: paystack customer ID.
 - `first_name`: customer's first name(optional).
 - `last_name`: customer's last name(optional).
 - `email`: customer's email address(optional).
@@ -78,4 +78,4 @@ response = Customer.update(customer_id=24, first_name=None,
 
 *Returns*
 
-JSON data from paystack API.
+JSON data from the Paystack API.

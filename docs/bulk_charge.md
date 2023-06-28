@@ -55,7 +55,7 @@ response = BulkCharge.fetch_bulk_batch(
 ```
 
 *Arguments*
-- `id_or_code`: An ID or code for the transfer whose details you want to retrieve.
+- `id_or_code`: An ID or code for the transfer whose details you want to retrieve details.
 
 *Returns*
 

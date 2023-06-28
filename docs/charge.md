@@ -1,6 +1,6 @@
 Charge
 --------------------
-#### `Charge.start_charge(**kwargs)` - Start a Charge
+#### `Charge.start_charge(**kwargs)` - Start a charge
 
 *Usage*
 
@@ -37,7 +37,7 @@ response = Charge.start_charge(
 
 JSON data from Paystack API.
 
-#### `Charge.submit_pin(**kwargs)` - Submit PIN to continue a charge.
+#### `Charge.submit_pin(**kwargs)` - Submit PIN to continue the charge.
 
 *Usage*
 
@@ -59,7 +59,7 @@ response = Charge.submit_pin(
 JSON data from Paystack API.
 
 
-#### `Charge.submit_otp(**kwargs)` - Submit OTP to complete a charge.
+#### `Charge.submit_otp(**kwargs)` - Submit OTP to complete the charge.
 
 *Usage*
 
@@ -81,7 +81,7 @@ response = Charge.submit_otp(
 JSON data from Paystack API.
 
 
-#### `Charge.submit_phone(**kwargs)` - Submit Phone when requested.
+#### `Charge.submit_phone(**kwargs)` - Submit phone when requested.
 
 *Usage*
 
@@ -101,7 +101,7 @@ response = Charge.submit_phone(
 
 JSON data from Paystack API.
 
-#### `Charge.submit_birthday(**kwargs)` - Submit Birthday when requested.
+#### `Charge.submit_birthday(**kwargs)` - Submit birthday when requested.
 
 *Usage*
 

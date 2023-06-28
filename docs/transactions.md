@@ -1,6 +1,6 @@
 ## Transactions
 
-##### `Transaction.initialize(reference, amount, email, plan)` - Initialize transaction.
+##### `Transaction.initialize(reference, amount, email, plan)` - Initialize a transaction.
 
 *Usage*
 
@@ -15,7 +15,7 @@ response = Transaction.initialize(reference='reference',
 - `reference`: Unique transaction reference
 - `amount`: Amount
 - `email`: Email address
-- `plan`: Specified plan (optional)
+- `plan`: A apecified plan (optional)
 
 *Returns*
 
@@ -34,8 +34,8 @@ response = Transaction.charge(reference='reference',
 *Arguments*
 
 - `reference`: Unique transaction reference
-- `authorization_code`: Authorization code for the transaction
-- `email`: Email Address of the user with the authorization code
+- `authorization_code`: The authorization code for the transaction
+- `email`: The email Address of the user with the authorization code
 - `amount`: Amount in kobo
 
 *Returns*
@@ -106,7 +106,7 @@ No argument required.
 
 JSON data from paystack API.
 
-##### `Transaction.verify(reference)` - Verify transactions.
+##### `Transaction.verify(reference)` - Verify a transaction.
 
 ```python
 from paystackapi.transaction import Transaction

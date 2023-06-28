@@ -1,6 +1,6 @@
 ## Subscription
 
-##### `Subscription.create(customer, plan, authorization, start_date)` - Create subscription.
+##### `Subscription.create(customer, plan, authorization, start_date)` - Create a subscription.
 
 ```python
 from paystackapi.subscription import Subscription
@@ -20,7 +20,7 @@ response = Subscription.create(customer='CUS_xnxdt6s1zg1f4nx',
 
 JSON data from paystack API.
 
-##### `Subscription.fetch(subscription_id)` - Fetch subscription.
+##### `Subscription.fetch(subscription_id)` - Fetch a subscription.
 
 ```python
 from paystackapi.subscription import Subscription
@@ -28,7 +28,7 @@ response = Subscription.fetch(subscription_id=4033)
 ```
 
 *Arguments*
-- `subscription_id`: subscription id.
+- `subscription_id`: subscription ID.
 
 *Returns*
 
@@ -50,7 +50,7 @@ No argument required.
 
 JSON data from paystack API.
 
-##### `Subscription.disable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Disable subscriptions.
+##### `Subscription.disable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Disable a subscription.
 
 ```python
 from paystackapi.subscription import Subscription
@@ -69,7 +69,7 @@ response = Subscription.disable(code="SUB_vsyqdmlzble3uii",
 
 JSON data from paystack API.
 
-##### `Subscription.enable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Enable subscriptions.
+##### `Subscription.enable(code="SUB_vsyqdmlzble3uii",token="d7gofp6yppn3qz7")` - Enable a subscription.
 
 ```python
 from paystackapi.subscription import Subscription

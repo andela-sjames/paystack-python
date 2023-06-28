@@ -7,25 +7,25 @@ from paystackapi.plan import Plan
 response = Plan.create(name='value', description='value',
                        amount=amount, interval='value',
                        send_invoices='value',
-                       send_sms='value',
-                       hosted_page='value',
-                       hosted_page_url='value',
+                       send_sms=True,
+                       hosted_page=False,
+                       hosted_page_url='null',
                        hosted_page_summary='value',
                        currency='value')
 ```
 
 *Arguments*
 
-- `name`: plan's name.
-- `description`: description of the plan.
-- `amount`: amount for the plan in kobo
-- `interval`: plan's interval(daily...etc)
-- `send_invoices`: boolean
-- `send_sms`: (optional)
-- `hosted_page`: (optional)
+- `name`: plan name.
+- `description`: plan description.
+- `amount`: plan amount in kobo.
+- `interval`: plan interval.(daily...etc)
+- `send_invoices`: Boolean
+- `send_sms`: Boolean (optional) 
+- `hosted_page`: Boolean (optional)
 - `hosted_page_url`: url of hosted page (optional)
 - `hosted_page_summary`: summary of the hosted page
-- `currency`: plans currency (NGN)
+- `currency`: plan currency (NGN)
 
 *Returns*
 

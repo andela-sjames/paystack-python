@@ -52,7 +52,7 @@ response = Page.fetch(id_or_slug="5nApBwZkvY")
 
 JSON data from Paystack API.
 
-#### `Page.update(id_or_slug)` - Update a Page by id_or_slug
+#### `Page.update(id_or_slug)` - Update a Page by ID or slug
 
 *Usage*
 
@@ -62,14 +62,14 @@ response = Page.update(id_or_slug="5nApBwZkvY", **kwargs)
 ```
 
 *Arguments*
-- `id_or_slug`: id or slug
+- `id_or_slug`: ID or slug
 - `**kwargs`
 
 *Returns*
 
 JSON data from Paystack API.
 
-#### `Page.is_slug_available(id_or_slug)` - Check Slug Availability
+#### `Page.is_slug_available(id_or_slug)` - Check Slug availability
 
 *Usage*
 
@@ -79,7 +79,7 @@ response = Page.is_slug_available(slug="new_or_existing_slug")
 ```
 
 *Arguments*
-- `slug`: URL slug to be confirmed
+- `slug`: URL slug to be checked
 
 *Returns*
 
@@ -99,8 +99,8 @@ response = Page.add_products(
 
 *Arguments*
 
-- `payment_page_id`: Id of the payment page (Integer)
-- `product`: Ids of all the products i.e. [473, 292]
+- `payment_page_id`: ID of the payment page (Integer)
+- `product`: IDs of all the products i.e. [473, 292]
 
 *Returns*
 

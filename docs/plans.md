@@ -7,25 +7,25 @@ from paystackapi.plan import Plan
 response = Plan.create(name='value', description='value',
                        amount=amount, interval='value',
                        send_invoices='value',
-                       send_sms='value',
-                       hosted_page='value',
-                       hosted_page_url='value',
-                       hosted_page_summary='value',
-                       currency='value')
+                       send_sms=True,
+                       hosted_page=False,
+                       hosted_page_url=None,
+                       hosted_page_summary=None,
+                       currency='NGN')
 ```
 
 *Arguments*
 
-- `name`: plan's name.
-- `description`: description of the plan.
-- `amount`: amount for the plan in kobo
-- `interval`: plan's interval(daily...etc)
-- `send_invoices`: boolean
-- `send_sms`: (optional)
-- `hosted_page`: (optional)
+- `name`: plan name.
+- `description`: plan description.
+- `amount`: plan amount in kobo.
+- `interval`: plan interval (daily...etc)
+- `send_invoices`: Boolean
+- `send_sms`: Boolean (optional) 
+- `hosted_page`: Boolean (optional)
 - `hosted_page_url`: url of hosted page (optional)
 - `hosted_page_summary`: summary of the hosted page
-- `currency`: plans currency (NGN)
+- `currency`: plan currency (NGN)
 
 *Returns*
 
@@ -67,24 +67,23 @@ JSON data from paystack API.
 from paystackapi.plan import Plan
 response = Plan.update(plan_id=23, name=None, description=None,
                        amount=None, interval=None,
-                       send_invoices=None, send_sms=None,
+                       send_invoices=None, send_sms=True,
                        hosted_page=None, hosted_page_url=None,
-                       hosted_page_summary=None, currency=None)
+                       hosted_page_summary=None, currency=NGN)
 ```
 
 *Arguments*
 
-- `plan_id`: plan identity number.
-- `name`: name of plan
-- `description`: plan description(optional)
-- `amount`: plan amount in Kobo
-- `interval`: plan interval9(monthly, yearly, quarterly...etc)
-- `send_invoice`: (optional)
-- `send_sms`: (optional)
-- `hosted_page`: (optional)
-- `hosted_page_url`: (optional)
-- `hosted_page_summary`: (optional)
-- `currency`: Naira in kobo(NGN)
+-  `name`: plan name.
+- `description`: plan description.
+- `amount`: plan amount in kobo.
+- `interval`: plan interval (daily...etc)
+- `send_invoices`: Boolean
+- `send_sms`: Boolean (optional) 
+- `hosted_page`: Boolean (optional)
+- `hosted_page_url`: url of hosted page (optional)
+- `hosted_page_summary`: summary of the hosted page
+- `currency`: plan currency (NGN)
 
 *Returns*
 

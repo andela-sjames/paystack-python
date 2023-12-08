@@ -1,6 +1,6 @@
 SubAccount
 -------
-#### `SubAccount.create(**kwargs)` - Create a SubAccount
+#### `SubAccount.create(**kwargs)` - Create a subaccount
 
 *Usage*
 
@@ -38,7 +38,7 @@ response = SubAccount.list(perPage=3, page=1)
 *Arguments*
 
 - `perPage`: Records you want to retrieve per page (Integer)
-- `page`: What page you want to retrieve (Integer)
+- `page`: What page you want to retrieve? (Integer)
 - `**kwargs`
 
 *Returns*
@@ -52,12 +52,12 @@ JSON data from Paystack API.
 
 ```python
 from paystackapi.subaccount import SubAccount
-response = SubAccount.fetch(id_or_slug="some_slug_like_subaccount_code_or_id)
+response = SubAccount.fetch(id_or_slug="some_slug_like_subaccount_code_or_id")
 ```
 
 *Arguments*
 
-- `id_or_slug`: ID or Subaccount_Code
+- `id_or_slug`: ID or subaccount code
 
 *Returns*
 
@@ -71,7 +71,7 @@ JSON data from Paystack API.
 ```python
 from paystackapi.subaccount import SubAccount
 response = SubAccount.update(
-            id_or_slug="some_slug_like_subaccount_code_or_id),
+            id_or_slug="some_slug_like_subaccount_code_or_id",
             **kwargs
         )
 ```

@@ -64,7 +64,7 @@ response = Invoice.view(
 ```
 
 *Arguments*
-- `invoice_id_or_code`: invoice ID or Code (string)
+- `invoice_id_or_code`: invoice ID or code (string)
 
 *Returns*
 

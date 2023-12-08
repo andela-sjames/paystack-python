@@ -1,6 +1,6 @@
 ## Transaction Split
 
-#### `TransactionSplit.create(**kwargs)` - Create a Transaction Split
+#### `TransactionSplit.create(**kwargs)` - Create a Transaction split
 
 _Usage_
 
@@ -18,10 +18,10 @@ response = TransactionSplit.create(
 _Arguments_
 
 - `name`: Name of the transaction split
-- `type`: The type of transaction split you want to create [ percentage | flat ]
-- `currency`: Any of NGN, GHS, ZAR, or USD
+- `type`: The type of transaction split you want to create (percentage or flat)
+- `currency`: One of NGN, GHS, ZAR, or USD
 - `subaccounts`: A list of object containing subaccount code and number of shares
-- `bearer_type`: Any of subaccount | account | all-proportional | all
+- `bearer_type`: One of subaccount, account, all-proportional, or all.
 - `bearer_subaccount`: Subaccount code
 - `**kwargs`
 
@@ -29,7 +29,7 @@ _Returns_
 
 JSON data from Paystack API.
 
-#### `TransactionSplit.list(perPage, page)` - List/search for the transaction splits available on your integration.
+#### `TransactionSplit.list(perPage, page)` - List or search for the transaction splits available on your integration.
 
 _Usage_
 
@@ -41,14 +41,14 @@ response = TransactionSplit.list(perPage=3, page=1)
 _Arguments_
 
 - `perPage`: Records you want to retrieve per page (Integer)
-- `page`: What page you want to retrieve (Integer)
+- `page`: Which page you want to retrieve (Integer)
 - `**kwargs`
 
 _Returns_
 
 JSON data from Paystack API.
 
-#### `TransactionSplit.fetch(split_id)` - Get details of a split on your integration.
+#### `TransactionSplit.fetch(split_id)` - Get details of a split in your integration.
 
 _Usage_
 
@@ -59,13 +59,13 @@ response = TransactionSplit.fetch(split_id=14551)
 
 _Arguments_
 
-- `split_id`: split ID
+- `split_id`: Split ID
 
 _Returns_
 
 JSON data from Paystack API.
 
-#### `TransactionSplit.update(split_id, **kwargs)` - Update a transaction split details on your integration
+#### `TransactionSplit.update(split_id, **kwargs)` - Update transaction split details in your integration
 
 _Usage_
 
@@ -79,7 +79,7 @@ response = TransactionSplit.update(
 
 _Arguments_
 
-- `split_id`: split ID
+- `split_id`: Slit ID
 - `name`: Name of the transaction split
 - `active`: True or False
 - `subaccounts`: A list of object containing subaccount code and number of shares
@@ -91,7 +91,7 @@ _Returns_
 
 JSON data from Paystack API.
 
-#### `TransactionSplit.remove_split_subaccount(split_id, **kwargs)` - Remove a subaccount from a transaction split
+#### `TransactionSplit.remove_split_subaccount(split_id, **kwargs)` - Remove a subaccount from a transaction split.
 
 _Usage_
 
@@ -105,15 +105,15 @@ response = TransactionSplit.remove_split_subaccount(
 
 _Arguments_
 
-- `split_id`: split ID
-- `subaccount`: This is the sub account code
+- `split_id`: Split ID
+- `subaccount`: This is the subaccount code
 - `**kwargs`
 
 _Returns_
 
 JSON data from Paystack API.
 
-#### `TransactionSplit.add_or_update_split_subaccount(split_id, **kwargs)` - Add a Subaccount to a Transaction Split, or update the share of an existing Subaccount in a Transaction Split
+#### `TransactionSplit.add_or_update_split_subaccount(split_id, **kwargs)` - Add a subaccount to a transaction split or update the share of an existing subaccount in a transaction split.
 
 _Usage_
 
@@ -127,7 +127,7 @@ response = TransactionSplit.add_or_update_split_subaccount(
 
 _Arguments_
 
-- `split_id`: split ID
+- `split_id`: Split ID
 - `subaccount`: This is the sub account code
 - `share`: This is the transaction share for the subaccount
 - `**kwargs`

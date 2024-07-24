@@ -77,10 +77,12 @@ class Transaction(PayStackBase):
         Args:
             No argument required.
             optional:
-                customer_id: When used as a param, returns the transactions related to the customer
-                customer_email: When used as a param, does not return transactions related to the customer
+                customer: When used as a param, returns the transactions related to the customer
+                status: Filter transactions by status ('failed', 'success', 'abandoned')
                 perPage: Specify how many records you want to retrieve per page.
                     If not specify we use a default value of 50. (Integer)
+                page: Specify exactly what page you want to retrieve.
+                    If not specify we use a default value of 1. (Integer)
 
         Returns:
             Json data from paystack API.

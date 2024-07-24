@@ -70,17 +70,22 @@ class Transaction(PayStackBase):
         return cls().requests.get(f"transaction/{transaction_id}")
 
     @classmethod
-    def list(cls):
+    def list(cls, **kwargs):
         """
         List transactions.
 
         Args:
             No argument required.
+            optional:
+                customer_id: When used as a param, returns the transactions related to the customer
+                customer_email: When used as a param, does not return transactions related to the customer
+                perPage: Specify how many records you want to retrieve per page.
+                    If not specify we use a default value of 50. (Integer)
 
         Returns:
             Json data from paystack API.
         """
-        return cls().requests.get('transaction')
+        return cls().requests.get('transaction', qs=kwargs,)
 
     @classmethod
     def totals(cls):

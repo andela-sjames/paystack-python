@@ -1,4 +1,6 @@
 ## Transactions
+`https://paystack.com/docs/api/transaction/`
+
 
 ##### `Transaction.initialize(reference, amount, email, plan)` - Initialize a transaction.
 
@@ -77,16 +79,18 @@ response = Transaction.get(transaction_id=23)
 
 JSON data from paystack API.
 
-##### `Transaction.list()` - List transactions.
+##### `Transaction.list(**kwargs)` - List transactions.
 
 ```python
 from paystackapi.transaction import Transaction
-response = Transaction.list()
+response = Transaction.list(perPage=3,page=1)
 ```
 
-*Arguments*
+*Arguments* 
 
-No argument required.
+- `customer`: Specify an ID for the customer whose transactions you want to retrieve (optional)
+- `status`: Filter transactions by status ('failed', 'success', 'abandoned') (optional)
+- ...
 
 *Returns*
 

@@ -77,7 +77,10 @@ class TestTransaction(BaseTestCase):
             status=201,
         )
 
-        response = Transaction.list()
+        response = Transaction.list(
+            perPage=3,
+            page=1
+        )
         self.assertTrue(response['status'])
 
     @httpretty.activate

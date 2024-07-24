@@ -79,7 +79,7 @@ response = Transaction.get(transaction_id=23)
 
 JSON data from paystack API.
 
-##### `Transaction.list()` - List transactions.
+##### `Transaction.list(**kwargs)` - List transactions.
 
 ```python
 from paystackapi.transaction import Transaction

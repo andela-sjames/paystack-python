@@ -93,5 +93,5 @@ class TestSubscription(BaseTestCase):
             status=200,
         )
 
-        response = Subscription.fetch(subscription_code='SUB_vsyqdmlzble3uii')
+        response = Subscription.generate_update_subscription_link(subscription_code='SUB_vsyqdmlzble3uii')
         self.assertEqual(response['status'], True)

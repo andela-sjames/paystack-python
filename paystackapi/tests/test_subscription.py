@@ -93,5 +93,18 @@ class TestSubscription(BaseTestCase):
             status=200,
         )
 
-        response = Subscription.fetch(subscription_code='SUB_vsyqdmlzble3uii')
+        response = Subscription.generate_update_subscription_link(subscription_code='SUB_vsyqdmlzble3uii')
+        self.assertEqual(response['status'], True)
+        
+    @httpretty.activate
+    def test_send_update_subscription_link(self):
+        """Function defined to test emailing a customer a link for updating the card on their subscription"""
+        httpretty.register_uri(
+            httpretty.POST,
+            self.endpoint_url("/subscription/SUB_vsyqdmlzble3uii/manage/email"),
+            content_type='text/json',
+            status=200,
+        )
+
+        response = Subscription.send_update_subscription_link(subscription_code='SUB_vsyqdmlzble3uii')
         self.assertEqual(response['status'], True)

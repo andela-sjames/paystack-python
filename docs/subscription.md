@@ -88,3 +88,35 @@ response = Subscription.enable(code="SUB_vsyqdmlzble3uii",
 *Returns*
 
 JSON data from paystack API.
+
+##### `Subscription.generate_update_subscription_link(subscription_code)` - Generate a link for updating the card on a subscription
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.generate_update_subscription_link(
+    subscription_code='SUB_vsyqdmlzble3uii'
+)
+```
+
+*Arguments*
+- `subscription_code`: subscription code
+
+*Returns*
+
+JSON data from paystack API.
+
+
+##### `Subscription.send_update_subscription_link(subscription_code)` - Email a customer a link for updating the card on their subscription
+
+```python
+from paystackapi.subscription import Subscription
+response = Subscription.send_update_subscription_link(
+    subscription_code='SUB_vsyqdmlzble3uii'
+)
+```
+
+*Arguments*
+- `subscription_code`: subscription code
+
+*Returns*
+
+JSON data from paystack API.

@@ -76,3 +76,29 @@ class Subscription(PayStackBase):
             Json data from paystack API.
         """
         return cls().requests.get(f"subscription/{subscription_id}")
+
+    @classmethod
+    def generate_update_subscription_link(cls, subscription_code):
+        """
+        Generate a link for updating the card on a subscription
+        
+        Args:
+            subscription_code: subscription code.
+        
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.get(f"subscription/{subscription_code}/manage/link")
+    
+    @classmethod
+    def send_update_subscription_link(cls, subscription_code):
+        """
+        Email a customer a link for updating the card on their subscription
+        
+        Args:
+            subscription_code: subscription code.
+        
+        Returns:
+            Json data from paystack API.
+        """
+        return cls().requests.post(f"subscription/{subscription_code}/manage/email")
